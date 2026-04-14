@@ -5,6 +5,7 @@ var server_runned = false
 var path_to_server = "D:\\Games\\GodotGame\\server\\main.js"
 
 func _process(_delta):
+	return
 	if EditorInterface.is_playing_scene() and not server_runned:
 		server_runned = true
 		OS.create_process("bun", ["--hot", "run", path_to_server])
