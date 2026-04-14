@@ -1,0 +1,641 @@
+[gd_scene load_steps=28 format=3 uid="uid://nbejd2jds8a0"]
+
+[ext_resource type="Script" uid="uid://hivqj8atyl8x" path="res://phone.gd" id="1_0e3g3"]
+[ext_resource type="Shader" uid="uid://c1asy48367uxc" path="res://gun-selector.gdshader" id="2_hfnv5"]
+[ext_resource type="Script" uid="uid://df1w787lhqqvs" path="res://main_screen.gd" id="3_17gxr"]
+[ext_resource type="Script" uid="uid://c1mnwkrw4s7n2" path="res://quests_screen.gd" id="4_hfnv5"]
+[ext_resource type="Script" uid="uid://cgg35kn752cw2" path="res://map_screen.gd" id="5_17gxr"]
+[ext_resource type="Script" uid="uid://ltp2hunttw6v" path="res://music_screen.gd" id="6_tpglx"]
+[ext_resource type="Script" uid="uid://ctjcf4gqtjws3" path="res://camera_screen.gd" id="6_vuhsr"]
+[ext_resource type="Texture2D" uid="uid://dwkf8et3ujdse" path="res://map-mask.png" id="7_idgle"]
+[ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://character-cpp.tscn" id="9_th6ti"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hfnv5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tpglx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idgle"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vuhsr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbfbk"]
+bg_color = Color(0, 0, 0, 0.3137255)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gbfbk"]
+shader = ExtResource("2_hfnv5")
+shader_parameter/amount = 4.00000019
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwbse"]
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ioo17"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wse8f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ic0uy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k3n1d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0e3g3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkg7o"]
+bg_color = Color(0.3515629, 0.35156292, 0.35156274, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0e3g3"]
+bg_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfnv5"]
+bg_color = Color(0.29954746, 0.29954746, 0.29954743, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17gxr"]
+
+[sub_resource type="Environment" id="Environment_tpglx"]
+background_mode = 1
+background_color = Color(0, 0.5843137, 1, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_idgle"]
+resource_local_to_scene = true
+
+[node name="phone" type="Node" unique_id=65706950]
+script = ExtResource("1_0e3g3")
+
+[node name="background" type="Button" parent="." unique_id=1961588232]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hfnv5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tpglx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_idgle")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vuhsr")
+
+[node name="lock_screen" type="CanvasLayer" parent="." unique_id=17909807]
+unique_name_in_owner = true
+
+[node name="lock_screen_container" type="MarginContainer" parent="lock_screen" unique_id=69691683]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -400.0
+offset_right = 600.0
+offset_bottom = 400.0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 200
+
+[node name="PanelContainer2" type="PanelContainer" parent="lock_screen/lock_screen_container" unique_id=153496666]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbfbk")
+
+[node name="PanelContainer" type="PanelContainer" parent="lock_screen/lock_screen_container/PanelContainer2" unique_id=306972670]
+material = SubResource("ShaderMaterial_gbfbk")
+custom_minimum_size = Vector2(400, 800)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dwbse")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="lock_screen/lock_screen_container/PanelContainer2/PanelContainer" unique_id=1605241951]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="lock_screen/lock_screen_container/PanelContainer2/PanelContainer/VBoxContainer" unique_id=1802916921]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="lock_screen/lock_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer" unique_id=1717021586]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Control" type="Control" parent="lock_screen/lock_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1091309184]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="lock_screen/lock_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/Control" unique_id=1133009677]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 400.0
+offset_bottom = 270.0
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 24
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="clock" type="RichTextLabel" parent="lock_screen/lock_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=184212143]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 100
+text = "09:41"
+horizontal_alignment = 1
+
+[node name="unlock" type="Button" parent="lock_screen/lock_screen_container/PanelContainer2" unique_id=548511897]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ioo17")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wse8f")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ic0uy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k3n1d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0e3g3")
+
+[node name="MarginContainer2" type="MarginContainer" parent="lock_screen/lock_screen_container/PanelContainer2" unique_id=672923058]
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="lock_screen/lock_screen_container/PanelContainer2/MarginContainer2" unique_id=287625276]
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+
+[node name="quit" type="Button" parent="lock_screen/lock_screen_container/PanelContainer2/MarginContainer2/HBoxContainer" unique_id=207519743]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+text = "quit "
+
+[node name="Control" type="Control" parent="lock_screen/lock_screen_container/PanelContainer2/MarginContainer2/HBoxContainer" unique_id=374112541]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="lock_screen/lock_screen_container/PanelContainer2/MarginContainer2/HBoxContainer/Control" unique_id=223459135]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+text = "Click to unlock"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="camera" type="Button" parent="lock_screen/lock_screen_container/PanelContainer2/MarginContainer2/HBoxContainer" unique_id=1696673141]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+text = "camera"
+
+[node name="main_screen" type="CanvasLayer" parent="." unique_id=1300038518]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("3_17gxr")
+
+[node name="main_screen_container" type="MarginContainer" parent="main_screen" unique_id=349013998]
+unique_name_in_owner = true
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -400.0
+offset_right = 600.0
+offset_bottom = 400.0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 200
+
+[node name="PanelContainer2" type="PanelContainer" parent="main_screen/main_screen_container" unique_id=464127676]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbfbk")
+
+[node name="PanelContainer" type="PanelContainer" parent="main_screen/main_screen_container/PanelContainer2" unique_id=1836923403]
+material = SubResource("ShaderMaterial_gbfbk")
+custom_minimum_size = Vector2(400, 800)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dwbse")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer" unique_id=2019734853]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer" unique_id=868587652]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer" unique_id=409247725]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1653926574]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="contacts" type="Button" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=406964453]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+text = "contacts"
+
+[node name="quests" type="Button" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=32489622]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+text = "quests"
+
+[node name="map" type="Button" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=73614010]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+text = "map"
+
+[node name="music" type="Button" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1940606924]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+text = "music"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=162956210]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="camera2" type="Button" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2002594125]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+
+[node name="camera3" type="Button" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1934877730]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+
+[node name="camera4" type="Button" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1652948859]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+
+[node name="camera5" type="Button" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=564664430]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+
+[node name="MarginContainer2" type="MarginContainer" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer" unique_id=1576010586]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer2" unique_id=1594667857]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="camera2" type="Button" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=938334648]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+
+[node name="camera3" type="Button" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=621385162]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+
+[node name="camera4" type="Button" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1879109064]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+
+[node name="camera5" type="Button" parent="main_screen/main_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=532876098]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkg7o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0e3g3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfnv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17gxr")
+
+[node name="quests_screen" type="CanvasLayer" parent="." unique_id=574302151]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("4_hfnv5")
+
+[node name="quests_screen_container" type="MarginContainer" parent="quests_screen" unique_id=1071804486]
+unique_name_in_owner = true
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -400.0
+offset_right = 600.0
+offset_bottom = 400.0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 200
+
+[node name="PanelContainer2" type="PanelContainer" parent="quests_screen/quests_screen_container" unique_id=1328067280]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbfbk")
+
+[node name="PanelContainer" type="PanelContainer" parent="quests_screen/quests_screen_container/PanelContainer2" unique_id=343665988]
+material = SubResource("ShaderMaterial_gbfbk")
+custom_minimum_size = Vector2(400, 800)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dwbse")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="quests_screen/quests_screen_container/PanelContainer2/PanelContainer" unique_id=1519386391]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="quests_screen/quests_screen_container/PanelContainer2/PanelContainer/VBoxContainer" unique_id=1492968643]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 48
+
+[node name="MarginContainer" type="MarginContainer" parent="quests_screen/quests_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer" unique_id=2130024607]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="quests_buttons_container" type="VBoxContainer" parent="quests_screen/quests_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/MarginContainer" unique_id=478270284]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="map_screen" type="CanvasLayer" parent="." unique_id=1812900316]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("5_17gxr")
+
+[node name="map_container" type="MarginContainer" parent="map_screen" unique_id=1056346786]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.21200001
+anchor_top = 0.5
+anchor_right = 0.21200001
+anchor_bottom = 0.5
+offset_left = -407.04004
+offset_top = -400.0
+offset_right = 192.95996
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.67, 0.48)
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_constants/margin_left = 200
+
+[node name="PanelContainer2" type="PanelContainer" parent="map_screen/map_container" unique_id=1980176118]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbfbk")
+
+[node name="PanelContainer" type="PanelContainer" parent="map_screen/map_container/PanelContainer2" unique_id=1879795531]
+material = SubResource("ShaderMaterial_gbfbk")
+custom_minimum_size = Vector2(400, 800)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dwbse")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="map_screen/map_container/PanelContainer2/PanelContainer" unique_id=293560388]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="map_screen/map_container/PanelContainer2/PanelContainer/VBoxContainer" unique_id=660536246]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="MarginContainer" type="MarginContainer" parent="map_screen/map_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer" unique_id=333878240]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="map_screen/map_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/MarginContainer" unique_id=1057598698]
+texture_filter = 1
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="map_screen/map_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/MarginContainer/SubViewportContainer" unique_id=1930544509]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 0
+
+[node name="map_screen_map_camera" type="Camera3D" parent="map_screen/map_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/MarginContainer/SubViewportContainer/SubViewport" unique_id=1856806880]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 10, 0)
+cull_mask = 524288
+environment = SubResource("Environment_tpglx")
+projection = 1
+size = 10.0
+
+[node name="music_screen" type="CanvasLayer" parent="." unique_id=1273741756]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("6_tpglx")
+
+[node name="music_screen_container" type="MarginContainer" parent="music_screen" unique_id=974123587]
+unique_name_in_owner = true
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -400.0
+offset_right = 600.0
+offset_bottom = 400.0
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+
+[node name="PanelContainer2" type="PanelContainer" parent="music_screen/music_screen_container" unique_id=592836214]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbfbk")
+
+[node name="PanelContainer" type="PanelContainer" parent="music_screen/music_screen_container/PanelContainer2" unique_id=605739533]
+material = SubResource("ShaderMaterial_gbfbk")
+custom_minimum_size = Vector2(400, 800)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dwbse")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="music_screen/music_screen_container/PanelContainer2/PanelContainer" unique_id=1558421734]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="music_screen/music_screen_container/PanelContainer2/PanelContainer/VBoxContainer" unique_id=408316514]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 48
+
+[node name="MarginContainer" type="MarginContainer" parent="music_screen/music_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer" unique_id=500344712]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="quests_buttons_container" type="VBoxContainer" parent="music_screen/music_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/MarginContainer" unique_id=1192872399]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="music_screen/music_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/MarginContainer/quests_buttons_container" unique_id=976659971]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="ColorRect" type="ColorRect" parent="music_screen/music_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/MarginContainer/quests_buttons_container/MarginContainer" unique_id=272778704]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="music_screen/music_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/MarginContainer/quests_buttons_container" unique_id=1582205701]
+layout_mode = 2
+theme_override_constants/margin_top = 60
+
+[node name="music_buttons_container" type="HBoxContainer" parent="music_screen/music_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/MarginContainer/quests_buttons_container/MarginContainer2" unique_id=913198143]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="music_player" type="AudioStreamPlayer" parent="music_screen/music_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/MarginContainer/quests_buttons_container/MarginContainer2/music_buttons_container" unique_id=642625816]
+unique_name_in_owner = true
+
+[node name="prev_button" type="Button" parent="music_screen/music_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/MarginContainer/quests_buttons_container/MarginContainer2/music_buttons_container" unique_id=1318340309]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="play_button" type="Button" parent="music_screen/music_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/MarginContainer/quests_buttons_container/MarginContainer2/music_buttons_container" unique_id=136124704]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="next_button" type="Button" parent="music_screen/music_screen_container/PanelContainer2/PanelContainer/VBoxContainer/MarginContainer/MarginContainer/quests_buttons_container/MarginContainer2/music_buttons_container" unique_id=1647320021]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="camera_screen" type="CanvasLayer" parent="." unique_id=513620698]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("6_vuhsr")
+
+[node name="hud" type="CanvasLayer" parent="." unique_id=902565788]
+unique_name_in_owner = true
+
+[node name="hud_container" type="MarginContainer" parent="hud" unique_id=2072551474]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -340.0
+offset_bottom = 340.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="TextureRect" type="TextureRect" parent="hud/hud_container" unique_id=1674958882]
+clip_children = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("7_idgle")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="hud/hud_container/TextureRect" unique_id=1109230037]
+material = SubResource("ShaderMaterial_idgle")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="hud/hud_container/TextureRect/SubViewportContainer" unique_id=782466364]
+handle_input_locally = false
+size = Vector2i(300, 300)
+render_target_update_mode = 4
+
+[node name="map_camera" type="Camera3D" parent="hud/hud_container/TextureRect/SubViewportContainer/SubViewport" unique_id=1051791794]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10, 0)
+cull_mask = 524288
+environment = SubResource("Environment_tpglx")
+projection = 1
+size = 10.0
+
+[node name="character" parent="." unique_id=647663076 instance=ExtResource("9_th6ti")]
+unique_name_in_owner = true
+is_flying = true
+is_camera_mode = true
+
+[node name="phone_camera" type="Camera3D" parent="character" unique_id=507509947]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+cull_mask = 524287

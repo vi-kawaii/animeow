@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://7c4fdyeoxehm"]
+
+[ext_resource type="Texture2D" uid="uid://x368jf04s3pa" path="res://assets/bullet_hole.png" id="1_lh501"]
+
+[node name="Decal" type="Decal"]
+size = Vector3(0.05, 0.05, 0.05)
+texture_albedo = ExtResource("1_lh501")
+distance_fade_enabled = true

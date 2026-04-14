@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://cje280mfuam3y"]
+
+[ext_resource type="Script" uid="uid://dorcltig05jyc" path="res://save.gd" id="1_tknle"]
+[ext_resource type="Script" uid="uid://djr1umonoavpf" path="res://save/types/save.gd" id="2_8viy1"]
+[ext_resource type="Script" uid="uid://dxrb8wexs6kkt" path="res://save/types/save_camera_data.gd" id="2_hjq3a"]
+
+[sub_resource type="Resource" id="Resource_w8f4x"]
+script = ExtResource("2_hjq3a")
+current_radius = 2.0
+metadata/_custom_type_script = "uid://dxrb8wexs6kkt"
+
+[sub_resource type="Resource" id="Resource_hjq3a"]
+script = ExtResource("2_8viy1")
+character_position = Vector3(2.5, 2, 0)
+camera_data = SubResource("Resource_w8f4x")
+metadata/_custom_type_script = "uid://djr1umonoavpf"
+
+[node name="save" type="Node" unique_id=1461801223]
+script = ExtResource("1_tknle")
+state = SubResource("Resource_hjq3a")

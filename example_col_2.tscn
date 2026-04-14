@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1wblnbbl2cgq"]
+
+[ext_resource type="PackedScene" uid="uid://ku5b1yxqpjm7" path="res://map/terrain/example-col.glb" id="1_sf0qo"]
+[ext_resource type="PackedScene" uid="uid://q0mqngo1lxof" path="res://map/terrain/example-navmesh001.glb" id="2_cgroc"]
+[ext_resource type="PackedScene" uid="uid://rwdi0bnh0sjw" path="res://map/terrain/example-navmesh002.glb" id="3_qapoc"]
+
+[node name="example-col2" instance=ExtResource("1_sf0qo")]
+
+[node name="Node3D" type="Node3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.641)
+
+[node name="example-navmesh0012" parent="Node3D" index="0" instance=ExtResource("2_cgroc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113945, 0, -0.638068)
+
+[node name="example-navmesh0022" parent="Node3D" index="1" instance=ExtResource("3_qapoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113945, 0, -0.638068)

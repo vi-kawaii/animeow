@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://de33xo1cdh6wc"]
+
+[ext_resource type="Script" uid="uid://bt0ms382mfeng" path="res://timecycle.gd" id="1_6wjo1"]
+[ext_resource type="Shader" uid="uid://c2ki5672o7fbi" path="res://sky.gdshader" id="2_g4hom"]
+[ext_resource type="Texture2D" uid="uid://cfxr6hsmtdh56" path="res://stars.png" id="3_30f2t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udxuc"]
+shader = ExtResource("2_g4hom")
+shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
+shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
+shader_parameter/horizon_color = Color(0, 0.7, 0.8, 1)
+shader_parameter/horizon_blur = 0.05
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
+shader_parameter/sun_size = 0.2
+shader_parameter/sun_blur = 10.0
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 2.0
+shader_parameter/clouds_direction = 0.2
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_cutoff = 0.3
+shader_parameter/clouds_fuzziness = 0.5
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.25
+shader_parameter/stars_texture = ExtResource("3_30f2t")
+shader_parameter/stars_speed = 1.0
+shader_parameter/stars_scale = 1.0
+shader_parameter/stars_opacity = 1.0
+shader_parameter/overwritten_time = 0.0
+
+[sub_resource type="Sky" id="Sky_4x84y"]
+sky_material = SubResource("ShaderMaterial_udxuc")
+
+[sub_resource type="Environment" id="Environment_bd2r8"]
+background_mode = 2
+sky = SubResource("Sky_4x84y")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 2
+volumetric_fog_density = 0.01
+
+[node name="timecycle" type="Node" unique_id=1750738809]
+script = ExtResource("1_6wjo1")
+
+[node name="environment" type="WorldEnvironment" parent="." unique_id=864318287]
+environment = SubResource("Environment_bd2r8")
+
+[node name="sun" type="DirectionalLight3D" parent="." unique_id=1845687684]
+rotation_order = 4
+light_specular = 0.0
+light_bake_mode = 0
+directional_shadow_mode = 0
+
+[node name="moon" type="DirectionalLight3D" parent="." unique_id=1536566101]
+rotation_order = 4
+light_energy = 0.1
+light_specular = 0.0
+light_bake_mode = 0
+directional_shadow_mode = 0

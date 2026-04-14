@@ -1,0 +1,227 @@
+[gd_scene load_steps=22 format=3 uid="uid://drd5r7ctawilp"]
+
+[ext_resource type="Script" uid="uid://cx5dxqx6dt5vu" path="res://player.gd" id="1_ptgk6"]
+[ext_resource type="Script" uid="uid://nobm20mwveeh" path="res://camera.gd" id="2_p3a38"]
+[ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://character-cpp.tscn" id="2_ympos"]
+[ext_resource type="Script" uid="uid://cm23mokx177wp" path="res://gun_selector.gd" id="3_07x0w"]
+[ext_resource type="Shader" uid="uid://c1asy48367uxc" path="res://gun-selector.gdshader" id="4_nq13x"]
+[ext_resource type="Script" uid="uid://6ticwiumo03h" path="res://guns_node_resource.gd" id="6_ok8sp"]
+[ext_resource type="Script" uid="uid://r532atlrdfim" path="res://guns_resource.gd" id="7_nq13x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wmg30"]
+shader = ExtResource("4_nq13x")
+shader_parameter/amount = 4.000000190000001
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ympos"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3137255)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ympos"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjvw4"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ut6b4"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_ok8sp"]
+script = ExtResource("6_ok8sp")
+title = "Pistol"
+damage = 50
+queue = 7
+timing = 1.0
+metadata/_custom_type_script = "uid://6ticwiumo03h"
+
+[sub_resource type="Resource" id="Resource_nq13x"]
+script = ExtResource("6_ok8sp")
+title = "Nothing"
+metadata/_custom_type_script = "uid://6ticwiumo03h"
+
+[sub_resource type="Resource" id="Resource_wmg30"]
+script = ExtResource("6_ok8sp")
+title = "Rifle"
+metadata/_custom_type_script = "uid://6ticwiumo03h"
+
+[sub_resource type="Resource" id="Resource_fjvw4"]
+script = ExtResource("6_ok8sp")
+title = "Uzi"
+metadata/_custom_type_script = "uid://6ticwiumo03h"
+
+[sub_resource type="Resource" id="Resource_ut6b4"]
+script = ExtResource("6_ok8sp")
+title = "Katana"
+metadata/_custom_type_script = "uid://6ticwiumo03h"
+
+[sub_resource type="Resource" id="Resource_hil0g"]
+script = ExtResource("6_ok8sp")
+title = "Any"
+metadata/_custom_type_script = "uid://6ticwiumo03h"
+
+[sub_resource type="Resource" id="Resource_4wxfw"]
+script = ExtResource("6_ok8sp")
+title = "Other"
+metadata/_custom_type_script = "uid://6ticwiumo03h"
+
+[sub_resource type="Resource" id="Resource_85y2a"]
+script = ExtResource("6_ok8sp")
+title = "TypeOf"
+metadata/_custom_type_script = "uid://6ticwiumo03h"
+
+[sub_resource type="Resource" id="Resource_4whrc"]
+script = ExtResource("7_nq13x")
+data = Array[ExtResource("6_ok8sp")]([SubResource("Resource_ok8sp"), SubResource("Resource_nq13x"), SubResource("Resource_wmg30"), SubResource("Resource_fjvw4"), SubResource("Resource_ut6b4"), SubResource("Resource_hil0g"), SubResource("Resource_4wxfw"), SubResource("Resource_85y2a")])
+metadata/_custom_type_script = "uid://r532atlrdfim"
+
+[node name="player" type="Node" unique_id=122498428]
+process_mode = 4
+script = ExtResource("1_ptgk6")
+
+[node name="camera" type="Camera3D" parent="." unique_id=1713457502]
+unique_name_in_owner = true
+cull_mask = 524287
+near = 0.01
+script = ExtResource("2_p3a38")
+
+[node name="gun_selector" type="CanvasLayer" parent="." unique_id=536012364]
+visible = false
+script = ExtResource("3_07x0w")
+
+[node name="ColorRect" type="ColorRect" parent="gun_selector" unique_id=516998715]
+material = SubResource("ShaderMaterial_wmg30")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GridContainer" type="GridContainer" parent="gun_selector" unique_id=955431307]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -618.0
+offset_top = -206.0
+offset_right = 618.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 4
+
+[node name="Button0" type="Button" parent="gun_selector/GridContainer" unique_id=688038365]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Pistol"
+
+[node name="Button1" type="Button" parent="gun_selector/GridContainer" unique_id=19542280]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Nothing
+"
+
+[node name="Button2" type="Button" parent="gun_selector/GridContainer" unique_id=535259298]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Rifle"
+
+[node name="Button3" type="Button" parent="gun_selector/GridContainer" unique_id=91806196]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Uzi"
+
+[node name="Button4" type="Button" parent="gun_selector/GridContainer" unique_id=658049786]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Katana"
+
+[node name="Button5" type="Button" parent="gun_selector/GridContainer" unique_id=1141979369]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Any"
+
+[node name="Button6" type="Button" parent="gun_selector/GridContainer" unique_id=344575806]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Other"
+
+[node name="Button7" type="Button" parent="gun_selector/GridContainer" unique_id=2093121219]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "TypeOf"
+
+[node name="Crosshair" type="CanvasLayer" parent="." unique_id=219766462]
+
+[node name="Panel2" type="Panel" parent="Crosshair" unique_id=1985098712]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_fjvw4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Crosshair" unique_id=1593907525]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.5
+offset_top = -1.5
+offset_right = 1.5
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ut6b4")
+metadata/_edit_use_anchors_ = true
+
+[node name="character" parent="." unique_id=647663076 instance=ExtResource("2_ympos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04371, 6.68132, 0)
+guns = SubResource("Resource_4whrc")

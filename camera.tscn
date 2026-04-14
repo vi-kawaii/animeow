@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://7tlpr8g6erbp"]
+
+[ext_resource type="Script" uid="uid://nobm20mwveeh" path="res://camera.gd" id="1_u5kg4"]
+
+[node name="camera" type="Camera3D"]
+cull_mask = 524287
+near = 0.01
+script = ExtResource("1_u5kg4")

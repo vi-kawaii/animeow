@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6arec1g1xf4k"]
+
+[ext_resource type="PackedScene" uid="uid://dkmne1gdsvyc5" path="res://assets/car.glb" id="1_dldq0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dldq0"]
+shading_mode = 0
+disable_ambient_light = true
+disable_receive_shadows = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dldq0"]
+points = PackedVector3Array(-15.4884, -0.410695, -26.2845, 15.0292, 13.2419, 9.05167, 15.7244, 9.44559, 9.85669, 15.7244, 3.69666, -26.2845, -15.4884, 13.5529, -0.823642, -15.4884, 9.44559, 9.85669, 15.7244, -0.410695, -23.8187, 15.7244, 13.5529, -0.823642, -15.4884, 4.51813, -24.6359, -14.7932, 13.2419, 9.05167, -15.4884, -0.410695, -23.8187, 15.7244, -0.410695, -26.2845, -15.4884, 3.69666, -26.2845, 15.7244, 2.87519, -12.3176, 15.7244, 4.51813, -24.6359, -15.4884, 2.87519, -12.3176)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xmjt0"]
+points = PackedVector3Array(15.7244, 6.16244, 23.8178, -15.4884, 9.44559, 9.85669, -14.8298, 13.2583, 10.2033, -15.4884, -0.410695, 26.2845, 15.7244, 9.44559, 9.85669, 15.7244, -0.410695, 24.6395, -15.4884, 13.5529, 13.9636, 15.7244, 13.5529, 13.9636, -15.4884, 3.69666, 26.2845, 15.7244, 3.69666, 26.2845, -15.4884, -0.410695, 24.6395, 15.0658, 13.2583, 10.2033, 15.7244, -0.410695, 26.2845, -15.4884, 11.91, 16.4288, -15.4884, 6.16244, 23.8178, 15.7244, 11.91, 16.4288)
+
+[node name="car2" instance=ExtResource("1_dldq0")]
+
+[node name="car" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_dldq0")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
+transform = Transform3D(0.0254, 0, 0, 0, 0.0254, 0, 0, 0, 0.0254, 0.0729294, 0, 0.382148)
+shape = SubResource("ConvexPolygonShape3D_dldq0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CharacterBody3D" index="1"]
+transform = Transform3D(0.0254, 0, 0, 0, 0.0254, 0, 0, 0, 0.0254, 0.0729294, 0, 0.382148)
+shape = SubResource("ConvexPolygonShape3D_xmjt0")

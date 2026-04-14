@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://c88cpouy2tuxy"]
+
+[ext_resource type="Script" uid="uid://31xmklwokhtg" path="res://intro.gd" id="1_s2ta7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dwbse"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pkg7o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbfbk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ioo17"]
+
+[node name="intro" type="Node" unique_id=1629618486]
+script = ExtResource("1_s2ta7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2003838462]
+layer = 3
+
+[node name="container" type="Control" parent="CanvasLayer" unique_id=2000826302]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/container" unique_id=1360405590]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/container" unique_id=1898010374]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 80
+
+[node name="progress" type="Label" parent="CanvasLayer/container/MarginContainer" unique_id=93113523]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+
+[node name="continue" type="Button" parent="CanvasLayer/container" unique_id=1739552717]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dwbse")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pkg7o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gbfbk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ioo17")

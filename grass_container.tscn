@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://4taxjngh5qae"]
+
+[ext_resource type="Script" uid="uid://bphah4u06jh7b" path="res://grass_container.gd" id="1_hm1mm"]
+
+[node name="GrassContainer" type="Node3D" unique_id=421038121]
+script = ExtResource("1_hm1mm")

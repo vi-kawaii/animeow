@@ -1,0 +1,26 @@
+{
+  "name": "new-launcher",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "tail": "npx @tailwindcss/cli -i ./input.css -o ./src/output.css --watch --minify",
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.17",
+    "tailwindcss": "^4.1.17",
+    "tauri": "^0.15.0"
+  },
+  "trustedDependencies": [
+    "@parcel/watcher",
+    "optipng-bin",
+    "pngquant-bin",
+    "sharp",
+    "tauri",
+    "zopflipng-bin"
+  ]
+}

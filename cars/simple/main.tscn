@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdhsided3v082"]
+
+[ext_resource type="Script" uid="uid://tohm6moxwjqn" path="res://cars/simple/main.gd" id="1_i4ulm"]
+[ext_resource type="PackedScene" uid="uid://dkmne1gdsvyc5" path="res://assets/car.glb" id="2_i40bw"]
+[ext_resource type="PackedScene" uid="uid://cjmjwsdiu47v2" path="res://assets/wheel1.glb" id="3_2uv5s"]
+[ext_resource type="AudioStream" uid="uid://b8f0kpajnx1qn" path="res://cars/sounds/engine-start.wav" id="4_k08g7"]
+[ext_resource type="AudioStream" uid="uid://b3g4l6u8so3nj" path="res://cars/sounds/engine-process.wav" id="4_nj53u"]
+[ext_resource type="AudioStream" uid="uid://b0ppc8m4c5v2h" path="res://cars/sounds/engine-started.wav" id="5_ljsfr"]
+[ext_resource type="AudioStream" uid="uid://dys3nfclk7iel" path="res://cars/sounds/engine-stop.wav" id="7_aqutw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k08g7"]
+radius = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5g8ss"]
+size = Vector3(1, 0.374771, 1.78772)
+
+[node name="Vehicle" type="VehicleBody3D"]
+script = ExtResource("1_i4ulm")
+
+[node name="DriverSeat" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0697275, 0.496523, 0.486317)
+
+[node name="DriverDoor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827, 0.3, 0.322)
+
+[node name="Vehicle" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vehicle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118684, 0.320488, 0.319638)
+shape = SubResource("SphereShape3D_k08g7")
+
+[node name="car2" parent="." instance=ExtResource("2_i40bw")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0700136, 0.312614, 0.351847)
+shape = SubResource("BoxShape3D_5g8ss")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.370964, 0.3, -0.302494)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 0.6
+wheel_radius = 0.28
+wheel_rest_length = 0.3
+wheel_friction_slip = 1.0
+suspension_travel = 0.3
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="wheel12" parent="VehicleWheel3D" instance=ExtResource("3_2uv5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, -0.0371362, 0.27201)
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.529959, 0.3, -0.302494)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 0.6
+wheel_radius = 0.28
+wheel_rest_length = 0.3
+wheel_friction_slip = 1.0
+suspension_travel = 0.3
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="wheel12" parent="VehicleWheel3D2" instance=ExtResource("3_2uv5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, -0.0371362, 0.27201)
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.370964, 0.3, 1.02923)
+wheel_roll_influence = 0.6
+wheel_radius = 0.28
+wheel_rest_length = 0.3
+wheel_friction_slip = 1.0
+suspension_travel = 0.3
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="wheel12" parent="VehicleWheel3D3" instance=ExtResource("3_2uv5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, -0.0371362, 0.27201)
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.529959, 0.3, 1.02923)
+wheel_roll_influence = 0.6
+wheel_radius = 0.28
+wheel_rest_length = 0.3
+wheel_friction_slip = 1.0
+suspension_travel = 0.3
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="wheel12" parent="VehicleWheel3D4" instance=ExtResource("3_2uv5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, -0.0371362, 0.27201)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+height = 4.0
+radius = 2.0
+
+[node name="sounds" type="Node3D" parent="."]
+
+[node name="engine-start" type="AudioStreamPlayer3D" parent="sounds"]
+stream = ExtResource("4_k08g7")
+
+[node name="engine-started" type="AudioStreamPlayer3D" parent="sounds"]
+stream = ExtResource("5_ljsfr")
+
+[node name="engine-process" type="AudioStreamPlayer3D" parent="sounds"]
+stream = ExtResource("4_nj53u")
+
+[node name="engine-stop" type="AudioStreamPlayer3D" parent="sounds"]
+stream = ExtResource("7_aqutw")

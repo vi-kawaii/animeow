@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0h8s2vfgyni0"]
+
+[ext_resource type="Script" uid="uid://cx5dxqx6dt5vu" path="res://player.gd" id="1_3gv2r"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_3gv2r")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16195, 2.771)
+near = 0.001

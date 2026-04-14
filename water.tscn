@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2t8u7qp85ckm"]
+
+[ext_resource type="Script" uid="uid://dfry2bi7dwsfw" path="res://water.gd" id="1_qi1wl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pkg7o"]
+albedo_color = Color(0, 0.40784314, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bc84e"]
+lightmap_size_hint = Vector2i(2502, 2502)
+material = SubResource("StandardMaterial3D_pkg7o")
+size = Vector2(8000, 8000)
+subdivide_depth = 200
+
+[node name="water" type="Node" unique_id=1716177621]
+script = ExtResource("1_qi1wl")
+
+[node name="mesh" type="MeshInstance3D" parent="." unique_id=241748840]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.254081, 0)
+mesh = SubResource("PlaneMesh_bc84e")
+skeleton = NodePath("")

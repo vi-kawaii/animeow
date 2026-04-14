@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctm084m3mrm7h"]
+
+[ext_resource type="Shader" uid="uid://c1asy48367uxc" path="res://gun-selector.gdshader" id="1_tteqk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wmg30"]
+shader = ExtResource("1_tteqk")
+shader_parameter/amount = 4.000000190000001
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ympos"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3137255)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ympos"]
+
+[node name="GunSelector" type="GunSelector"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wmg30")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.5
+offset_top = -33.0
+offset_right = 126.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 4
+
+[node name="Button0" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Pistol"
+
+[node name="Button1" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Nothing
+"
+
+[node name="Button2" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Rifle"
+
+[node name="Button3" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Uzi"
+
+[node name="Button4" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Katana"
+
+[node name="Button5" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Any"
+
+[node name="Button6" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "Other"
+
+[node name="Button7" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympos")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ympos")
+text = "TypeOf"

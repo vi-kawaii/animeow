@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=4 uid="uid://ct5d7o2tyk4k0"]
+
+[ext_resource type="Shader" uid="uid://3nnkmjli5whg" path="res://grass.gdshader" id="1_xld7k"]
+[ext_resource type="Script" uid="uid://ou2d8onnyti0" path="res://grass.gd" id="2_xld7k"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4cf0s"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u2g6m"]
+noise = SubResource("FastNoiseLite_4cf0s")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oka11"]
+render_priority = 0
+shader = ExtResource("1_xld7k")
+shader_parameter/top_color = Color(0.345857, 0.991857, 0.325486, 1)
+shader_parameter/bottom_color = Color(0.345857, 0.991857, 0.325486, 1)
+shader_parameter/ambient_occlusion_factor = 0.3
+shader_parameter/specular_strength = 0.4
+shader_parameter/player_displacement_strength = 0.3999999910592
+shader_parameter/player_displacement_size = 1.0
+shader_parameter/wind_direction = Vector3(0.4, -0.3, 0.81)
+shader_parameter/wind_strength = 0.3
+shader_parameter/wind_noise = SubResource("NoiseTexture2D_u2g6m")
+shader_parameter/wind_noise_size = 0.05
+shader_parameter/wind_noise_speed = 0.1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8ujna"]
+_surfaces = [{
+"aabb": AABB(-0.00773189, 1.69563e-06, -0.00773141, 0.0154633, 0.275032, 0.0154632),
+"format": 34896613377,
+"index_count": 168,
+"index_data": PackedByteArray("DgABAA8AEAAPAAEADwARAA4AAQAOAAAADwAQABIAAQATABAAEQAPABQAEgAUAA8AFQAOABEAFgASABAADgAVAAYABgAAAA4AEgAWAAYAAAAGABYABgAXABIAFAASABcAFwAGABUAEAAYABYAGAAQABMAFgAHAAAABwAWABgAGQAAAAcAAAAZAAEAEwABABkABwAFABkAGQADABMAAwAZAAUAEwAIABgACAATAAMAGAAKAAcACgAYAAgABQAHAAoAAwAJAAgABQALAAMACQADAAsACgAMAAUACwAFAAwACQALABoACwAMABoADQAIAAkACAANAAoADQAJABoADAAKAA0ADAANABoAGwACAAQAGwAUAAIAFwACABQAFAAbABEAAgAXABwAAgAcAAQAFQAcABcAHQARABsAEQAdABUAHQAbAAQAHAAVAB0AHAAdAAQA"),
+"lods": [4.81323e-06, PackedByteArray("AAABAAIAAwACAAEAAgAEAAAAAgADAAQAAAAFAAEAAwABAAUABgAAAAQAAwAGAAQABgAHAAAABQAAAAcAAwAIAAYABwAGAAgAAwAJAAgABQAHAAoACAAKAAcABQALAAMACQADAAsACgAMAAUACwAFAAwACAANAAoADQAIAAkADAAKAA0ACQALAA0ACwAMAA0A")],
+"name": "Material #38",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("I8m2bSPJAADbNrZtI8kAALZtbNtIkgAASRKSJEgSAAD/f////38AAEkSkiS27QAA2rZIkiRJAABs2yRJbdsAALXtkiRIEgAA//8AAAAAAAC17ZIktu0AAAAAAAAAAAAAAAAAAP//AAD//wAA//8AANq2SJLatgAAJElIktq2AADbNrZt2zYAAJGk2raRpAAAJElIkiRJAACSJCRJkSQAAG1b2raRpAAAkaTatm1bAAAjybZt2zYAAG1b2rZtWwAAbNskSZEkAACSJCRJbdsAAP9/AAD/fwAASJJs20iSAAC2bWzbtm0AAEiSbNu2bQAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xld7k"]
+resource_name = "grass000_grass"
+_surfaces = [{
+"aabb": AABB(-0.00773189, 1.69563e-06, -0.00773141, 0.0154633, 0.275032, 0.0154632),
+"attribute_data": PackedByteArray("I8lIkts2SJK2bZIk/38AAEkSbNts29q2te1s2wAA////////SRJs20iSkiQjyUiS/38AALXtbNsAAP////////////8AAP////8AAAAAAAC17WzbAAD//0kSbNv/////kiTattq2tm3bNkiS/38AALXtbNsAAP//SRJs2/////8kSbZt/38AANq2tm0kSbZtkaQkSZIk2rZtWyRJSJKSJCRJtm0jyUiSkaQkSW1bJEls29q2SJKSJLZtkiTatrZt2zZIkiPJSJKRpCRJkiTatm1bJEls29q2SJKSJLZtkiTatrZt2zZIkiRJtm2RpCRJkiTatm1bJEls29q2tm2SJP9//38="),
+"format": 34896613399,
+"index_count": 168,
+"index_data": PackedByteArray("IgABACMAAQAiAAAAIwAkACIAAAAlAAEAJAAjACYAJQAAAAUAJgAnACQAJwAmAAIAJwACAAMABQAEACUABAAFAAYABgAHAAQABwAGAAgAGQAaACgAGgAZACkAKAAqABkAKQAYABoAKgAoACsAGAApACwAKwAtACoALQArAC4ALQAuABsALAAWABgAFgAsABQAFAAVABYAFQAUABcALwAwACAAMAAvADEAIAAyAC8AMQAzADAAMgAgADQAMwAxADUANAA2ADIANgA0ADcANgA3ACEANQAeADMAHgA1ABwAHAAdAB4AHQAcAB8AOAA5ADoAOQA4AAsAOgA7ADgACwA8ADkAOwA6AD0APAALAD4APQAKADsACgA9AD8ACgA/AAwAPgAJADwACQA+AA0ADQAOAAkADgANAA8AEwASAEAAEgAQAEAAEQATAEAAEAARAEAA"),
+"lods": [4.81323e-06, PackedByteArray("AAABAAIAAgADAAAAAAAEAAEABAAAAAUABAAFAAYABgAHAAQABwAGAAgACQAKAAsACgAJAAwACQALAA0ADQAOAAkADgANAA8AEAARABIAEQATABIAFAAVABYAFQAUABcAFAAWABgAGAAZABQAGQAYABoAGQAaABsAHAAdAB4AHQAcAB8AHAAeACAAHAAgACEA")],
+"material": SubResource("ShaderMaterial_oka11"),
+"name": "Material #38",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 65,
+"vertex_data": PackedByteArray("I8m2bSPJJIHbNrZtI8kkgbZtbNtIkiSB/3////9/JIFJEpIktu0kgWzbJElt2ySBte2SJLbtJIEAAAAA//8kgf//AAD//ySBSRKSJEgSAcC2bWzbSJIBwNs2tm0jyQHA/3////9/AcBJEpIktu0BwAAAAAAAAAHAAAAAAP//AcD//wAAAAD/vwAAAAAAAP+///8AAP///78AAAAA////v7XtkiRIEgHA//8AAP//AcC17ZIktu0BwP//AAAAAAHAbNskSW3bAcDatkiSJEkBwCPJtm0jyQHA/3////9/AcBJEpIkSBL/////AAAAAP//te2SJEgS//8AAAAAAAD//9q2SJIkSf///3////9////atkiS2rYkgSRJSJLatiSBkaTatpGkJIGSJCRJbdskgW1b2raRpCSBSJJs20iSJIHatkiS2rYBwCPJtm3bNgHAkaTatm1bAcCRpNq2kaQBwGzbJEmRJAHASJJs27ZtAcBIkmzbSJIBwCRJSJIkSf//I8m2bds2///bNrZt2zb//21b2rZtW///bNskSZEk//+RpNq2bVv//5IkJEmRJP//tm1s27Zt//9Ikmzbtm3//yRJSJLatgHA2za2bds2AcAkSUiSJEkBwG1b2raRpAHAkiQkSZEkAcBtW9q2bVsBwJIkJElt2wHAtm1s27ZtAcD/fwAA/3//v/z//3/7//9/5v//f+b//3/7//9//v//f/v//3/+//9/////f7+Bf/y/gX/8v4F//L+Bf/y/gX/8v4F//L+Bf/wAAP9/AAD/fwAA/38AAP9/f4O/AX+DvwF/g78Bf4O/AX+DvwF/g78Bf4O/AX+DvwH/fzj+/384/v9/OP7/fzj+/384/v9/OP75//9/+f//f/r//3/+//9/+v//f+f//39/g78Bf4O/AX+DvwF/g78Bf4O/AX+DvwF/g78B/384/v9/OP7/fzj+/384/v9/OP7/fzj+/384/v9/OP7/fzj+v4F//L+Bf/y/gX/8v4F//L+Bf/y/gX/8v4F//L+Bf/wAAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8ujna")
+
+[sub_resource type="MultiMesh" id="MultiMesh_xld7k"]
+transform_format = 1
+instance_count = 20
+mesh = SubResource("ArrayMesh_xld7k")
+buffer = PackedFloat32Array(-1.001, 0, 0, -0.0366604, 0, 1.001, 0, 0, 0, 0, -1.001, -0.152301, 0, 0, -1.001, 0.22965, 0, 1.001, 0, 0, 1.001, 0, 0, -0.150953, -1.001, 0, 0, -0.127319, 0, 1.001, 0, 0, 0, 0, -1.001, -0.0506079, 0, 0, -1.001, -0.13391, 0, 1.001, 0, 0, 1.001, 0, 0, 0.208906, -1.001, 0, 0, -0.0321097, 0, 1.001, 0, 0, 0, 0, -1.001, -0.165748, 0, 0, -1.001, 0.205667, 0, 1.001, 0, 0, 1.001, 0, 0, 0.126818, -1.001, 0, 0, 0.162945, 0, 1.001, 0, 0, 0, 0, -1.001, -0.170166, 0, 0, -1.001, 0.0628114, 0, 1.001, 0, 0, 1.001, 0, 0, 0.113152, 0, 0, -1.001, 0.214895, 0, 1.001, 0, 0, 1.001, 0, 0, -0.112072, 0, 0, -1.001, 0.190554, 0, 1.001, 0, 0, 1.001, 0, 0, 0.0547647, 0, 0, -1.001, 0.0394883, 0, 1.001, 0, 0, 1.001, 0, 0, 0.152796, -1.001, 0, 0, -0.217382, 0, 1.001, 0, 0, 0, 0, -1.001, -0.0994048, -1.001, 0, 0, 0.176095, 0, 1.001, 0, 0, 0, 0, -1.001, -0.214118, -1.001, 0, 0, -0.158025, 0, 1.001, 0, 0, 0, 0, -1.001, 0.0194834, 0, 0, -1.001, -0.096574, 0, 1.001, 0, 0, 1.001, 0, 0, 0.111117, -1.001, 0, 0, 0.0277791, 0, 1.001, 0, 0, 0, 0, -1.001, -0.113467, 0, 0, -1.001, 0.211893, 0, 1.001, 0, 0, 1.001, 0, 0, -0.144826, 0, 0, -1.001, 0.0761799, 0, 1.001, 0, 0, 1.001, 0, 0, 0.234165, -1.001, 0, 0, 0.12962, 0, 1.001, 0, 0, 0, 0, -1.001, -0.179263, 0, 0, -1.001, 0.00447923, 0, 1.001, 0, 0, 1.001, 0, 0, 0.140985)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yhd5b"]
+size = Vector3(30, 30, 30)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lgxoh"]
+size = Vector2(0.5, 0.5)
+
+[node name="grass000" type="Node3D" unique_id=1468437254]
+script = ExtResource("2_xld7k")
+
+[node name="grass_part" type="MultiMeshInstance3D" parent="." unique_id=1011735221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0182127)
+instance_shader_parameters/current_alpha = 0.0
+multimesh = SubResource("MultiMesh_xld7k")
+
+[node name="grass_area" type="Area3D" parent="." unique_id=496068966]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grass_area" unique_id=97176612]
+shape = SubResource("BoxShape3D_yhd5b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1915392172]
+visible = false
+mesh = SubResource("PlaneMesh_lgxoh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1897247152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68621, 2.19764, 0)
+visible = false
+mesh = SubResource("ArrayMesh_xld7k")

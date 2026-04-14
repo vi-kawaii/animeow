@@ -1,0 +1,14 @@
+[pistol]
+damage = 20
+queue = 7
+timing = 0.04
+
+[rifle]
+damage = 100
+queue = 1
+timing = 0.08
+
+[uzi]
+damage = 10
+queue = 24
+timing = 0.01

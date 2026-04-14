@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bund728wyqpx5"]
+
+[node name="quests_button" type="Button" unique_id=646106417]
+custom_minimum_size = Vector2(0, 60)
+text = "Quest Name"
+alignment = 0

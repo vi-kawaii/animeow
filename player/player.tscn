@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://dk2f10na0jbtp"]
+
+[ext_resource type="Script" uid="uid://cx5dxqx6dt5vu" path="res://player.gd" id="1_qjkh3"]
+[ext_resource type="PackedScene" uid="uid://d0l3v4fh1ag2q" path="res://characters/simple.tscn" id="2_boad6"]
+[ext_resource type="Script" uid="uid://nobm20mwveeh" path="res://camera.gd" id="2_g6k8r"]
+[ext_resource type="Script" uid="uid://cm23mokx177wp" path="res://gun_selector.gd" id="3_boad6"]
+[ext_resource type="Shader" uid="uid://c1asy48367uxc" path="res://gun-selector.gdshader" id="4_rgyib"]
+[ext_resource type="Script" uid="uid://bmrqegweiwtew" path="res://selector.gd" id="5_hg6s5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2u3nc"]
+shader = ExtResource("4_rgyib")
+shader_parameter/amount = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjkh3"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbp6q"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_qjkh3")
+
+[node name="Character" parent="." instance=ExtResource("2_boad6")]
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16195, 2.771)
+near = 0.001
+script = ExtResource("2_g6k8r")
+
+[node name="GunSelector" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("3_boad6")
+
+[node name="ColorRect" type="ColorRect" parent="GunSelector"]
+material = SubResource("ShaderMaterial_2u3nc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Selector" type="Control" parent="GunSelector"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 1720.0
+offset_bottom = 880.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_hg6s5")
+
+[node name="Crosshair" type="CanvasLayer" parent="."]
+
+[node name="Panel2" type="Panel" parent="Crosshair"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_qjkh3")
+
+[node name="Panel" type="Panel" parent="Crosshair"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.5
+offset_top = -1.5
+offset_right = 1.5
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_cbp6q")

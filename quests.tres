@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="QuestsResource" load_steps=5 format=3 uid="uid://dvit5e803fydl"]
+
+[ext_resource type="Script" uid="uid://hmk0gqhlagfh" path="res://quests_node_resource.gd" id="1_d23ms"]
+[ext_resource type="Script" uid="uid://cy0fhdhtgle06" path="res://quests_resource.gd" id="1_sss5n"]
+
+[sub_resource type="Resource" id="Resource_d23ms"]
+script = ExtResource("1_d23ms")
+quests = PackedStringArray("first_quest", "second_quest")
+metadata/_custom_type_script = "uid://hmk0gqhlagfh"
+
+[sub_resource type="Resource" id="Resource_jtijy"]
+script = ExtResource("1_d23ms")
+quests = PackedStringArray("another_first_quest")
+metadata/_custom_type_script = "uid://hmk0gqhlagfh"
+
+[resource]
+script = ExtResource("1_sss5n")
+data = Array[ExtResource("1_d23ms")]([SubResource("Resource_d23ms"), SubResource("Resource_jtijy")])
+metadata/_custom_type_script = "uid://cy0fhdhtgle06"

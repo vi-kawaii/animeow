@@ -1,0 +1,311 @@
+[gd_scene load_steps=11 format=3 uid="uid://bg6yenihblejf"]
+
+[ext_resource type="Shader" uid="uid://c1asy48367uxc" path="res://gun-selector.gdshader" id="1_hdmo1"]
+[ext_resource type="AudioStream" uid="uid://rs8lr5kheqs6" path="res://sounds/Project_8.wav" id="1_nwcfo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nwcfo"]
+shader = ExtResource("1_hdmo1")
+shader_parameter/amount = 4.000000190000001
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nwcfo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05uyy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nc7s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxa3g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hdmo1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p81d2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdmo1"]
+bg_color = Color(0.16565639, 0.16565642, 0.16565636, 0.49803922)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_nwcfo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_nwcfo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nwcfo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2nc7s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mxa3g")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Map" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 96)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdmo1")
+text = "Map"
+
+[node name="Characters" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 96)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p81d2")
+text = "Characters"
+
+[node name="Quests" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 96)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p81d2")
+text = "Quests"
+
+[node name="Inventory" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 96)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p81d2")
+text = "Inventory"
+
+[node name="Other" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p81d2")
+text = "..."
+
+[node name="Settings" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 96)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p81d2")
+text = "Settings"
+
+[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 96)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p81d2")
+text = "Exit"
+
+[node name="Resume" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 96)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p81d2")
+text = "Resume"
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PauseMainContainer" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_hdmo1")
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMainContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMainContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 24
+
+[node name="Button7" type="Button" parent="PauseMainContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+text = "Resume"
+
+[node name="Control2" type="Control" parent="PauseMainContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="PauseMainContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+columns = 2
+
+[node name="Button" type="Button" parent="PauseMainContainer/MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(238, 214)
+layout_mode = 2
+text = "Map"
+
+[node name="Button2" type="Button" parent="PauseMainContainer/MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(238, 214)
+layout_mode = 2
+text = "Characters"
+
+[node name="Button3" type="Button" parent="PauseMainContainer/MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(238, 214)
+layout_mode = 2
+text = "Quests"
+
+[node name="Button5" type="Button" parent="PauseMainContainer/MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(238, 214)
+layout_mode = 2
+text = "Inventory"
+
+[node name="Control" type="Control" parent="PauseMainContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button4" type="Button" parent="PauseMainContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+text = "Settings"
+
+[node name="Button6" type="Button" parent="PauseMainContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+text = "Quit"
+
+[node name="PauseQuestsContainer" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_hdmo1")
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseQuestsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PauseQuestsContainer/MarginContainer"]
+layout_mode = 2
+draw_focus_border = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseQuestsContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 24
+
+[node name="Control" type="Control" parent="PauseQuestsContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="PauseQuestsContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+mouse_filter = 1
+text = "Resume"
+
+[node name="Button8" type="Button" parent="PauseQuestsContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+mouse_filter = 1
+text = "Resume"
+
+[node name="Button9" type="Button" parent="PauseQuestsContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+mouse_filter = 1
+text = "Resume"
+
+[node name="Button10" type="Button" parent="PauseQuestsContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+mouse_filter = 1
+text = "Resume"
+
+[node name="Button11" type="Button" parent="PauseQuestsContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+mouse_filter = 1
+text = "Resume"
+
+[node name="Button12" type="Button" parent="PauseQuestsContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+mouse_filter = 1
+text = "Resume"
+
+[node name="Button13" type="Button" parent="PauseQuestsContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+mouse_filter = 1
+text = "Resume"
+
+[node name="Button14" type="Button" parent="PauseQuestsContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+mouse_filter = 1
+text = "Resume"
+
+[node name="Button15" type="Button" parent="PauseQuestsContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+mouse_filter = 1
+text = "Resume"
+
+[node name="Button16" type="Button" parent="PauseQuestsContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+mouse_filter = 1
+text = "Resume"
+
+[node name="Button17" type="Button" parent="PauseQuestsContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+mouse_filter = 1
+text = "Resume"
+
+[node name="Control2" type="Control" parent="PauseQuestsContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2

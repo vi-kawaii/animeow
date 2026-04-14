@@ -1,0 +1,144 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2uiac5q2jro8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wse8f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kavk2"]
+content_margin_left = 20.0
+content_margin_top = 4.0
+content_margin_right = 20.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gv1uq"]
+content_margin_left = 20.0
+content_margin_top = 4.0
+content_margin_right = 20.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4no6b"]
+content_margin_left = 20.0
+content_margin_top = 4.0
+content_margin_right = 20.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gv1uq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kavk2"]
+
+[node name="QuestsView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(530, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wse8f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Control2" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/Control2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/Control2/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="Exit" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer/Control2/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kavk2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gv1uq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4no6b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gv1uq")
+text = "Exit when text is too fucking long, for example like this"
+alignment = 0
+text_overrun_behavior = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Track" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/MarginContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 96)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kavk2")
+text = "Track"

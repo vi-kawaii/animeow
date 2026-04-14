@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciodvot4hk6at"]
+
+[ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://character-cpp.tscn" id="1_tnq4y"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tnq4y"]
+radius = 1.0
+
+[node name="first_quest" type="Node3D" unique_id=729576646]
+process_mode = 4
+
+[node name="character" parent="." unique_id=1268605314 instance=ExtResource("1_tnq4y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.02783, 1.65979, 7.97536)
+
+[node name="dialog_start_hello" type="Area3D" parent="character" unique_id=940099796]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="character/dialog_start_hello" unique_id=1691325279]
+shape = SubResource("SphereShape3D_tnq4y")
+
+[node name="Label3D" type="Label3D" parent="character" unique_id=446234765]
+visible = false
+pixel_size = 0.0008
+billboard = 1
+no_depth_test = true
+fixed_size = true

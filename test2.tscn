@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddwqcy7h3rxbe"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6fcrs"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vfvc6"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.0846412, 0, 4.5427868e-08, 0, 0.68870413, 0, -3.2324802e-08, 0, 1.5243075, 0, 0, 0)
+mesh = SubResource("SphereMesh_6fcrs")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_vfvc6")
+skeleton = NodePath("../../../..")

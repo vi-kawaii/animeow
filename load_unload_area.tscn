@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dvrqinwoalqnq"]
+
+[ext_resource type="Script" uid="uid://du0wujifdx61b" path="res://load_unload_area.gd" id="1_bv554"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2abi8"]
+radius = 2.8009274
+
+[node name="LoadUnloadArea" type="Area3D" unique_id=591703662]
+script = ExtResource("1_bv554")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=456429373]
+shape = SubResource("SphereShape3D_2abi8")

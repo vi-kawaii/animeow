@@ -1,0 +1,279 @@
+[gd_scene load_steps=12 format=3 uid="uid://5nl8dlnmps4t"]
+
+[ext_resource type="Script" uid="uid://ytphe2nq38vk" path="res://pause.gd" id="1_p0hy3"]
+[ext_resource type="Texture2D" uid="uid://cjn5hcsdetl1f" path="res://assets/logout.svg" id="3_kn8hl"]
+[ext_resource type="Texture2D" uid="uid://h24lppok5g4d" path="res://assets/camera.svg" id="4_vpiyx"]
+[ext_resource type="Texture2D" uid="uid://dwnbvctv3gxor" path="res://assets/chat-alt-2.svg" id="5_eemf5"]
+[ext_resource type="Texture2D" uid="uid://bbfsfplronqcs" path="res://assets/location-marker.svg" id="6_mffej"]
+[ext_resource type="Texture2D" uid="uid://bd1ennfir3nxo" path="res://assets/shopping-bag.svg" id="7_g7l2x"]
+[ext_resource type="Texture2D" uid="uid://beogl7hapchg1" path="res://assets/book-open.svg" id="8_2hsdn"]
+
+[sub_resource type="Gradient" id="Gradient_fgpyx"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v75as"]
+gradient = SubResource("Gradient_fgpyx")
+width = 128
+height = 128
+
+[sub_resource type="Gradient" id="Gradient_ka7bo"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.211765, 0.211765, 0.211765, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pci7i"]
+gradient = SubResource("Gradient_ka7bo")
+width = 128
+height = 128
+
+[node name="Pause" type="Node3D"]
+script = ExtResource("1_p0hy3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="Ui" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Ui"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -378.0
+offset_top = -136.0
+offset_right = 378.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Ui/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Exit" type="TextureButton" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("GradientTexture2D_v75as")
+texture_hover = SubResource("GradientTexture2D_pci7i")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer/Exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -34.0
+offset_right = 24.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_kn8hl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer/Exit"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -40.0
+offset_right = 54.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+bbcode_enabled = true
+text = "[center][b]Log Out"
+
+[node name="Camera" type="TextureButton" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("GradientTexture2D_v75as")
+texture_hover = SubResource("GradientTexture2D_pci7i")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer/Camera"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -34.0
+offset_right = 24.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_vpiyx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer/Camera"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -40.0
+offset_right = 54.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+bbcode_enabled = true
+text = "[center][b]Camera"
+
+[node name="Chat" type="TextureButton" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("GradientTexture2D_v75as")
+texture_hover = SubResource("GradientTexture2D_pci7i")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer/Chat"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_eemf5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer/Chat"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -40.0
+offset_right = 54.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+bbcode_enabled = true
+text = "[center][b]Chat"
+
+[node name="Map" type="TextureButton" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("GradientTexture2D_v75as")
+texture_hover = SubResource("GradientTexture2D_pci7i")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer/Map"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_mffej")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer/Map"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -40.0
+offset_right = 54.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+bbcode_enabled = true
+text = "[center][b]Map"
+
+[node name="Shop" type="TextureButton" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("GradientTexture2D_v75as")
+texture_hover = SubResource("GradientTexture2D_pci7i")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer/Shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_g7l2x")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer/Shop"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -40.0
+offset_right = 54.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+bbcode_enabled = true
+text = "[center][b]Shop"
+
+[node name="Quests" type="TextureButton" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("GradientTexture2D_v75as")
+texture_hover = SubResource("GradientTexture2D_pci7i")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer/Quests"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_2hsdn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Ui/MarginContainer/HBoxContainer/Quests"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -40.0
+offset_right = 54.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+bbcode_enabled = true
+text = "[center][b]Quests
+"

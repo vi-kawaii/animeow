@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cry0kicq4m3vu"]
+
+[ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://character-cpp.tscn" id="1_fxf1o"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ribny"]
+radius = 1.0
+
+[node name="second_quest" type="Node3D" unique_id=1836310102]
+process_mode = 4
+
+[node name="enemy_character" parent="." unique_id=2094402501 instance=ExtResource("1_fxf1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.02783, 1.65979, 9.4582615)
+
+[node name="dialog_somefile_start" type="Area3D" parent="enemy_character" unique_id=2017408900]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_character/dialog_somefile_start" unique_id=2098314318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02783, -1.65979, -9.4582615)
+shape = SubResource("SphereShape3D_ribny")
+
+[node name="Label3D" type="Label3D" parent="enemy_character" unique_id=1444021995]
+visible = false
+pixel_size = 0.0008
+billboard = 1
+no_depth_test = true
+fixed_size = true

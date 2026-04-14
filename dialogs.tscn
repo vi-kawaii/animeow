@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0vut2x3j6uk6"]
+
+[ext_resource type="Script" uid="uid://yneca4dm7v4r" path="res://dialogs.gd" id="1_1srha"]
+[ext_resource type="Script" uid="uid://bbbc00f56cfoy" path="res://dialog.gd" id="2_sdvgv"]
+
+[node name="dialogs" type="Node" unique_id=1514465466]
+script = ExtResource("1_1srha")
+
+[node name="dialog" type="Node" parent="." unique_id=775417657]
+unique_name_in_owner = true
+script = ExtResource("2_sdvgv")

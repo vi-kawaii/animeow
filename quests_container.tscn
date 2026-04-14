@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://by51ppfoehhls"]
+
+[ext_resource type="Script" uid="uid://82ojd0if3u5b" path="res://quests_container.gd" id="1_qhcnd"]
+
+[node name="quests_container" type="Node" unique_id=31631232]
+script = ExtResource("1_qhcnd")

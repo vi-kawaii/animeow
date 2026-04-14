@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://do846ixp01rhb"]
+
+[ext_resource type="Script" uid="uid://c8ucvubja5mhj" path="res://custom_area.gd" id="1_qmsj0"]
+
+[node name="custom_area" type="Area3D"]
+script = ExtResource("1_qmsj0")

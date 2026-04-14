@@ -1,0 +1,12 @@
+[First Quest]
+steps = [
+	{
+		"type": "marker",
+		"pos": Vector3(0, 0, 0),
+		"goal": "Go to designated point"
+	},
+	{
+		"type": "dialogue",
+		"label": "main.dialogue/start",
+	}
+]

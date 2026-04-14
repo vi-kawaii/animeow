@@ -1,0 +1,172 @@
+[gd_scene load_steps=3 format=3 uid="uid://ubg7om3gqmfo"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g7vks"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 4.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yg32v"]
+points = PackedVector3Array(-0.428374, -1.89609, -0.902273, 0.0454633, 1.90429, 0.997773, 0.342993, 1.90408, 0.938081, -0.25186, 1.90531, -0.96655, 0.999325, -1.90735, -0.0137777, -0.775295, -1.87593, 0.631308, -0.966553, 1.90531, -0.251851, 0.750159, 1.88016, -0.659598, 0.342993, -1.90408, 0.938081, 0.28155, -1.89085, -0.959097, 0.938073, 1.90411, 0.343014, -0.775295, 1.87593, 0.631308, -0.966553, -1.90531, -0.251851, -0.36706, -1.88633, 0.929486, 0.814872, -1.8941, 0.577998, 0.750159, -1.88016, -0.659598, -0.790326, 1.91157, -0.611061, -0.959048, 1.89075, 0.281743, 0.929485, 1.88638, -0.367062, 0.28155, 1.89085, -0.959097, -0.486378, 1.8918, 0.872935, -0.959048, -1.89075, 0.281743, 0.577976, 1.89409, 0.814889, -0.790326, -1.91157, -0.611061, -0.0139812, -1.90728, 0.999315, 0.999325, 1.90735, -0.0137777, -0.543931, 1.88626, -0.838485, 0.929485, -1.88638, -0.367062, -0.25186, -1.90531, -0.96655, 0.631297, 1.87595, -0.775304, 0.938073, -1.90411, 0.343014, 0.814872, 1.8941, 0.577998)
+
+[node name="Waves" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.54916, -2.49422, -3.95192)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D2" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 1.18636)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D2"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D3" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 2.56269)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D3"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D3"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D4" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 3.74905)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D4"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D4"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D5" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 4.85222)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D5"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D5"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D6" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 6.03858)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D6"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D6"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D7" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 7.41491)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D7"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D7"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D8" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 8.60127)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D8"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D8"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D9" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 9.67744)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D9"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D9"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D10" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 10.8638)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D10"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D10"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D11" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 12.2401)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D11"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D11"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D12" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 13.4265)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D12"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D12"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D13" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 14.5297)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D13"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D13"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D14" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 15.716)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D14"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D14"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D15" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 17.0924)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D15"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D15"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")
+
+[node name="CharacterBody3D16" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 18.2787)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D16"]
+mesh = SubResource("CylinderMesh_g7vks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D16"]
+shape = SubResource("ConvexPolygonShape3D_yg32v")

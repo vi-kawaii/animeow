@@ -1,0 +1,38 @@
+["start"]
+_ = [
+	{
+		"name": "First",
+		"text": "Hello, how are you?"
+	}
+]
+__ = [
+	"I'm good, thank you",
+	"You are saying first"
+]
+
+["I'm good, thank you"]
+_ = [
+	{
+		"name": "First",
+		"text": "Ok then, i'm good too by the way"
+	}
+]
+
+["You are saying first"]
+_ = [
+	{
+		"name": "First",
+		"text": "I'm good, so how about you?"
+	}
+]
+__ = [
+	"I'm good, thank you too"
+]
+
+["I'm good, thank you too"]
+_ = [
+	{
+		"name": "First",
+		"text": "So this is the end of the dialog",
+	}
+]
