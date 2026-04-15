@@ -9,9 +9,9 @@ func _ready():
 	)
 
 	%progress.text = "0%"
-	#__.fetch_get("/counter", func(res):
-		#print(res["m"])
-	#)
+	__.fetch_get("/counter", func(res):
+		print(res["m"])
+	)
 
 func _process(_delta):
 	if only_once:

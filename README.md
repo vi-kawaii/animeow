@@ -11,3 +11,10 @@ This repo contains:
 - Game build with Godot
 - Launcher app in Tauri
 - Server side code written in Elysia.js using Bun
+
+# How to run
+
+- Run server with `cd server; bun --hot run main.js`
+- Run game in Godot Engine, it should log `data is %number%` in where `%number%` is counter, fetched from server.
+It should increment this number with every game run, until server is runned
+- Enjoy! :p
