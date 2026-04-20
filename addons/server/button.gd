@@ -1,9 +1,15 @@
 @tool
 extends Button
 
+var server_resource = load("res://addons/server/resources/main.tres")
+
 func add_code():
-	__get("/counter")
-	__post("/login")
+	for i in server_resource.endpoints:
+		match i.type:
+			"get":
+				__get(i.url)
+			"post":
+				__post(i.url)
 
 var endpoints = []
 
@@ -35,6 +41,8 @@ func _enter_tree():
 	)
 
 func activate():
+	endpoints = []
+
 	add_code()
 	make_server()
 

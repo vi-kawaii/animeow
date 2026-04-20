@@ -18,4 +18,7 @@ new Elysia()
 
     return { m: is_unique ? "" : "Your id is not unique" }
   })
+  .get("/new", () => {
+    return { m: `data is ${data++}` }
+  })
   .listen(3000)

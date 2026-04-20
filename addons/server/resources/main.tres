@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Server" format=3 uid="uid://cj1f7td2oanew"]
+
+[ext_resource type="Script" uid="uid://dg17qswog3f3t" path="res://addons/server/types/server_endpoint.gd" id="1_eorew"]
+[ext_resource type="Script" uid="uid://c3ixwsrp8e7wh" path="res://addons/server/types/server.gd" id="2_f1ya6"]
+
+[sub_resource type="Resource" id="Resource_eorew"]
+script = ExtResource("1_eorew")
+type = "get"
+url = "/counter"
+metadata/_custom_type_script = "uid://dg17qswog3f3t"
+
+[sub_resource type="Resource" id="Resource_f1ya6"]
+script = ExtResource("1_eorew")
+type = "post"
+url = "/login"
+metadata/_custom_type_script = "uid://dg17qswog3f3t"
+
+[sub_resource type="Resource" id="Resource_55gtm"]
+script = ExtResource("1_eorew")
+type = "get"
+url = "/new"
+metadata/_custom_type_script = "uid://dg17qswog3f3t"
+
+[resource]
+script = ExtResource("2_f1ya6")
+endpoints = Array[ExtResource("1_eorew")]([SubResource("Resource_eorew"), SubResource("Resource_f1ya6"), SubResource("Resource_55gtm")])
+metadata/_custom_type_script = "uid://c3ixwsrp8e7wh"
