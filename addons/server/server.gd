@@ -15,3 +15,13 @@ func _process(_delta):
 		server_runned = false
 		OS.execute("taskkill", ["/f", "/im", "bun.exe"])
 		return
+
+var b
+
+func _enter_tree():
+	b = preload("button.tscn").instantiate()
+	add_control_to_container(CONTAINER_TOOLBAR, b)
+
+func _exit_tree():
+	remove_control_from_docks(b)
+	b.free()

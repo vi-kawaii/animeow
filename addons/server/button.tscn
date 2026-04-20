@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bmveeutkh6d2r"]
+
+[ext_resource type="Script" uid="uid://bqt1pku7uenal" path="res://addons/server/button.gd" id="1_r6k0g"]
+
+[node name="button" type="Button" unique_id=563422440]
+text = "server_gen"
+script = ExtResource("1_r6k0g")
