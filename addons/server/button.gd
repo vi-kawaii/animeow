@@ -36,11 +36,40 @@ func __post(url):
 	endpoints.append(code_template)
 
 func _enter_tree():
+	%window.hide()
+	%window.close_requested.connect(func():
+		%window.hide()
+	)
+
 	pressed.connect(func():
 		activate()
 	)
 
+var endpoint = load("res://addons/server/components/endpoint.tscn")
+var ui_endpoints = []
+
+var endpoint_action = load("res://addons/server/components/endpoint_action.tscn")
+var endpoint_actions = []
+
+func handle_window():
+	%window.show()
+
+	%create_new_endpoint.pressed.connect(func():
+		var e = endpoint.instantiate()
+		ui_endpoints.append(e)
+		%create_new_endpoint.add_sibling(e)
+
+		var cna = e.find_child("create_new_action")
+		cna.pressed.connect(func():
+			var ea = endpoint_action.instantiate()
+			endpoint_actions.append(ea)
+			cna.add_sibling(ea)
+		)
+	)
+
 func activate():
+	handle_window()
+
 	endpoints = []
 
 	add_code()
