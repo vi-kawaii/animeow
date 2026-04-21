@@ -1,19 +1,31 @@
 [gd_scene format=3 uid="uid://bvr7v2avn7bp2"]
 
-[node name="VBoxContainer" type="VBoxContainer" unique_id=1804882433]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8deou"]
+
+[node name="FoldableContainer" type="FoldableContainer" unique_id=731743524]
+offset_right = 1912.0
+offset_bottom = 135.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8deou")
+title = "Some endpoint name"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=511585802]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1804882433]
+layout_mode = 2
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1590553606]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1590553606]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="OptionButton" type="OptionButton" parent="HBoxContainer" unique_id=3118818]
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=3118818]
 layout_mode = 2
 item_count = 2
 popup/item_0/text = "get"
@@ -21,17 +33,17 @@ popup/item_0/id = 0
 popup/item_1/text = "post"
 popup/item_1/id = 1
 
-[node name="TextEdit2" type="TextEdit" parent="HBoxContainer" unique_id=2126345554]
+[node name="TextEdit2" type="TextEdit" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2126345554]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Endpoint URL"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=410273734]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=410273734]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="create_new_action" type="Button" parent="VBoxContainer" unique_id=404677940]
+[node name="create_new_action" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=404677940]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "create new action"

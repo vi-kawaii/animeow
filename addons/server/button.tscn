@@ -8,10 +8,6 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 bg_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
 corner_detail = 5
 
 [node name="button" type="Button" unique_id=563422440]
@@ -24,7 +20,6 @@ oversampling_override = 1.0
 title = "Server Editor"
 initial_position = 2
 size = Vector2i(1000, 600)
-visible = false
 transient = true
 exclusive = true
 popup_window = true
@@ -46,16 +41,40 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="window/MarginContainer" unique_id=1022210731]
+[node name="endpoints_container" type="VBoxContainer" parent="window/MarginContainer" unique_id=1022210731]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="create_new_endpoint" type="Button" parent="window/MarginContainer/VBoxContainer2" unique_id=628114830]
+[node name="MarginContainer" type="MarginContainer" parent="window/MarginContainer/endpoints_container" unique_id=883488891]
+layout_mode = 2
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="window/MarginContainer/endpoints_container/MarginContainer" unique_id=348392238]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="search" type="TextEdit" parent="window/MarginContainer/endpoints_container/MarginContainer/HBoxContainer" unique_id=1515422785]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Search..."
+
+[node name="create_new_endpoint" type="Button" parent="window/MarginContainer/endpoints_container/MarginContainer/HBoxContainer" unique_id=628114830]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "create new endpoint"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="window/MarginContainer/endpoints_container" unique_id=909248284]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 4
+
+[node name="endpoints_container" type="VBoxContainer" parent="window/MarginContainer/endpoints_container/ScrollContainer" unique_id=1029447591]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10

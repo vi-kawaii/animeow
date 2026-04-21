@@ -57,7 +57,7 @@ func handle_window():
 	%create_new_endpoint.pressed.connect(func():
 		var e = endpoint.instantiate()
 		ui_endpoints.append(e)
-		%create_new_endpoint.add_sibling(e)
+		%endpoints_container.add_child(e)
 
 		var cna = e.find_child("create_new_action")
 		cna.pressed.connect(func():
