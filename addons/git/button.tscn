@@ -48,13 +48,7 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="message" type="TextEdit" parent="window/MarginContainer/endpoints_container/HBoxContainer" unique_id=1358122731]
+[node name="message" type="LineEdit" parent="window/MarginContainer/endpoints_container/HBoxContainer" unique_id=1822995409]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "message..."
-
-[node name="push_to_repo" type="Button" parent="window/MarginContainer/endpoints_container/HBoxContainer" unique_id=1317977725]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-text = "push to repo"
