@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b4kdipk1c07cq"]
+[gd_scene format=3 uid="uid://ch76bscb8igv5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_darro"]
 content_margin_left = 0.0
@@ -9,7 +9,7 @@ bg_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
 corner_detail = 5
 
 [node name="button" type="Button" unique_id=563422440]
-text = "git_commit"
+text = "dialog"
 
 [node name="window" type="Window" parent="." unique_id=1784656067]
 oversampling_override = 1.0
