@@ -1,54 +1,10 @@
 [gd_scene format=3 uid="uid://ch76bscb8igv5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_darro"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
-corner_detail = 5
-
-[node name="button" type="Button" unique_id=563422440]
-text = "dialog"
-
-[node name="window" type="Window" parent="." unique_id=1784656067]
-oversampling_override = 1.0
-title = "Git Commit Message"
-initial_position = 2
-size = Vector2i(800, 48)
-transient = true
-exclusive = true
-popup_window = true
-minimize_disabled = true
-
-[node name="Panel" type="Panel" parent="window" unique_id=46325334]
+[node name="ColorRect" type="ColorRect" unique_id=2091899834]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_darro")
-
-[node name="MarginContainer" type="MarginContainer" parent="window" unique_id=844835715]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="endpoints_container" type="VBoxContainer" parent="window/MarginContainer" unique_id=1347259626]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="window/MarginContainer/endpoints_container" unique_id=661250002]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="message" type="LineEdit" parent="window/MarginContainer/endpoints_container/HBoxContainer" unique_id=1822995409]
-layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "message..."
+size_flags_vertical = 3

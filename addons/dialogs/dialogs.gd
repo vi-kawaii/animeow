@@ -1,23 +1,27 @@
 @tool
 extends EditorPlugin
 
+var b_preload = preload("button.tscn")
 var b
 
 func _enter_tree():
-	b = preload("button.tscn").instantiate()
+	b = b_preload.instantiate()
 
-	var w = b.get_node("window")
-	w.hide()
-	w.close_requested.connect(func():
-		w.hide()
-	)
+	EditorInterface.get_editor_main_screen().add_child(b)
 
-	b.pressed.connect(func():
-		w.show()
-	)
+	_make_visible(false)
 
-	add_control_to_container(CONTAINER_TOOLBAR, b)
+func _make_visible(visible):
+	print(visible)
+	if b:
+		b.visible = visible
+
+func _has_main_screen():
+	return true
+
+func _get_plugin_name():
+	return "Dialog"
 
 func _exit_tree():
-	remove_control_from_docks(b)
-	b.free()
+	if b:
+		b.free()
