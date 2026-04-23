@@ -56,7 +56,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/git/plugin.cfg", "res://addons/grass/plugin.cfg", "res://addons/server/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogs/plugin.cfg", "res://addons/git/plugin.cfg", "res://addons/grass/plugin.cfg", "res://addons/launcher/plugin.cfg", "res://addons/server/plugin.cfg")
 
 [filesystem]
 
