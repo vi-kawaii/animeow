@@ -44,6 +44,7 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="create_new_action" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=404677940]
+custom_minimum_size = Vector2(34, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-text = "create new action"
+text = "+"

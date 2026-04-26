@@ -55,9 +55,7 @@ func handle_window():
 	%window.show()
 
 	%create_new_endpoint.pressed.connect(func():
-		var e = endpoint.instantiate()
-		ui_endpoints.append(e)
-		%endpoints_container.add_child(e)
+		var e = add_ui_endpoint()
 
 		var cna = e.find_child("create_new_action")
 		cna.pressed.connect(func():
@@ -67,13 +65,39 @@ func handle_window():
 		)
 	)
 
+func add_ui_endpoint(param = null):
+	var e = endpoint.instantiate()
+	ui_endpoints.append(e)
+	%endpoints_container.add_child(e)
+
+	if !param:
+		return e
+
+	if param.type == "get":
+		e.find_child("OptionButton")._select_int(0)
+	elif param.type == "post":
+		e.find_child("OptionButton")._select_int(1)
+
+	e.find_child("TextEdit2").text = param.url
+	e.title = param.url
+
+	return e
+
 func activate():
 	handle_window()
 
 	endpoints = []
 
-	add_code()
-	make_server()
+	load_endpoints()
+	#add_code()
+	#make_server()
+
+func load_endpoints():
+	var server = load("res://addons/server/resources/main.tres")
+	endpoints = server.endpoints
+
+	for i in endpoints:
+		add_ui_endpoint(i)
 
 func make_server():
 	var server_code = """

@@ -63,10 +63,11 @@ placeholder_text = "search..."
 
 [node name="create_new_endpoint" type="Button" parent="window/MarginContainer/endpoints_container/MarginContainer/HBoxContainer" unique_id=628114830]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(34, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-text = "create new endpoint"
+text = "+"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="window/MarginContainer/endpoints_container" unique_id=909248284]
 layout_mode = 2
