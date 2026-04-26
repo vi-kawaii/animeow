@@ -65,6 +65,16 @@ func handle_window():
 		)
 	)
 
+	%search.text_submitted.connect(func(t):
+		if !t:
+			return
+
+		update_ui_by_search(t)
+	)
+
+func update_ui_by_search(t):
+	pass
+
 func add_ui_endpoint(param = null):
 	var e = endpoint.instantiate()
 	ui_endpoints.append(e)
