@@ -1,10 +1,110 @@
 [gd_scene format=3 uid="uid://ch76bscb8igv5"]
 
-[node name="ColorRect" type="ColorRect" unique_id=2091899834]
+[node name="MarginContainer" type="MarginContainer" unique_id=1103943527]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=903731732]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="git" type="Button" parent="GridContainer" unique_id=1651534278]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/git" unique_id=207276382]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -88.0
+offset_right = 618.0
+grow_vertical = 0
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="GridContainer/git/MarginContainer" unique_id=572648619]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "git commit message"
+
+[node name="grass" type="Button" parent="GridContainer" unique_id=2123477946]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/grass" unique_id=1528997073]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -88.0
+offset_right = 618.0
+grow_vertical = 0
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="GridContainer/grass/MarginContainer" unique_id=840830846]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "grass generation"
+
+[node name="launcher" type="Button" parent="GridContainer" unique_id=907425938]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/launcher" unique_id=1566690463]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -88.0
+offset_right = 618.0
+grow_vertical = 0
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="GridContainer/launcher/MarginContainer" unique_id=477735624]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "launcher"
+
+[node name="server" type="Button" parent="GridContainer" unique_id=1337907083]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/server" unique_id=1904073008]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -88.0
+offset_right = 618.0
+grow_vertical = 0
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="GridContainer/server/MarginContainer" unique_id=190601220]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "server"
