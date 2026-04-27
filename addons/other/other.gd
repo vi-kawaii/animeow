@@ -12,7 +12,6 @@ func _enter_tree():
 	_make_visible(false)
 
 func _make_visible(visible):
-	print(visible)
 	if b:
 		b.visible = visible
 
@@ -20,7 +19,7 @@ func _has_main_screen():
 	return true
 
 func _get_plugin_name():
-	return "Dialog"
+	return "Other"
 
 func _exit_tree():
 	if b:
