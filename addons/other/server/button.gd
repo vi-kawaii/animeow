@@ -1,5 +1,5 @@
 @tool
-extends Button
+extends MarginContainer
 
 var server_resource = load("res://addons/server/resources/main.tres")
 

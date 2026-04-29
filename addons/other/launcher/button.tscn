@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ohtgugjobvlf"]
+
+[node name="MarginContainer" type="MarginContainer" unique_id=844835715]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="endpoints_container" type="VBoxContainer" parent="." unique_id=1347259626]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="endpoints_container" unique_id=661250002]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="message" type="LineEdit" parent="endpoints_container/HBoxContainer" unique_id=1822995409]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "message..."

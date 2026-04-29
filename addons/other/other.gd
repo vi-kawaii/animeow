@@ -21,6 +21,9 @@ func _has_main_screen():
 func _get_plugin_name():
 	return "Other"
 
+func _get_plugin_icon():
+	return EditorInterface.get_editor_theme().get_icon("GuiTabMenuHl", "EditorIcons")
+
 func _exit_tree():
 	if b:
 		b.free()

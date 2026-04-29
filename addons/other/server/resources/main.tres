@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Server" format=3 uid="uid://cj1f7td2oanew"]
 
-[ext_resource type="Script" uid="uid://dg17qswog3f3t" path="res://addons/server/types/server_endpoint.gd" id="1_eorew"]
-[ext_resource type="Script" uid="uid://c3ixwsrp8e7wh" path="res://addons/server/types/server.gd" id="2_f1ya6"]
+[ext_resource type="Script" uid="uid://dg17qswog3f3t" path="res://addons/other/server/types/server_endpoint.gd" id="1_eorew"]
+[ext_resource type="Script" uid="uid://c3ixwsrp8e7wh" path="res://addons/other/server/types/server.gd" id="2_f1ya6"]
 
 [sub_resource type="Resource" id="Resource_eorew"]
 script = ExtResource("1_eorew")
