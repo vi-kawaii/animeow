@@ -11,6 +11,8 @@ func _enter_tree():
 
 	_make_visible(false)
 
+	handle_buttons()
+
 func _make_visible(visible):
 	if b:
 		b.visible = visible
@@ -27,3 +29,20 @@ func _get_plugin_icon():
 func _exit_tree():
 	if b:
 		b.free()
+
+func handle_buttons():
+	var buttons = b.find_child("HBoxContainer").get_children()
+
+	for i in buttons:
+		b.find_child(i.name).pressed.connect(func():
+			var container = b.find_child("Control")
+			var res = load("res://addons/other/%s/button.tscn" % i.name).instantiate()
+
+			var content = container.get_children()
+			if content.size() != 0:
+				for c in content:
+					c.queue_free()
+
+			container.add_child(res)
+			print(container.get_child_count())
+		)

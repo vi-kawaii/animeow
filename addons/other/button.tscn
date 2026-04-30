@@ -21,31 +21,39 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="git" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1651534278]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_glbmi")
 text = "Git"
 
 [node name="grass" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=2123477946]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_glbmi")
 text = "Grass"
 
 [node name="launcher" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=907425938]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_glbmi")
 text = "Launcher"
 
 [node name="server" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1337907083]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_glbmi")
 text = "Server"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1928335841]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="VBoxContainer/ScrollContainer" unique_id=174168138]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/Control" unique_id=1143496991]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hello world"
