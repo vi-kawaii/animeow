@@ -44,5 +44,7 @@ func handle_buttons():
 					c.queue_free()
 
 			container.add_child(res)
-			print(container.get_child_count())
+
+			if res.has_method("activate"):
+				res.activate()
 		)

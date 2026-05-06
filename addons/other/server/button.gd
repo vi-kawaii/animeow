@@ -1,7 +1,7 @@
 @tool
 extends MarginContainer
 
-var server_resource = load("res://addons/server/resources/main.tres")
+var server_resource = load("res://addons/other/server/resources/main.tres")
 
 func add_code():
 	for i in server_resource.endpoints:
@@ -35,25 +35,13 @@ func __post(url):
 
 	endpoints.append(code_template)
 
-func _enter_tree():
-	%window.hide()
-	%window.close_requested.connect(func():
-		%window.hide()
-	)
-
-	pressed.connect(func():
-		activate()
-	)
-
-var endpoint = load("res://addons/server/components/endpoint.tscn")
+var endpoint = load("res://addons/other/server/components/endpoint.tscn")
 var ui_endpoints = []
 
-var endpoint_action = load("res://addons/server/components/endpoint_action.tscn")
+var endpoint_action = load("res://addons/other/server/components/endpoint_action.tscn")
 var endpoint_actions = []
 
 func handle_window():
-	%window.show()
-
 	%create_new_endpoint.pressed.connect(func():
 		var e = add_ui_endpoint()
 
@@ -103,7 +91,7 @@ func activate():
 	#make_server()
 
 func load_endpoints():
-	var server = load("res://addons/server/resources/main.tres")
+	var server = load("res://addons/other/server/resources/main.tres")
 	endpoints = server.endpoints
 
 	for i in endpoints:
