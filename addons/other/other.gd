@@ -1,7 +1,7 @@
 @tool
 extends EditorPlugin
 
-var b_preload = preload("button.tscn")
+var b_preload = preload("main.tscn")
 var b
 
 func _enter_tree():
@@ -36,7 +36,7 @@ func handle_buttons():
 	for i in buttons:
 		b.find_child(i.name).pressed.connect(func():
 			var container = b.find_child("Control")
-			var res = load("res://addons/other/%s/button.tscn" % i.name).instantiate()
+			var res = load("res://addons/other/%s/main.tscn" % i.name).instantiate()
 
 			var content = container.get_children()
 			if content.size() != 0:

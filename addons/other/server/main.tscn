@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmveeutkh6d2r"]
 
-[ext_resource type="Script" uid="uid://bqt1pku7uenal" path="res://addons/other/server/button.gd" id="1_r6k0g"]
+[ext_resource type="Script" uid="uid://bqt1pku7uenal" path="res://addons/other/server/main.gd" id="1_r6k0g"]
 
 [node name="MarginContainer" type="MarginContainer" unique_id=1379503954]
 anchors_preset = 15

@@ -4,7 +4,7 @@ extends EditorPlugin
 var b
 
 func _enter_tree():
-	b = preload("button.tscn").instantiate()
+	b = preload("main.tscn").instantiate()
 
 	var w = b.get_node("window")
 	w.hide()

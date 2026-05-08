@@ -42,6 +42,11 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_glbmi")
 text = "Server"
 
+[node name="dialogs" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=400892148]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_glbmi")
+text = "Dialogs"
+
 [node name="Control" type="Control" parent="VBoxContainer" unique_id=174168138]
 custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
