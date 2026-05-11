@@ -35,22 +35,22 @@ func __post(url):
 
 	endpoints.append(code_template)
 
-var endpoint = load("res://addons/other/server/components/endpoint.tscn")
-var ui_endpoints = []
+var dialog_line = load("res://addons/other/dialogs/components/dialog_line.tscn")
+var dialog_lines = []
 
 var endpoint_action = load("res://addons/other/server/components/endpoint_action.tscn")
 var endpoint_actions = []
 
 func handle_window():
-	%create_new_endpoint.pressed.connect(func():
-		var e = add_ui_endpoint()
+	%create_new_dialog_line.pressed.connect(func():
+		var e = add_dialog_line()
 
-		var cna = e.find_child("create_new_action")
-		cna.pressed.connect(func():
-			var ea = endpoint_action.instantiate()
-			endpoint_actions.append(ea)
-			cna.add_sibling(ea)
-		)
+		#var cna = e.find_child("create_new_action")
+		#cna.pressed.connect(func():
+			#var ea = endpoint_action.instantiate()
+			#endpoint_actions.append(ea)
+			#cna.add_sibling(ea)
+		#)
 	)
 
 	%search.text_submitted.connect(func(t):
@@ -63,10 +63,10 @@ func handle_window():
 func update_ui_by_search(t):
 	pass
 
-func add_ui_endpoint(param = null):
-	var e = endpoint.instantiate()
-	ui_endpoints.append(e)
-	%endpoints_container.add_child(e)
+func add_dialog_line(param = null):
+	var e = dialog_line.instantiate()
+	dialog_lines.append(e)
+	%dialog_lines_container.add_child(e)
 
 	if !param:
 		return e
@@ -84,9 +84,9 @@ func add_ui_endpoint(param = null):
 func activate():
 	handle_window()
 
-	endpoints = []
+	#endpoints = []
 
-	load_endpoints()
+	#load_endpoints()
 	#add_code()
 	#make_server()
 
@@ -95,7 +95,7 @@ func load_endpoints():
 	endpoints = server.endpoints
 
 	for i in endpoints:
-		add_ui_endpoint(i)
+		add_dialog_line(i)
 
 func make_server():
 	var server_code = """
