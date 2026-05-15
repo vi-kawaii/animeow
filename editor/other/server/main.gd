@@ -1,7 +1,6 @@
-@tool
 extends MarginContainer
 
-var server_resource = load("res://addons/other/server/resources/main.tres")
+var server_resource = load("res://editor/other/server/resources/main.tres")
 
 func add_code():
 	for i in server_resource.endpoints:
@@ -35,10 +34,10 @@ func __post(url):
 
 	endpoints.append(code_template)
 
-var dialog_line = load("res://addons/other/dialogs/components/dialog_line.tscn")
+var dialog_line = load("res://editor/other/dialogs/components/dialog_line.tscn")
 var dialog_lines = []
 
-var endpoint_action = load("res://addons/other/server/components/endpoint_action.tscn")
+var endpoint_action = load("res://editor/other/server/components/endpoint_action.tscn")
 var endpoint_actions = []
 
 func handle_window():
@@ -91,7 +90,7 @@ func activate():
 	#make_server()
 
 func load_endpoints():
-	var server = load("res://addons/other/server/resources/main.tres")
+	var server = load("res://editor/other/server/resources/main.tres")
 	endpoints = server.endpoints
 
 	for i in endpoints:

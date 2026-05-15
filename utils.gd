@@ -12,3 +12,15 @@ func fetch_get(url, callback):
 		callback.call(res)
 		req.queue_free()
 	)
+
+func target_area(area):
+	return str(area.get_parent().name) == "character" and area.get_parent().call("get_is_player")
+
+func game_editor():
+	return true
+	var args = OS.get_cmdline_user_args()
+
+	if args[0] == "--game-editor":
+		return true
+
+	return false

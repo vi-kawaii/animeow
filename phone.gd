@@ -3,6 +3,10 @@ extends Node
 var visible = false
 
 func _ready():
+	if __.game_editor():
+		queue_free()
+		return
+
 	%unlock.connect("pressed", func():
 		%lock_screen.visible = false
 		%main_screen.visible = true

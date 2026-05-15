@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://drd5r7ctawilp"]
+[gd_scene format=3 uid="uid://drd5r7ctawilp"]
 
 [ext_resource type="Script" uid="uid://cx5dxqx6dt5vu" path="res://player.gd" id="1_ptgk6"]
 [ext_resource type="Script" uid="uid://nobm20mwveeh" path="res://camera.gd" id="2_p3a38"]

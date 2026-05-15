@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://nbejd2jds8a0"]
+[gd_scene format=3 uid="uid://nbejd2jds8a0"]
 
 [ext_resource type="Script" uid="uid://hivqj8atyl8x" path="res://phone.gd" id="1_0e3g3"]
 [ext_resource type="Shader" uid="uid://c1asy48367uxc" path="res://gun-selector.gdshader" id="2_hfnv5"]

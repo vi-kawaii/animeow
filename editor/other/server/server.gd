@@ -1,4 +1,3 @@
-@tool
 extends EditorPlugin
 
 var server_runned = false

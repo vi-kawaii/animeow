@@ -4,6 +4,10 @@ var continue_pressed = false
 var only_once = false
 
 func _ready():
+	if __.game_editor():
+		queue_free()
+		return
+
 	%continue.connect("pressed", func():
 		continue_pressed = true
 	)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dqf3i8pyjpgmw"]
 
-[ext_resource type="Script" uid="uid://bq04u2k1e5btv" path="res://addons/other/grass/main.gd" id="1_wwlw5"]
+[ext_resource type="Script" uid="uid://bq04u2k1e5btv" path="res://editor/other/grass/main.gd" id="1_wwlw5"]
 
 [node name="button" type="Button" unique_id=1267276377]
 offset_right = 8.0

@@ -27,7 +27,6 @@ Save="*res://save.tscn"
 Intro="*res://intro.tscn"
 GlobalTime="*res://global_time.gd"
 Timecycle="*res://timecycle.tscn"
-CheckIfAreaIsPlayerArea="*uid://cn0gbcduayvlj"
 Map="*res://map.tscn"
 Player="*res://player-cpp.tscn"
 Water="*res://water.tscn"
@@ -53,10 +52,6 @@ window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/other/plugin.cfg")
 
 [filesystem]
 

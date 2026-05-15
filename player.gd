@@ -84,6 +84,10 @@ func set_gun(g):
 	player.set_gun(g)
 
 func _ready():
+	if __.game_editor():
+		queue_free()
+		return
+
 	interactable_objects.append("Vehicle")
 	player = get_node("character")
 

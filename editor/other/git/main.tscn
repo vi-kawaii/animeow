@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4kdipk1c07cq"]
 
-[ext_resource type="Script" uid="uid://ckqdboa1gs8lh" path="res://addons/other/git/git.gd" id="1_1xxwg"]
+[ext_resource type="Script" uid="uid://ckqdboa1gs8lh" path="res://editor/other/git/git.gd" id="1_1xxwg"]
 
 [node name="MarginContainer" type="MarginContainer" unique_id=844835715]
 anchors_preset = 15
