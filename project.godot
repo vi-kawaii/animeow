@@ -21,6 +21,7 @@ boot_splash/use_filter=false
 
 [autoload]
 
+Ready="*uid://hkrln7ftupt5"
 __="*res://utils.tscn"
 FpsCounter="*res://fps_counter.tscn"
 Save="*res://save.tscn"
@@ -46,7 +47,7 @@ runtime/balloon_path="res://dialog/balloon.tscn"
 [display]
 
 window/size/resizable=false
-window/size/borderless=true
+window/size/maximize_disabled=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
