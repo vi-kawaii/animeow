@@ -1,3 +1,7 @@
+custom-project/project.godot
+project.godot
+old.project.godot
+
 # Godot 4+ specific ignores
 .godot/
 .nomedia

@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Control
 
 func activate():
 	%message.grab_focus()

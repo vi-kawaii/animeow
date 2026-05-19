@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Control
 
 var server_resource = load("res://editor/other/server/resources/main.tres")
 

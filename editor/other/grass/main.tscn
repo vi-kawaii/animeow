@@ -5,5 +5,5 @@
 [node name="button" type="Button" unique_id=1267276377]
 offset_right = 8.0
 offset_bottom = 8.0
-text = "grass_gen"
+text = "Generate grass"
 script = ExtResource("1_wwlw5")
