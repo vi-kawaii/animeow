@@ -9,7 +9,7 @@ func _ready():
 	connect("area_exited", area_exited)
 
 func area_entered(a):
-	if not CheckIfAreaIsPlayerArea.target_area(a):
+	if not __.target_area(a):
 		return
 
 	Resources.load(resource_name, func(res):
@@ -18,7 +18,7 @@ func area_entered(a):
 	)
 
 func area_exited(a):
-	if not CheckIfAreaIsPlayerArea.target_area(a):
+	if not __.target_area(a):
 		return
 
 	if not resource_handle:

@@ -10,7 +10,7 @@ func _ready():
 		return
 
 	$grass_area.connect("area_entered", func(area):
-		if not CheckIfAreaIsPlayerArea.target_area(area):
+		if not __.target_area(area):
 			return
 
 		$grass_part.set_visible(true)
@@ -19,7 +19,7 @@ func _ready():
 		tween.tween_method(custom_tween, 0., 1., time_to_tween)
 	)
 	$grass_area.connect("area_exited", func(area):
-		if not CheckIfAreaIsPlayerArea.target_area(area):
+		if not __.target_area(area):
 			return
 
 		var tween = _create_tween()

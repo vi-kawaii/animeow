@@ -2,7 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dnp735tcpd8u0" path="res://editor/other/other.gd" id="1_0sqtw"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glbmi"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sqtw"]
+bg_color = Color(0.20152655, 0.20152661, 0.20152646, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="MarginContainer" type="MarginContainer" unique_id=1103943527]
 anchors_preset = 10
@@ -11,9 +16,10 @@ offset_bottom = 504.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 script = ExtResource("1_0sqtw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=52337748]
@@ -24,30 +30,36 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_constants/separation = 8
 
 [node name="git" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1651534278]
+custom_minimum_size = Vector2(100, 28)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_glbmi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0sqtw")
 text = "Git"
 
 [node name="grass" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=2123477946]
+custom_minimum_size = Vector2(100, 28)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_glbmi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0sqtw")
 text = "Grass"
 
 [node name="launcher" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=907425938]
+custom_minimum_size = Vector2(100, 28)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_glbmi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0sqtw")
 text = "Launcher"
 
 [node name="server" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1337907083]
+custom_minimum_size = Vector2(100, 28)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_glbmi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0sqtw")
 text = "Server"
 
 [node name="dialogs" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=400892148]
+custom_minimum_size = Vector2(100, 28)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_glbmi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0sqtw")
 text = "Dialogs"
 
 [node name="Control" type="Control" parent="VBoxContainer" unique_id=174168138]
