@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godot Data Pipeline Editor</title>
+    <style>
+        :root {
+            --bg-color: #141619;
+            --panel-color: #1c1f24;
+            --border-color: #2a2e35;
+            --text-color: #e0e6ed;
+            --text-muted: #8892b0;
+            --accent-color: #478cbf; /* Фирменный синий цвет Godot */
+            --accent-hover: #5ba3d7;
+            --success-color: #4cd137;
+            --error-color: #e84118;
+            --input-bg: #242930;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: var(--panel-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 24px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 12px;
+            color: var(--accent-color);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px 14px;
+            box-sizing: border-box;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(71, 140, 191, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--accent-color);
+            border: none;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        #status {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: 500;
+            display: none; /* Скрыт по умолчанию */
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .status-loading {
+            display: block !important;
+            background-color: rgba(71, 140, 191, 0.1);
+            color: var(--accent-color);
+            border-color: rgba(71, 140, 191, 0.2);
+        }
+
+        .status-success {
+            display: block !important;
+            background-color: rgba(76, 209, 55, 0.1);
+            color: var(--success-color);
+            border-color: rgba(76, 209, 55, 0.2);
+        }
+
+        .status-error {
+            display: block !important;
+            background-color: rgba(232, 65, 24, 0.1);
+            color: var(--error-color);
+            border-color: rgba(232, 65, 24, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Создание предмета</h2>
+    <form id="itemForm">
+        <div class="form-group">
+            <label for="itemId">ID Предмета</label>
+            <input type="text" id="itemId" value="sword_10" placeholder="Например: iron_boots" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="itemName">Название в игре</label>
+            <input type="text" id="itemName" value="Огненный Топор" placeholder="Например: Железные сапоги" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="itemDamage">Базовый урон</label>
+            <input type="number" id="itemDamage" value="250" min="0" required>
+        </div>
+        
+        <button type="submit">Компилировать в Ресурс</button>
+    </form>
+
+    <div id="status"></div>
+</div>
+
+<script>
+    document.getElementById('itemForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const statusDiv = document.getElementById('status');
+        
+        // Показываем статус загрузки
+        statusDiv.className = 'status-loading';
+        statusDiv.innerText = "Сборка .tres файла...";
+
+        const payload = {
+            id: document.getElementById('itemId').value,
+            name: document.getElementById('itemName').value,
+            damage: parseInt(document.getElementById('itemDamage').value)
+        };
+
+        try {
+            const response = await fetch('/compile-item', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+            
+            if (response.ok) {
+                statusDiv.className = 'status-success';
+                statusDiv.innerText = `✓ ${result.message}`;
+            } else {
+                statusDiv.className = 'status-error';
+                statusDiv.innerText = "❌ Ошибка сервера при генерации";
+            }
+        } catch (error) {
+            statusDiv.className = 'status-error';
+            statusDiv.innerText = "❌ Ошибка сети: " + error.message;
+        }
+    });
+</script>
+
+</body>
+</html>
