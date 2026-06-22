@@ -1,205 +1,371 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Godot Data Pipeline Editor</title>
+    <title>Godot Node Dialogue Editor</title>
     <style>
         :root {
-            --bg-color: #141619;
-            --panel-color: #1c1f24;
-            --border-color: #2a2e35;
-            --text-color: #e0e6ed;
-            --text-muted: #8892b0;
-            --accent-color: #478cbf; /* Фирменный синий цвет Godot */
-            --accent-hover: #5ba3d7;
-            --success-color: #4cd137;
-            --error-color: #e84118;
-            --input-bg: #242930;
+            --bg: #141619;
+            --panel: #1c1f24;
+            --border: #2a2e35;
+            --text: #e0e6ed;
+            --accent: #df7e20;
+            --accent-hover: #f08f33;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             margin: 0;
+            padding: 0;
+            overflow: hidden;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background: var(--panel);
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 15px;
             align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            background-color: var(--panel-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 30px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        h2 {
-            margin-top: 0;
-            margin-bottom: 24px;
-            font-size: 1.5rem;
-            font-weight: 600;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 12px;
-            color: var(--accent-color);
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        input[type="text"],
-        input[type="number"] {
-            width: 100%;
-            padding: 10px 14px;
-            box-sizing: border-box;
-            background-color: var(--input-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            color: var(--text-color);
-            font-size: 1rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(71, 140, 191, 0.2);
         }
 
         button {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--accent-color);
+            background: var(--accent);
             border: none;
+            color: white;
+            padding: 8px 16px;
             border-radius: 4px;
-            color: #ffffff;
-            font-size: 1rem;
-            font-weight: 600;
+            font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
-            margin-top: 10px;
         }
 
         button:hover {
-            background-color: var(--accent-hover);
+            background: var(--accent-hover);
         }
 
-        button:active {
-            transform: scale(0.98);
+        #canvas-container {
+            flex: 1;
+            position: relative;
+            background: #111315;
         }
 
-        #status {
-            margin-top: 20px;
-            padding: 12px;
-            border-radius: 4px;
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .node-ui {
+            position: absolute;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 10px;
+            width: 220px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            cursor: move;
+            z-index: 2;
+        }
+
+        .node-ui h4 {
+            margin: 0 0 8px 0;
+            color: var(--accent);
             font-size: 0.9rem;
-            text-align: center;
-            font-weight: 500;
-            display: none; /* Скрыт по умолчанию */
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
         }
 
-        .status-loading {
-            display: block !important;
-            background-color: rgba(71, 140, 191, 0.1);
-            color: var(--accent-color);
-            border-color: rgba(71, 140, 191, 0.2);
+        .node-ui input,
+        .node-ui textarea {
+            width: 100%;
+            box-sizing: border-box;
+            background: #242930;
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 4px;
+            padding: 5px;
+            margin-bottom: 6px;
+            font-family: inherit;
         }
 
-        .status-success {
-            display: block !important;
-            background-color: rgba(76, 209, 55, 0.1);
-            color: var(--success-color);
-            border-color: rgba(76, 209, 55, 0.2);
+        .node-ui textarea {
+            height: 60px;
+            resize: none;
         }
 
-        .status-error {
-            display: block !important;
-            background-color: rgba(232, 65, 24, 0.1);
-            color: var(--error-color);
-            border-color: rgba(232, 65, 24, 0.2);
+        .port {
+            width: 12px;
+            height: 12px;
+            background: #555;
+            border-radius: 50%;
+            position: absolute;
+            cursor: pointer;
+            border: 2px solid var(--panel);
+            pointer-events: auto;
+        }
+
+        .port:hover {
+            background: var(--accent);
+        }
+
+        .port-in {
+            left: -7px;
+            top: 40px;
+        }
+
+        .port-out {
+            right: -7px;
+            top: 40px;
+        }
+
+        #status-bar {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            z-index: 10;
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h2>Создание предмета</h2>
-    <form id="itemForm">
-        <div class="form-group">
-            <label for="itemId">ID Предмета</label>
-            <input type="text" id="itemId" value="sword_10" placeholder="Например: iron_boots" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="itemName">Название в игре</label>
-            <input type="text" id="itemName" value="Огненный Топор" placeholder="Например: Железные сапоги" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="itemDamage">Базовый урон</label>
-            <input type="number" id="itemDamage" value="250" min="0" required>
-        </div>
-        
-        <button type="submit">Компилировать в Ресурс</button>
-    </form>
+    <header>
+        <!-- ИСПРАВЛЕНО: Кнопки теперь вызывают методы корректного объекта manager -->
+        <button onclick="manager.createNode('speech')">+ Нода Реплики</button>
+        <button onclick="manager.createNode('choice')">+ Нода Ответа</button>
+        <button onclick="manager.compileGraph()" style="background: #4cd137;">Скомпилировать граф в Godot</button>
+        <span style="color: #8892b0; font-size: 0.85rem;">Управление: Перетаскивайте ноды. Тяните от правой точки к левой для связи.</span>
+    </header>
 
-    <div id="status"></div>
-</div>
+    <div id="canvas-container">
+        <canvas id="connectionsCanvas"></canvas>
+    </div>
 
-<script>
-    document.getElementById('itemForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const statusDiv = document.getElementById('status');
-        
-        // Показываем статус загрузки
-        statusDiv.className = 'status-loading';
-        statusDiv.innerText = "Сборка .tres файла...";
+    <div id="status-bar">Загрузка данных...</div>
 
-        const payload = {
-            id: document.getElementById('itemId').value,
-            name: document.getElementById('itemName').value,
-            damage: parseInt(document.getElementById('itemDamage').value)
-        };
+    <script>
+        class GraphManager {
+            constructor() {
+                this.container = document.getElementById('canvas-container');
+                this.canvas = document.getElementById('connectionsCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.nodes = [];
+                this.connections = [];
+                this.activePort = null;
 
-        try {
-            const response = await fetch('/compile-item', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-
-            const result = await response.json();
-            
-            if (response.ok) {
-                statusDiv.className = 'status-success';
-                statusDiv.innerText = `✓ ${result.message}`;
-            } else {
-                statusDiv.className = 'status-error';
-                statusDiv.innerText = "❌ Ошибка сервера при генерации";
+                window.addEventListener('resize', () => this.resizeCanvas());
+                this.setupCanvasEvents();
+                this.loadGraph();
             }
-        } catch (error) {
-            statusDiv.className = 'status-error';
-            statusDiv.innerText = "❌ Ошибка сети: " + error.message;
-        }
-    });
-</script>
 
-</body>
-</html>
+            resizeCanvas() {
+                this.canvas.width = this.container.clientWidth;
+                this.canvas.height = this.container.clientHeight;
+                this.drawConnections();
+            }
+
+            createId() {
+                return 'node_' + Math.random().toString(36).substr(2, 9);
+            }
+
+            createNode(type) {
+                const nodeData = {
+                    id: this.createId(),
+                    type: type,
+                    label: type === 'speech' ? 'dialogue_tag' : 'option_tag',
+                    speaker: type === 'speech' ? 'Персонаж' : 'Игрок',
+                    text: type === 'speech' ? 'Текст его речи...' : 'Вариант ответа...',
+                    x: 100 + (this.nodes.length * 20) % 200,
+                    y: 100 + (this.nodes.length * 20) % 200
+                };
+                this.nodes.push(nodeData);
+                this.renderNodeUI(nodeData);
+                this.drawConnections();
+            }
+
+            renderNodeUI(nodeData) {
+                const div = document.createElement('div');
+                div.className = 'node-ui';
+                div.id = nodeData.id;
+                div.style.left = nodeData.x + 'px';
+                div.style.top = nodeData.y + 'px';
+
+                const titleText = nodeData.type === 'speech' ? 'Реплика' : 'Выбор/Ответ';
+                div.innerHTML = `
+                <h4><span>${titleText}</span><span style="cursor:pointer;color:#ff4d4d" onclick="manager.deleteNode('${nodeData.id}')">✕</span></h4>
+                <label style="font-size:10px; color:#8892b0">МЕТКА / ТЕГ</label>
+                <input type="text" class="node-tag" value="${nodeData.label}">
+                <label style="font-size:10px; color:#8892b0">ГОВОРЯЩИЙ</label>
+                <input type="text" class="node-speaker" value="${nodeData.speaker}">
+                <label style="font-size:10px; color:#8892b0">ТЕКСТ</label>
+                <textarea class="node-text">${nodeData.text}</textarea>
+                <div class="port port-in" data-node="${nodeData.id}" data-type="in"></div>
+                <div class="port port-out" data-node="${nodeData.id}" data-type="out"></div>
+            `;
+
+                this.setupDragging(div, nodeData);
+                this.setupPorts(div);
+                this.container.appendChild(div);
+            }
+
+            deleteNode(id) {
+                this.nodes = this.nodes.filter(n => n.id !== id);
+                this.connections = this.connections.filter(c => c.fromId !== id && c.toId !== id);
+                const el = document.getElementById(id);
+                if (el) el.remove();
+                this.drawConnections();
+            }
+
+            setupDragging(element, nodeData) {
+                let offsetX, offsetY, isDragging = false;
+                element.addEventListener('mousedown', (e) => {
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.classList.contains('port')) return;
+                    isDragging = true;
+                    offsetX = e.clientX - element.offsetLeft;
+                    offsetY = e.clientY - element.offsetTop;
+                });
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    nodeData.x = e.clientX - offsetX;
+                    nodeData.y = e.clientY - offsetY;
+                    element.style.left = nodeData.x + 'px';
+                    element.style.top = nodeData.y + 'px';
+                    this.drawConnections();
+                });
+                document.addEventListener('mouseup', () => isDragging = false);
+            }
+
+            setupPorts(nodeElement) {
+                const ports = nodeElement.querySelectorAll('.port');
+                ports.forEach(port => {
+                    port.addEventListener('mousedown', (e) => {
+                        e.stopPropagation();
+                        this.activePort = {
+                            nodeId: port.dataset.node,
+                            type: port.dataset.type
+                        };
+                    });
+                });
+            }
+
+            setupCanvasEvents() {
+                this.container.addEventListener('mouseup', (e) => {
+                    if (!this.activePort) return;
+                    if (e.target.classList.contains('port')) {
+                        const targetPort = e.target;
+                        if (this.activePort.type === 'out' && targetPort.dataset.type === 'in' && this.activePort.nodeId !== targetPort.dataset.node) {
+                            if (!this.connections.some(c => c.fromId === this.activePort.nodeId && c.toId === targetPort.dataset.node)) {
+                                this.connections.push({
+                                    fromId: this.activePort.nodeId,
+                                    toId: targetPort.dataset.node
+                                });
+                            }
+                        }
+                    }
+                    this.activePort = null;
+                    this.drawConnections();
+                });
+            }
+
+            drawConnections() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                this.ctx.lineWidth = 3;
+
+                this.connections.forEach(conn => {
+                    const fromEl = document.getElementById(conn.fromId);
+                    const toEl = document.getElementById(conn.toId);
+                    if (!fromEl || !toEl) return;
+
+                    const fromPort = fromEl.querySelector('.port-out');
+                    const toPort = toEl.querySelector('.port-in');
+
+                    const startX = fromEl.offsetLeft + fromPort.offsetLeft + 6;
+                    const startY = fromEl.offsetTop + fromPort.offsetTop + 6;
+                    const endX = toEl.offsetLeft + toPort.offsetLeft + 6;
+                    const endY = toEl.offsetTop + toPort.offsetTop + 6;
+
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(startX, startY);
+                    this.ctx.bezierCurveTo(startX + 50, startY, endX - 50, endY, endX, endY);
+                    this.ctx.strokeStyle = '#df7e20';
+                    this.ctx.stroke();
+                });
+            }
+
+            updateNodesFromUI() {
+                this.nodes.forEach(node => {
+                    const el = document.getElementById(node.id);
+                    if (el) {
+                        node.label = el.querySelector('.node-tag').value;
+                        node.speaker = el.querySelector('.node-speaker').value;
+                        node.text = el.querySelector('.node-text').value;
+                    }
+                });
+            }
+
+            async compileGraph() {
+                const statusBar = document.getElementById('status-bar');
+                statusBar.innerText = "Компиляция и сохранение графа...";
+                this.updateNodesFromUI();
+                const payload = {
+                    nodes: this.nodes,
+                    connections: this.connections
+                };
+
+                try {
+                    const response = await fetch('/compile-graph', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        statusBar.innerHTML = `<span style="color:#4cd137">✓ Граф сохранен! Скомпилировано файлов для Godot: ${result.count}</span>`;
+                    }
+                } catch (e) {
+                    statusBar.innerHTML = `<span style="color:#ff4d4d">Ошибка: ${e.message}</span>`;
+                }
+            }
+
+            // Примечание: В исходном тексте отсутствовало начало объявления метода async saveGraph() { ... }
+
+            async function loadGraph() {
+                const statusBar = document.getElementById('status-bar');
+                try {
+                    const response = await fetch('/load-graph');
+                    if (!response.ok) throw new Error("Ошибка загрузки");
+
+                    const data = await response.json();
+                    this.nodes = data.nodes || [];
+                    this.connections = data.connections || [];
+
+                    this.nodes.forEach(node => this.renderNodeUI(node));
+                    this.resizeCanvas();
+                    statusBar.innerText = "Данные успешно восстановлены с сервера.";
+                } catch (e) {
+                    statusBar.innerText = "История пуста или сервер не ответил. Начните новый граф.";
+                    this.resizeCanvas();
+                }
+            }
+
+            // Инициализация менеджера после загрузки скриптов
+            const manager = new GraphManager();
+    </script>

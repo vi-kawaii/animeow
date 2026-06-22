@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogueNode" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue_node.gd" id="1_graph_script"]
+
+[resource]
+script = ExtResource("1_graph_script")
+node_id = "node_x9b0wvt39"
+node_type = "speech"
+node_label = "dialogue_tag"
+speaker_name = "Персонаж"
+dialogue_text = "Текст его речи..."
+next_nodes = PackedStringArray(["node_x6xw35pta"])
