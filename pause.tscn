@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://5nl8dlnmps4t"]
+[gd_scene format=3 uid="uid://5nl8dlnmps4t"]
 
 [ext_resource type="Script" uid="uid://ytphe2nq38vk" path="res://pause.gd" id="1_p0hy3"]
-[ext_resource type="Texture2D" uid="uid://cjn5hcsdetl1f" path="res://assets/logout.svg" id="3_kn8hl"]
-[ext_resource type="Texture2D" uid="uid://h24lppok5g4d" path="res://assets/camera.svg" id="4_vpiyx"]
-[ext_resource type="Texture2D" uid="uid://dwnbvctv3gxor" path="res://assets/chat-alt-2.svg" id="5_eemf5"]
-[ext_resource type="Texture2D" uid="uid://bbfsfplronqcs" path="res://assets/location-marker.svg" id="6_mffej"]
-[ext_resource type="Texture2D" uid="uid://bd1ennfir3nxo" path="res://assets/shopping-bag.svg" id="7_g7l2x"]
-[ext_resource type="Texture2D" uid="uid://beogl7hapchg1" path="res://assets/book-open.svg" id="8_2hsdn"]
+[ext_resource type="Texture2D" uid="uid://cjn5hcsdetl1f" path="res://shared_assets/icons/logout.svg" id="3_kn8hl"]
+[ext_resource type="Texture2D" uid="uid://h24lppok5g4d" path="res://shared_assets/icons/camera.svg" id="4_vpiyx"]
+[ext_resource type="Texture2D" uid="uid://dwnbvctv3gxor" path="res://shared_assets/icons/chat-alt-2.svg" id="5_eemf5"]
+[ext_resource type="Texture2D" uid="uid://bbfsfplronqcs" path="res://shared_assets/icons/location-marker.svg" id="6_mffej"]
+[ext_resource type="Texture2D" uid="uid://bd1ennfir3nxo" path="res://shared_assets/icons/shopping-bag.svg" id="7_g7l2x"]
+[ext_resource type="Texture2D" uid="uid://beogl7hapchg1" path="res://shared_assets/icons/book-open.svg" id="8_2hsdn"]
 
 [sub_resource type="Gradient" id="Gradient_fgpyx"]
 offsets = PackedFloat32Array(0)

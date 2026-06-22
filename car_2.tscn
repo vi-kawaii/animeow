@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6arec1g1xf4k"]
+[gd_scene format=3 uid="uid://b6arec1g1xf4k"]
 
-[ext_resource type="PackedScene" uid="uid://dkmne1gdsvyc5" path="res://assets/car.glb" id="1_dldq0"]
+[ext_resource type="PackedScene" uid="uid://dkmne1gdsvyc5" path="res://shared_assets/models/car.glb" id="1_dldq0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dldq0"]
 shading_mode = 0

@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1wblnbbl2cgq"]
+[gd_scene format=3 uid="uid://b1wblnbbl2cgq"]
 
-[ext_resource type="PackedScene" uid="uid://ku5b1yxqpjm7" path="res://map/terrain/example-col.glb" id="1_sf0qo"]
-[ext_resource type="PackedScene" uid="uid://q0mqngo1lxof" path="res://map/terrain/example-navmesh001.glb" id="2_cgroc"]
-[ext_resource type="PackedScene" uid="uid://rwdi0bnh0sjw" path="res://map/terrain/example-navmesh002.glb" id="3_qapoc"]
+[ext_resource type="PackedScene" uid="uid://ku5b1yxqpjm7" path="res://shared_assets/models/example-col.glb" id="1_sf0qo"]
+[ext_resource type="PackedScene" uid="uid://q0mqngo1lxof" path="res://shared_assets/models/example-navmesh001.glb" id="2_cgroc"]
+[ext_resource type="PackedScene" uid="uid://rwdi0bnh0sjw" path="res://shared_assets/models/example-navmesh002.glb" id="3_qapoc"]
 
 [node name="example-col2" instance=ExtResource("1_sf0qo")]
 

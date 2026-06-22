@@ -1,5 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3d3ohgafxkar"]
+[gd_scene format=3 uid="uid://d3d3ohgafxkar"]
 
-[ext_resource type="PackedScene" uid="uid://bmrbk2u63soad" path="res://map/terrain/example.glb" id="1_cw3t1"]
+[ext_resource type="PackedScene" uid="uid://bmrbk2u63soad" path="res://shared_assets/models/example.glb" id="1_cw3t1"]
 
 [node name="example2" instance=ExtResource("1_cw3t1")]

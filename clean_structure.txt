@@ -1,0 +1,356 @@
+├── _bin
+│   ├── gdexample._gdextension
+│   └── liblibgdexample.windows.template_debug.x86_64.a
+├── addons
+│   └── resource_manager
+│       ├── plugin.cfg
+│       └── resource_manager_plugin.gd
+├── assets
+│   ├── Cog6Tooth.svg
+│   ├── Home.svg
+│   ├── Star.svg
+│   ├── book-open.svg
+│   ├── bullet_hole.png
+│   ├── camera.svg
+│   ├── car-col.glb
+│   ├── car.glb
+│   ├── chat-alt-2.svg
+│   ├── choise.png
+│   ├── location-marker.svg
+│   ├── login.svg
+│   ├── logout.svg
+│   ├── shopping-bag.svg
+│   ├── wheel1.glb
+│   ├── wheel2.glb
+│   ├── wheel3.glb
+│   └── wheel4.glb
+├── cars
+│   ├── bike
+│   │   └── bike.gd
+│   ├── boat
+│   │   └── boat.tscn
+│   ├── simple
+│   │   ├── assets
+│   │   │   ├── .gdignore
+│   │   │   └── car.fbx
+│   │   ├── main.gd
+│   │   └── main.tscn
+│   ├── sounds
+│   │   ├── engine-process.wav
+│   │   ├── engine-start.wav
+│   │   ├── engine-started.wav
+│   │   ├── engine-stop.wav
+│   │   ├── grass-step.wav
+│   │   └── road-step.wav
+│   └── bike.tscn
+├── characters
+│   ├── simple.gd
+│   └── simple.tscn
+├── custom-project
+│   └── project.godot
+├── dialog
+│   ├── areas
+│   │   ├── dialog_area.gd
+│   │   └── dialog_area.tscn
+│   ├── resources
+│   │   └── main.tres
+│   ├── types
+│   │   ├── dialog.gd
+│   │   ├── dialog_node.gd
+│   │   └── dialog_sentence.gd
+│   ├── dialog.gd
+│   ├── first_quest.txt
+│   ├── main_dialog.txt
+│   ├── server.gd
+│   └── start.tres
+├── dialog-cpp
+│   └── main.tres
+├── editor
+│   └── other
+│       ├── dialogs
+│       │   ├── components
+│       │   │   └── dialog_line.tscn
+│       │   ├── main.gd
+│       │   ├── main.tscn
+│       │   └── some_quest_name.txt
+│       ├── git
+│       │   ├── git.gd
+│       │   └── main.tscn
+│       ├── grass
+│       │   ├── grass.gd
+│       │   ├── main.gd
+│       │   └── main.tscn
+│       ├── launcher
+│       │   ├── main.gd
+│       │   └── main.tscn
+│       ├── server
+│       │   ├── components
+│       │   │   ├── button.gd
+│       │   │   ├── endpoint.tscn
+│       │   │   └── endpoint_action.tscn
+│       │   ├── resources
+│       │   │   └── main.tres
+│       │   ├── types
+│       │   │   ├── server.gd
+│       │   │   └── server_endpoint.gd
+│       │   ├── main.gd
+│       │   ├── main.tscn
+│       │   └── server.gd
+│       ├── main.tscn
+│       └── other.gd
+├── guns
+│   ├── resources
+│   │   └── guns.tres
+│   ├── types
+│   │   ├── guns.gd
+│   │   └── guns_node.gd
+│   └── guns.txt
+├── icons
+│   ├── aim.svg
+│   ├── pause.svg
+│   └── skill.svg
+├── map
+│   ├── common
+│   │   └── grass.tscn
+│   ├── scenes
+│   │   ├── island.scn
+│   │   ├── main.tscn
+│   │   └── pathes.gd
+│   ├── terrain
+│   │   ├── assets
+│   │   │   ├── .gdignore
+│   │   │   ├── example.fbx
+│   │   │   └── example.max
+│   │   ├── example-col.glb
+│   │   ├── example-navmesh.glb
+│   │   ├── example-navmesh001.glb
+│   │   ├── example-navmesh002.glb
+│   │   ├── example.gd
+│   │   ├── example.glb
+│   │   ├── example_Map #10-Map #10.png
+│   │   ├── example_Map #7-Map #7.png
+│   │   ├── example_Map #8-Map #8.png
+│   │   └── example_Map #9-Map #9.png
+│   ├── water
+│   │   └── waves.gd
+│   ├── grass.png
+│   ├── grass000.glb
+│   ├── grass000_0.png
+│   ├── grass000_1.png
+│   ├── grass_0.png
+│   ├── grass_1.png
+│   ├── grass_2.png
+│   ├── island.glb
+│   ├── island_0.png
+│   ├── island_1.png
+│   ├── island_2.png
+│   ├── main.bin
+│   ├── main.glb
+│   ├── main.gltf
+│   ├── main_0.png
+│   ├── main_1.png
+│   ├── main_2.png
+│   ├── road-marking.png
+│   ├── road.png
+│   └── waves.tscn
+├── music
+│   └── Project_1.wav
+├── new-launcher
+│   ├── .vscode
+│   ├── src
+│   │   ├── index.html
+│   │   └── output.css
+│   ├── src-tauri
+│   │   ├── capabilities
+│   │   ├── gen
+│   │   │   └── schemas
+│   │   ├── icons
+│   │   │   ├── 128x128.png
+│   │   │   ├── 128x128@2x.png
+│   │   │   ├── 32x32.png
+│   │   │   ├── Square107x107Logo.png
+│   │   │   ├── Square142x142Logo.png
+│   │   │   ├── Square150x150Logo.png
+│   │   │   ├── Square284x284Logo.png
+│   │   │   ├── Square30x30Logo.png
+│   │   │   ├── Square310x310Logo.png
+│   │   │   ├── Square44x44Logo.png
+│   │   │   ├── Square71x71Logo.png
+│   │   │   ├── Square89x89Logo.png
+│   │   │   ├── StoreLogo.png
+│   │   │   ├── icon.icns
+│   │   │   ├── icon.ico
+│   │   │   └── icon.png
+│   │   ├── src
+│   │   │   ├── lib.rs
+│   │   │   └── main.rs
+│   │   ├── target
+│   │   ├── .gitignore
+│   │   ├── Cargo.lock
+│   │   ├── Cargo.toml
+│   │   └── build.rs
+│   ├── .gitignore
+│   ├── README.md
+│   ├── bun.lock
+│   └── input.css
+├── pathes
+│   └── common
+│       └── point.tscn
+├── pause
+│   ├── button.gd
+│   ├── pause.tscn
+│   ├── scroll_container.gd
+│   ├── ui.gd
+│   └── ui.tscn
+├── player
+│   └── player.tscn
+├── quests
+│   ├── scenes
+│   │   └── quests.tscn
+│   ├── scripts
+│   │   ├── first_quest.gd
+│   │   ├── fourth_quest.gd
+│   │   ├── second_quest.gd
+│   │   └── third_quest.gd
+│   ├── another_first_quest.tscn
+│   ├── first_quest.tscn
+│   └── second_quest.tscn
+├── save
+│   ├── resources
+│   │   └── save.tres
+│   ├── types
+│   │   ├── save.gd
+│   │   └── save_camera_data.gd
+│   └── save.gd
+├── server
+│   ├── .gitignore
+│   ├── bun.lock
+│   ├── main.js
+│   └── server_file.js
+├── sounds
+│   └── Project_8.wav
+├── vehicles
+│   └── vehicles.tscn
+├── views
+│   ├── characters_view.tscn
+│   ├── game_overlay_view.tscn
+│   ├── glass.gdshader
+│   ├── inventory_view.tscn
+│   ├── map_view.tscn
+│   ├── quests_view.tscn
+│   └── settings_view.tscn
+├── .gitignore
+├── GameEditor.lnk
+├── README.md
+├── _ready.gd
+├── anime-girl.glb
+├── app.ico
+├── bullet_hole_decal.tscn
+├── camera.gd
+├── camera.tscn
+├── camera_screen.gd
+├── car_2.tscn
+├── character-cpp.tscn
+├── character.gd
+├── characters.gd
+├── circle_opacity.gdshader
+├── clean_structure.txt
+├── consola.ttf
+├── consolab.ttf
+├── consolai.ttf
+├── consolaz.ttf
+├── custom_area.gd
+├── custom_area.tscn
+├── data.pandora
+├── demo-video.mp4
+├── dialog.gd
+├── dialog.tscn
+├── dialog_cameras.gd
+├── dialog_node_resource.gd
+├── dialog_resource.gd
+├── dialog_sentence_resource.gd
+├── dialogs.gd
+├── dialogs.tscn
+├── environment.gd
+├── example_2.tscn
+├── example_col_2.tscn
+├── example_navmesh.tscn
+├── exit.gd
+├── export_presets.cfg
+├── fast-car-wheel.glb
+├── fast-car-wheel.tscn
+├── fast-car.glb
+├── fps_counter.gd
+├── fps_counter.tscn
+├── game-editor.lnk
+├── global_time.gd
+├── gradient.gdshader
+├── grass.gd
+├── grass.gdshader
+├── grass_container.gd
+├── grass_container.tscn
+├── grass_container_test_map.tscn
+├── gun-selector.gdshader
+├── gun_selector.gd
+├── gun_selector.tscn
+├── guns_node_resource.gd
+├── guns_resource.gd
+├── intro.gd
+├── intro.tscn
+├── list.py
+├── load_unload_area.gd
+├── load_unload_area.tscn
+├── main_screen.gd
+├── map-mask.png
+├── map.gd
+├── map.tscn
+├── map_screen.gd
+├── mesh_instance_3d.gd
+├── message.gd
+├── message.tscn
+├── music_screen.gd
+├── pause.gd
+├── pause.tscn
+├── pause_menu.tscn
+├── phone.gd
+├── phone.tscn
+├── player-cpp.tscn
+├── player.gd
+├── player.tscn
+├── project.godot
+├── quests.gd
+├── quests.tres
+├── quests_button.tscn
+├── quests_container.gd
+├── quests_container.tscn
+├── quests_node_resource.gd
+├── quests_resource.gd
+├── quests_screen.gd
+├── resources.gd
+├── run_hidden.vbs
+├── save.gd
+├── save.tscn
+├── selector.gd
+├── sky.gd
+├── sky.gdshader
+├── stars.png
+├── start - Shortcut.lnk
+├── start.bat
+├── start.js
+├── start.py
+├── start.vbs
+├── terrain.gd
+├── test.tscn
+├── test2.tscn
+├── timecycle.gd
+├── timecycle.tscn
+├── utils.gd
+├── utils.tscn
+├── vehicle-cpp.tscn
+├── vehicle.gd
+├── vehicles.gd
+├── water.gd
+├── water.gdshader
+├── water.tscn
+├── world.gd
+└── world.tscn

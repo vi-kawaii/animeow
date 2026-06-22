@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dwho3bawuu14f"]
+
+[ext_resource type="Script" uid="uid://dgnwk47a51sim" path="res://game/vehicles/vehicles.gd" id="1_al3lm"]
+
+[node name="Vehicles" type="Node3D" unique_id=1841039625]
+script = ExtResource("1_al3lm")

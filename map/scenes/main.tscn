@@ -1,13 +1,13 @@
 [gd_scene format=4 uid="uid://dy7faaepaqi1e"]
 
-[ext_resource type="PackedScene" uid="uid://wwfcs4hy1h0o" path="res://map/main.glb" id="1_hs5ja"]
+[ext_resource type="PackedScene" uid="uid://wwfcs4hy1h0o" path="res://shared_assets/models/main.glb" id="1_hs5ja"]
 [ext_resource type="Shader" uid="uid://3nnkmjli5whg" path="res://grass.gdshader" id="2_1e7uf"]
 [ext_resource type="Script" uid="uid://b7neaasjnidqx" path="res://map/scenes/pathes.gd" id="2_yhd5b"]
-[ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://character-cpp.tscn" id="6_ribny"]
-[ext_resource type="PackedScene" uid="uid://c1ppw0k50ldr" path="res://pathes/common/point.tscn" id="8_3vpxy"]
+[ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://game/characters/character-cpp.tscn" id="6_ribny"]
+[ext_resource type="PackedScene" uid="uid://c1ppw0k50ldr" path="res://point.tscn" id="8_3vpxy"]
 [ext_resource type="Script" uid="uid://du0wujifdx61b" path="res://load_unload_area.gd" id="8_aimtu"]
 [ext_resource type="PackedScene" uid="uid://cnn65mxe3bcre" path="res://grass_container_test_map.tscn" id="8_vdq8k"]
-[ext_resource type="PackedScene" uid="uid://72q7m6lj1era" path="res://vehicle-cpp.tscn" id="9_3vpxy"]
+[ext_resource type="PackedScene" uid="uid://72q7m6lj1era" path="res://game/vehicles/vehicle-cpp.tscn" id="9_3vpxy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2abi8"]
 radius = 2.8009274

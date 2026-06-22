@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Guns" load_steps=8 format=3 uid="uid://144l3tseohvk"]
+[gd_resource type="Resource" script_class="Guns" format=3 uid="uid://144l3tseohvk"]
 
 [ext_resource type="Script" uid="uid://bjj1b507dwiyu" path="res://guns/types/guns.gd" id="1_1cffr"]
 [ext_resource type="Script" uid="uid://k8ajerevafi4" path="res://guns/types/guns_node.gd" id="1_bq58i"]
