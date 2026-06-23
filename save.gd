@@ -1,12 +1,9 @@
-extends Node
+extends Resource
 
-@export var state: SaveResource
+class_name SaveResource
 
-func _ready():
-	if !ResourceLoader.exists("user://save.res"):
-		return
-
-	state = ResourceLoader.load("user://save.res")
-
-func save():
-	ResourceSaver.save(state, "user://save.res")
+@export var character_position: Vector3
+@export var camera_data: SaveCameraData
+@export var completed_quests: Array[String]
+@export var started_branches: PackedByteArray
+@export var branches_current_indexes: PackedInt64Array

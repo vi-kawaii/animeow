@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dobvasjjo75kq"]
+[gd_scene format=3 uid="uid://dobvasjjo75kq"]
 
 [ext_resource type="Script" uid="uid://bi3up8fas1iq2" path="res://quests.gd" id="1_h3s5r"]
-[ext_resource type="Script" uid="uid://c0t2nnxufct2f" path="res://quests/scripts/first_quest.gd" id="2_h3s5r"]
-[ext_resource type="Script" uid="uid://dxvbwhymt3sqb" path="res://quests/scripts/second_quest.gd" id="3_mbqog"]
-[ext_resource type="Script" uid="uid://djbnt5cao561n" path="res://quests/scripts/third_quest.gd" id="4_b7c50"]
-[ext_resource type="Script" uid="uid://dnd5sat8g0rm6" path="res://quests/scripts/fourth_quest.gd" id="5_q6qid"]
+[ext_resource type="Script" uid="uid://c0t2nnxufct2f" path="res://first_quest.gd" id="2_h3s5r"]
+[ext_resource type="Script" uid="uid://dxvbwhymt3sqb" path="res://second_quest.gd" id="3_mbqog"]
+[ext_resource type="Script" uid="uid://djbnt5cao561n" path="res://third_quest.gd" id="4_b7c50"]
+[ext_resource type="Script" uid="uid://dnd5sat8g0rm6" path="res://fourth_quest.gd" id="5_q6qid"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wukud"]
 bg_color = Color(0, 0, 0, 0.498039)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cje280mfuam3y"]
+[gd_scene format=3 uid="uid://cje280mfuam3y"]
 
-[ext_resource type="Script" uid="uid://dorcltig05jyc" path="res://save.gd" id="1_tknle"]
-[ext_resource type="Script" uid="uid://djr1umonoavpf" path="res://save/types/save.gd" id="2_8viy1"]
-[ext_resource type="Script" uid="uid://dxrb8wexs6kkt" path="res://save/types/save_camera_data.gd" id="2_hjq3a"]
+[ext_resource type="Script" uid="uid://dorcltig05jyc" path="res://save-autoload.gd" id="1_tknle"]
+[ext_resource type="Script" uid="uid://djr1umonoavpf" path="res://save.gd" id="2_8viy1"]
+[ext_resource type="Script" uid="uid://dxrb8wexs6kkt" path="res://save_camera_data.gd" id="2_hjq3a"]
 
 [sub_resource type="Resource" id="Resource_w8f4x"]
 script = ExtResource("2_hjq3a")
