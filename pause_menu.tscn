@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bg6yenihblejf"]
 
 [ext_resource type="Shader" uid="uid://c1asy48367uxc" path="res://gun-selector.gdshader" id="1_hdmo1"]
-[ext_resource type="AudioStream" uid="uid://rs8lr5kheqs6" path="res://shared_assets/music/Project_8.wav" id="1_nwcfo"]
+[ext_resource type="AudioStream" uid="uid://rs8lr5kheqs6" path="res://Project_8.wav" id="1_nwcfo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nwcfo"]
 shader = ExtResource("1_hdmo1")

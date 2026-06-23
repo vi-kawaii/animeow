@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hjle0lojenqr" path="res://game/characters/character.gd" id="1_0yiw1"]
 [ext_resource type="Texture2D" uid="uid://b84rh447swmdo" path="res://map/grass_0.png" id="1_tstai"]
-[ext_resource type="PackedScene" uid="uid://cj1tuc8cfqidf" path="res://shared_assets/models/anime-girl.glb" id="2_enj68"]
+[ext_resource type="PackedScene" uid="uid://cj1tuc8cfqidf" path="res://anime-girl.glb" id="2_enj68"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_07x0w"]
 radius = 0.15

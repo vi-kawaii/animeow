@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dy7faaepaqi1e"]
 
-[ext_resource type="PackedScene" uid="uid://wwfcs4hy1h0o" path="res://shared_assets/models/main.glb" id="1_hs5ja"]
+[ext_resource type="PackedScene" uid="uid://wwfcs4hy1h0o" path="res://main.glb" id="1_hs5ja"]
 [ext_resource type="Shader" uid="uid://3nnkmjli5whg" path="res://grass.gdshader" id="2_1e7uf"]
 [ext_resource type="Script" uid="uid://b7neaasjnidqx" path="res://map/scenes/pathes.gd" id="2_yhd5b"]
 [ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://game/characters/character-cpp.tscn" id="6_ribny"]
