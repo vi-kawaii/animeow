@@ -4,18 +4,11 @@ var continue_pressed = false
 var only_once = false
 
 func _ready():
-	if __.game_editor():
-		queue_free()
-		return
-
 	%continue.connect("pressed", func():
 		continue_pressed = true
 	)
 
 	%progress.text = "0%"
-	__.fetch_get("/counter", func(res):
-		print(res["m"])
-	)
 
 func _process(_delta):
 	if only_once:

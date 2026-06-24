@@ -29,7 +29,7 @@ func load_tracks():
 	# Фильтруем файлы по расширению .wav (или .mp3 / .ogg)
 	for file in all_files:
 		if file.ends_with(".wav") or file.ends_with(".wav.remap"):
-			music_files.append(file.get_basename()) # Получаем имя без .remap в экспортированной сборке
+			music_files.append(file.get_basename() + "." + file.get_extension()) # Получаем имя без .remap в экспортированной сборке
 
 	if music_files.size() > 0:
 		var track_path = "res://%s" % music_files[0]

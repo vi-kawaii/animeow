@@ -1,17 +1,13 @@
 extends Node
 
 var map = [
-	"res://map/scenes/main.tscn",
+	"res://main.tscn",
 ]
 var progress = []
 var loaded = 0
 var refs = []
 
 func _ready():
-	if __.game_editor():
-		queue_free()
-		return
-
 	for i in map:
 		Resources.load(i, func(res):
 			var n = res.instantiate()

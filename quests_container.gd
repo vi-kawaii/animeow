@@ -1,7 +1,7 @@
 extends Node
 
 var quests = "quests.tres"
-var quests_scenes = "quests/%s.tscn"
+var quests_scenes = "%s.tscn"
 
 var current_quests: PackedStringArray
 var current_quest: String
