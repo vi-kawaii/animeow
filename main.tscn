@@ -1,0 +1,173 @@
+[gd_scene format=4 uid="uid://dy7faaepaqi1e"]
+
+[ext_resource type="PackedScene" uid="uid://wwfcs4hy1h0o" path="res://main.glb" id="1_hs5ja"]
+[ext_resource type="Shader" uid="uid://3nnkmjli5whg" path="res://grass.gdshader" id="2_1e7uf"]
+[ext_resource type="Script" uid="uid://b7neaasjnidqx" path="res://pathes.gd" id="2_yhd5b"]
+[ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://character-cpp.tscn" id="6_ribny"]
+[ext_resource type="PackedScene" uid="uid://c1ppw0k50ldr" path="res://point.tscn" id="8_3vpxy"]
+[ext_resource type="Script" uid="uid://du0wujifdx61b" path="res://load_unload_area.gd" id="8_aimtu"]
+[ext_resource type="PackedScene" uid="uid://cnn65mxe3bcre" path="res://grass_container_test_map.tscn" id="8_vdq8k"]
+[ext_resource type="PackedScene" uid="uid://72q7m6lj1era" path="res://vehicle-cpp.tscn" id="9_3vpxy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2abi8"]
+radius = 2.8009274
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aimtu"]
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4cf0s"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u2g6m"]
+noise = SubResource("FastNoiseLite_4cf0s")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oka11"]
+render_priority = 0
+shader = ExtResource("2_1e7uf")
+shader_parameter/top_color = Color(0.215686, 0.956863, 0.215686, 0)
+shader_parameter/bottom_color = Color(0.215686, 0.956863, 0.215686, 0)
+shader_parameter/ambient_occlusion_factor = 0.3
+shader_parameter/specular_strength = 0.4
+shader_parameter/player_displacement_strength = 0.4
+shader_parameter/player_displacement_size = 1.0
+shader_parameter/wind_direction = Vector3(0.01, 0.01, 0.01)
+shader_parameter/wind_strength = 0.3
+shader_parameter/wind_noise = SubResource("NoiseTexture2D_u2g6m")
+shader_parameter/wind_noise_size = 0.05
+shader_parameter/wind_noise_speed = 0.1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1e7uf"]
+_surfaces = [{
+"aabb": AABB(-0.00773189, 1.69563e-06, -0.00773141, 0.0154633, 0.275032, 0.0154632),
+"format": 34896613377,
+"index_count": 168,
+"index_data": PackedByteArray("DgABAA8AEAAPAAEADwARAA4AAQAOAAAADwAQABIAAQATABAAEQAPABQAEgAUAA8AFQAOABEAFgASABAADgAVAAYABgAAAA4AEgAWAAYAAAAGABYABgAXABIAFAASABcAFwAGABUAEAAYABYAGAAQABMAFgAHAAAABwAWABgAGQAAAAcAAAAZAAEAEwABABkABwAFABkAGQADABMAAwAZAAUAEwAIABgACAATAAMAGAAKAAcACgAYAAgABQAHAAoAAwAJAAgABQALAAMACQADAAsACgAMAAUACwAFAAwACQALABoACwAMABoADQAIAAkACAANAAoADQAJABoADAAKAA0ADAANABoAGwACAAQAGwAUAAIAFwACABQAFAAbABEAAgAXABwAAgAcAAQAFQAcABcAHQARABsAEQAdABUAHQAbAAQAHAAVAB0AHAAdAAQA"),
+"lods": [4.81323e-06, PackedByteArray("AAABAAIAAwACAAEAAgAEAAAAAgADAAQAAAAFAAEAAwABAAUABgAAAAQAAwAGAAQABgAHAAAABQAAAAcAAwAIAAYABwAGAAgAAwAJAAgABQAHAAoACAAKAAcABQALAAMACQADAAsACgAMAAUACwAFAAwACAANAAoADQAIAAkADAAKAA0ACQALAA0ACwAMAA0A")],
+"name": "Material #38",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("I8m2bSPJAADbNrZtI8kAALZtbNtIkgAASRKSJEgSAAD/f////38AAEkSkiS27QAA2rZIkiRJAABs2yRJbdsAALXtkiRIEgAA//8AAAAAAAC17ZIktu0AAAAAAAAAAAAAAAAAAP//AAD//wAA//8AANq2SJLatgAAJElIktq2AADbNrZt2zYAAJGk2raRpAAAJElIkiRJAACSJCRJkSQAAG1b2raRpAAAkaTatm1bAAAjybZt2zYAAG1b2rZtWwAAbNskSZEkAACSJCRJbdsAAP9/AAD/fwAASJJs20iSAAC2bWzbtm0AAEiSbNu2bQAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1xfpj"]
+resource_name = "grass000_grass"
+_surfaces = [{
+"aabb": AABB(-0.00773189, 1.69563e-06, -0.00773141, 0.0154633, 0.275032, 0.0154632),
+"attribute_data": PackedByteArray("I8lIkts2SJK2bZIk/38AAEkSbNts29q2te1s2wAA////////SRJs20iSkiQjyUiS/38AALXtbNsAAP////////////8AAP////8AAAAAAAC17WzbAAD//0kSbNv/////kiTattq2tm3bNkiS/38AALXtbNsAAP//SRJs2/////8kSbZt/38AANq2tm0kSbZtkaQkSZIk2rZtWyRJSJKSJCRJtm0jyUiSkaQkSW1bJEls29q2SJKSJLZtkiTatrZt2zZIkiPJSJKRpCRJkiTatm1bJEls29q2SJKSJLZtkiTatrZt2zZIkiRJtm2RpCRJkiTatm1bJEls29q2tm2SJP9//38="),
+"format": 34896613399,
+"index_count": 168,
+"index_data": PackedByteArray("IgABACMAAQAiAAAAIwAkACIAAAAlAAEAJAAjACYAJQAAAAUAJgAnACQAJwAmAAIAJwACAAMABQAEACUABAAFAAYABgAHAAQABwAGAAgAGQAaACgAGgAZACkAKAAqABkAKQAYABoAKgAoACsAGAApACwAKwAtACoALQArAC4ALQAuABsALAAWABgAFgAsABQAFAAVABYAFQAUABcALwAwACAAMAAvADEAIAAyAC8AMQAzADAAMgAgADQAMwAxADUANAA2ADIANgA0ADcANgA3ACEANQAeADMAHgA1ABwAHAAdAB4AHQAcAB8AOAA5ADoAOQA4AAsAOgA7ADgACwA8ADkAOwA6AD0APAALAD4APQAKADsACgA9AD8ACgA/AAwAPgAJADwACQA+AA0ADQAOAAkADgANAA8AEwASAEAAEgAQAEAAEQATAEAAEAARAEAA"),
+"lods": [4.81323e-06, PackedByteArray("AAABAAIAAgADAAAAAAAEAAEABAAAAAUABAAFAAYABgAHAAQABwAGAAgACQAKAAsACgAJAAwACQALAA0ADQAOAAkADgANAA8AEAARABIAEQATABIAFAAVABYAFQAUABcAFAAWABgAGAAZABQAGQAYABoAGQAaABsAHAAdAB4AHQAcAB8AHAAeACAAHAAgACEA")],
+"material": SubResource("ShaderMaterial_oka11"),
+"name": "Material #38",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 65,
+"vertex_data": PackedByteArray("I8m2bSPJJIHbNrZtI8kkgbZtbNtIkiSB/3////9/JIFJEpIktu0kgWzbJElt2ySBte2SJLbtJIEAAAAA//8kgf//AAD//ySBSRKSJEgSAcC2bWzbSJIBwNs2tm0jyQHA/3////9/AcBJEpIktu0BwAAAAAAAAAHAAAAAAP//AcD//wAAAAD/vwAAAAAAAP+///8AAP///78AAAAA////v7XtkiRIEgHA//8AAP//AcC17ZIktu0BwP//AAAAAAHAbNskSW3bAcDatkiSJEkBwCPJtm0jyQHA/3////9/AcBJEpIkSBL/////AAAAAP//te2SJEgS//8AAAAAAAD//9q2SJIkSf///3////9////atkiS2rYkgSRJSJLatiSBkaTatpGkJIGSJCRJbdskgW1b2raRpCSBSJJs20iSJIHatkiS2rYBwCPJtm3bNgHAkaTatm1bAcCRpNq2kaQBwGzbJEmRJAHASJJs27ZtAcBIkmzbSJIBwCRJSJIkSf//I8m2bds2///bNrZt2zb//21b2rZtW///bNskSZEk//+RpNq2bVv//5IkJEmRJP//tm1s27Zt//9Ikmzbtm3//yRJSJLatgHA2za2bds2AcAkSUiSJEkBwG1b2raRpAHAkiQkSZEkAcBtW9q2bVsBwJIkJElt2wHAtm1s27ZtAcD/fwAA/3//v/z//3/7//9/5v//f+b//3/7//9//v//f/v//3/+//9/////f7+Bf/y/gX/8v4F//L+Bf/y/gX/8v4F//L+Bf/wAAP9/AAD/fwAA/38AAP9/f4O/AX+DvwF/g78Bf4O/AX+DvwF/g78Bf4O/AX+DvwH/fzj+/384/v9/OP7/fzj+/384/v9/OP75//9/+f//f/r//3/+//9/+v//f+f//39/g78Bf4O/AX+DvwF/g78Bf4O/AX+DvwF/g78B/384/v9/OP7/fzj+/384/v9/OP7/fzj+/384/v9/OP7/fzj+v4F//L+Bf/y/gX/8v4F//L+Bf/y/gX/8v4F//L+Bf/wAAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1e7uf")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_aimtu"]
+radius = 1.0
+
+[node name="main" unique_id=2109431051 instance=ExtResource("1_hs5ja")]
+process_mode = 4
+
+[node name="test2" type="Area3D" parent="." index="0" unique_id=591703662]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.088144, 0)
+script = ExtResource("8_aimtu")
+resource_name = "res://test2.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test2" index="0" unique_id=456429373]
+shape = SubResource("SphereShape3D_2abi8")
+
+[node name="pathes" type="Node3D" parent="." index="1" unique_id=920470981]
+script = ExtResource("2_yhd5b")
+
+[node name="first" type="Node3D" parent="pathes" index="0" unique_id=1343683289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.2611)
+
+[node name="Node3D" parent="pathes/first" index="0" unique_id=1143579707 instance=ExtResource("8_3vpxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.519, 0, -5.865)
+
+[node name="Node3D2" parent="pathes/first" index="1" unique_id=180728394 instance=ExtResource("8_3vpxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="Node3D3" parent="pathes/first" index="2" unique_id=2097537253 instance=ExtResource("8_3vpxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19254, 1.29944, -11.4457)
+
+[node name="Node3D4" parent="pathes/first" index="3" unique_id=1525970275 instance=ExtResource("8_3vpxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04763, 0, -14.7532)
+
+[node name="Node3D5" parent="pathes/first" index="4" unique_id=403209650 instance=ExtResource("8_3vpxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.460237, 0, -16.0102)
+
+[node name="Node3D7" parent="pathes/first" index="5" unique_id=753938065 instance=ExtResource("8_3vpxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.143146, 0, -17.2342)
+
+[node name="Node3D8" parent="pathes/first" index="6" unique_id=303244200 instance=ExtResource("8_3vpxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70401, 0, -18.125)
+
+[node name="Node3D9" parent="pathes/first" index="7" unique_id=1241103208 instance=ExtResource("8_3vpxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74837, 0, -17.3741)
+
+[node name="Plane001" parent="." index="2" unique_id=372493042]
+gi_mode = 0
+gi_lightmap_texel_scale = 0.01
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3" unique_id=530477134]
+visible = false
+mesh = SubResource("PlaneMesh_aimtu")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="4" unique_id=155450933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68621, 2.19764, 0)
+visible = false
+mesh = SubResource("ArrayMesh_1xfpj")
+
+[node name="Plane002" parent="." index="5" unique_id=1763075299]
+gi_mode = 0
+gi_lightmap_texel_scale = 0.01
+
+[node name="Plane003" parent="." index="6" unique_id=1940583384]
+gi_mode = 0
+gi_lightmap_texel_scale = 0.01
+
+[node name="Plane004" parent="." index="7" unique_id=226882795]
+gi_mode = 0
+gi_lightmap_texel_scale = 0.01
+
+[node name="Vehicle2" parent="." index="8" unique_id=2018747658 instance=ExtResource("9_3vpxy")]
+transform = Transform3D(0.9997995, -0.019739509, 0.0033854044, 0.019713271, 0.9997767, 0.007615968, -0.003534984, -0.007547703, 0.9999653, 5.121695, 2.5689626, 14.733358)
+sleeping = true
+linear_velocity = Vector3(-0.0012109182, -3.427267e-06, -0.00042854747)
+angular_velocity = Vector3(-1.0139246e-06, 0.00017768904, 5.323342e-06)
+path = "first"
+
+[node name="vehicle_simple" type="Area3D" parent="Vehicle2" index="11" unique_id=2089389925]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vehicle2/vehicle_simple" index="0" unique_id=1353562211]
+shape = SubResource("SphereShape3D_aimtu")
+
+[node name="enemy_Character" parent="." index="9" unique_id=1120130028 instance=ExtResource("6_ribny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27484, 1.65979, 15.0049)
+path = "first"
+
+[node name="dialog_start_start" type="Area3D" parent="enemy_Character" index="7" unique_id=1456581878]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_Character/dialog_start_start" index="0" unique_id=93729708]
+shape = SubResource("SphereShape3D_aimtu")
+
+[node name="cameras" type="Node3D" parent="enemy_Character/dialog_start_start" index="1" unique_id=2080354772]
+
+[node name="0" type="Camera3D" parent="enemy_Character/dialog_start_start/cameras" index="0" unique_id=950408998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5669348, 0.9418907)
+
+[node name="1" type="Camera3D" parent="enemy_Character/dialog_start_start/cameras" index="1" unique_id=471681131]
+transform = Transform3D(-0.99805003, 0, 0.062419087, 0, 1, 0, -0.062419087, 0, -0.99805003, 0, 0.5669348, -1.4636593)
+
+[node name="map" parent="." index="10" unique_id=1234827366]
+layers = 524288
+
+[node name="grass_container" parent="." index="15" unique_id=620169403 instance=ExtResource("8_vdq8k")]

@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bmc1y3u00umfn"]
+
+[ext_resource type="Script" uid="uid://hjle0lojenqr" path="res://character.gd" id="1_0yiw1"]
+[ext_resource type="Texture2D" uid="uid://b84rh447swmdo" path="res://grass_0.png" id="1_tstai"]
+[ext_resource type="PackedScene" uid="uid://cj1tuc8cfqidf" path="res://anime-girl.glb" id="2_enj68"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_07x0w"]
+radius = 0.15
+height = 1.1337891
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ok8sp"]
+radius = 1.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_omfh7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tstai"]
+shading_mode = 0
+albedo_color = Color(0.98570436, 0, 0.31679937, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0yiw1"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_pmkg1"]
+radius = 0.125
+height = 0.25
+radial_segments = 4
+rings = 1
+
+[node name="character" type="CharacterBody3D" unique_id=647663076]
+script = ExtResource("1_0yiw1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1356827343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16455078, 0)
+shape = SubResource("CapsuleShape3D_07x0w")
+
+[node name="MeshInstance3D" parent="." unique_id=1975046171 instance=ExtResource("2_enj68")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.805, 0)
+
+[node name="area" type="Area3D" parent="." unique_id=1862574746]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area" unique_id=728324941]
+shape = SubResource("SphereShape3D_ok8sp")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=159670194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5729982, 0)
+visible = false
+billboard = 1
+texture_filter = 0
+texture = SubResource("ViewportTexture_omfh7")
+region_rect = Rect2(0, 0, 49.649128, 4)
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1697659957]
+anisotropic_filtering_level = 0
+size = Vector2i(66, 6)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport" unique_id=895844836]
+
+[node name="Polygon2D2" type="Polygon2D" parent="SubViewport/CanvasLayer" unique_id=1902391737]
+color = Color(0.17641911, 0.1764191, 0.1764191, 1)
+polygon = PackedVector2Array(66, 0, 66, 10, 0, 10, 0, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="SubViewport/CanvasLayer" unique_id=278536488]
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(65, 1, 65, 5, 1, 5, 1, 1)
+uv = PackedVector2Array(65, 1, 65, 5, 1, 5, 1, 1)
+vertex_colors = PackedColorArray(0, 1, 0.7176471, 1, 0, 1, 0.7166667, 1, 0, 1, 0, 1, 0, 1, 0, 1)
+
+[node name="Polygon2D3" type="Polygon2D" parent="SubViewport/CanvasLayer" unique_id=1935484943]
+color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+polygon = PackedVector2Array(65, 1, 65, 5, 65, 5, 65, 1)
+uv = PackedVector2Array(65, 1, 65, 5, 1, 5, 1, 1)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=2053552343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6493795, 0)
+material_override = SubResource("StandardMaterial3D_tstai")
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_0yiw1")
+draw_pass_1 = SubResource("SphereMesh_pmkg1")
+
+[node name="Marker" type="Sprite3D" parent="." unique_id=1194353066]
+visible = false
+layers = 524288
+pixel_size = 0.0005
+billboard = 1
+no_depth_test = true
+fixed_size = true
+texture_filter = 0
+texture = ExtResource("1_tstai")

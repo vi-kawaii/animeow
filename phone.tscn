@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://ltp2hunttw6v" path="res://music_screen.gd" id="6_tpglx"]
 [ext_resource type="Script" uid="uid://ctjcf4gqtjws3" path="res://camera_screen.gd" id="6_vuhsr"]
 [ext_resource type="Texture2D" uid="uid://dwkf8et3ujdse" path="res://map-mask.png" id="7_idgle"]
-[ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://game/characters/character-cpp.tscn" id="9_th6ti"]
+[ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://character-cpp.tscn" id="9_th6ti"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hfnv5"]
 

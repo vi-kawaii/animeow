@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnn65mxe3bcre"]
 
-[ext_resource type="PackedScene" uid="uid://ct5d7o2tyk4k0" path="res://map/common/grass.tscn" id="1_pqt1y"]
+[ext_resource type="PackedScene" uid="uid://ct5d7o2tyk4k0" path="res://grass.tscn" id="1_pqt1y"]
 
 [node name="grass_container" type="Node3D" unique_id=620169403]
 

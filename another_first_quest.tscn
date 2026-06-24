@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8iujh2mb2p5u"]
 
-[ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://game/characters/character-cpp.tscn" id="1_nww52"]
+[ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://character-cpp.tscn" id="1_nww52"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ribny"]
 radius = 1.0

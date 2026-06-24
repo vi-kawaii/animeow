@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwjl6s7utsns0"
-path.s3tc="res://.godot/imported/example_Map #9-Map #9.png-2a194d063a592b7591b919ba00f62425.s3tc.ctex"
+uid="uid://1fmrxu1fhbfq"
+path.s3tc="res://.godot/imported/grass000_1.png-7230bc892ff5c4cad3014713e0bfd268.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "f342f7c374077e6f8d61485b39483948"
+"md5": "144b77fe64ef3e560eb13c55ed105bd0"
 }
 
 [deps]
 
-source_file="res://example_Map #9-Map #9.png"
-dest_files=["res://.godot/imported/example_Map #9-Map #9.png-2a194d063a592b7591b919ba00f62425.s3tc.ctex"]
+source_file="res://grass000_1.png"
+dest_files=["res://.godot/imported/grass000_1.png-7230bc892ff5c4cad3014713e0bfd268.s3tc.ctex"]
 
 [params]
 
