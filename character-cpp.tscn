@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b84rh447swmdo" path="res://grass_0.png" id="1_tstai"]
 [ext_resource type="Script" uid="uid://o57mgsbackma" path="res://shooter_component.gd" id="2_7o71t"]
 [ext_resource type="PackedScene" uid="uid://cj1tuc8cfqidf" path="res://anime-girl.glb" id="2_enj68"]
+[ext_resource type="Script" uid="uid://cnju60vtr05rh" path="res://health_component.gd" id="3_wbl31"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_07x0w"]
 radius = 0.15
@@ -27,12 +28,18 @@ radial_segments = 4
 rings = 1
 
 [node name="character" type="CharacterBody3D" unique_id=647663076]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_0yiw1")
 
 [node name="shooter_component" type="Node" parent="." unique_id=1296738647]
 script = ExtResource("2_7o71t")
 
 [node name="shoot_from" type="Marker3D" parent="." unique_id=1969340315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.045018643, 0.5694993, 0.11457908)
+
+[node name="health_component" type="Node" parent="." unique_id=827756477]
+script = ExtResource("3_wbl31")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1356827343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16455078, 0)

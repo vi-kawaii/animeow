@@ -80,7 +80,7 @@ script = ExtResource("7_nq13x")
 data = Array[ExtResource("6_ok8sp")]([SubResource("Resource_ok8sp"), SubResource("Resource_nq13x"), SubResource("Resource_wmg30"), SubResource("Resource_fjvw4"), SubResource("Resource_ut6b4"), SubResource("Resource_hil0g"), SubResource("Resource_4wxfw"), SubResource("Resource_85y2a")])
 metadata/_custom_type_script = "uid://r532atlrdfim"
 
-[node name="player" type="Node" unique_id=122498428]
+[node name="player" type="Node" unique_id=122498428 groups=["player"]]
 process_mode = 4
 script = ExtResource("1_ptgk6")
 

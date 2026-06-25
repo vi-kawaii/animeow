@@ -86,14 +86,25 @@ func set_gun(g):
 func _ready():
 	interactable_objects.append("Vehicle")
 	player = get_node("character")
-
 	player.set_is_player(true)
 	player.set_position(Save.state.character_position)
+
+	# Настройка слоев и масок для игрока
+	# Сначала сбрасываем все слои, чтобы включить только нужные
+	for i in range(1, 33):
+		player.set_collision_layer_value(i, false)
+		player.set_collision_mask_value(i, false)
+
+	# Layer 2: Player (кем является игрок)
+	player.set_collision_layer_value(2, true)
+
+	# Mask 1 (World) и 3 (Enemies) (обо что бьется ногами)
+	player.set_collision_mask_value(1, true)
+	player.set_collision_mask_value(3, true)
+
 	current_camera_target = player
 	crosshair = get_node("Crosshair")
-
 	get_node("character/Marker").set_visible(true)
-
 	camera = %camera
 
 func timer_timeout():
@@ -133,6 +144,8 @@ func _process(_delta):
 			#player.get().hit()
 
 	input()
+
+	crosshair.set_visible(true)
 
 func interact_with_bodies():
 	return is_body_to_interact and is_interact_key_pressed
