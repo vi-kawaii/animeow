@@ -138,6 +138,9 @@ func interact_with_bodies():
 	return is_body_to_interact and is_interact_key_pressed
 
 func input():
+	if Input.is_action_pressed("shoot"):
+		player.get_node("shooter_component").fire()
+
 	if Input.is_action_just_pressed("run"):
 		if is_running:
 			is_running = false

@@ -204,9 +204,6 @@ func _physics_process(delta):
 		position.y = swim_height
 	move_and_slide()
 
-	if Input.is_action_just_pressed("shoot"):
-		$shooter_component.fire()
-
 func _process(delta):
 	passed_time += delta
 
