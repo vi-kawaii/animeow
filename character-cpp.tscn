@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hjle0lojenqr" path="res://character.gd" id="1_0yiw1"]
 [ext_resource type="Texture2D" uid="uid://b84rh447swmdo" path="res://grass_0.png" id="1_tstai"]
+[ext_resource type="Script" uid="uid://o57mgsbackma" path="res://shooter_component.gd" id="2_7o71t"]
 [ext_resource type="PackedScene" uid="uid://cj1tuc8cfqidf" path="res://anime-girl.glb" id="2_enj68"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_07x0w"]
@@ -27,6 +28,11 @@ rings = 1
 
 [node name="character" type="CharacterBody3D" unique_id=647663076]
 script = ExtResource("1_0yiw1")
+
+[node name="shooter_component" type="Node" parent="." unique_id=1296738647]
+script = ExtResource("2_7o71t")
+
+[node name="shoot_from" type="Marker3D" parent="." unique_id=1969340315]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1356827343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16455078, 0)
