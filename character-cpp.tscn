@@ -5,6 +5,22 @@
 [ext_resource type="Script" uid="uid://o57mgsbackma" path="res://shooter_component.gd" id="2_7o71t"]
 [ext_resource type="PackedScene" uid="uid://cj1tuc8cfqidf" path="res://anime-girl.glb" id="2_enj68"]
 [ext_resource type="Script" uid="uid://cnju60vtr05rh" path="res://health_component.gd" id="3_wbl31"]
+[ext_resource type="Script" uid="uid://bl7064gmhwrka" path="res://effects_component.gd" id="4_5u4o1"]
+[ext_resource type="AudioStream" uid="uid://rs8lr5kheqs6" path="res://Project_8.wav" id="5_q8r5k"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q8r5k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4ywm"]
+shading_mode = 0
+albedo_color = Color(1, 0.4117647, 0.5529412, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_3jltw"]
+material = SubResource("StandardMaterial3D_b4ywm")
+size = Vector2(0.2, 0.2)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_07x0w"]
 radius = 0.15
@@ -40,6 +56,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.045018643, 0.5694993, 0.114
 
 [node name="health_component" type="Node" parent="." unique_id=827756477]
 script = ExtResource("3_wbl31")
+
+[node name="effects_component" type="Node" parent="." unique_id=1109249570]
+script = ExtResource("4_5u4o1")
+shoot_sound = ExtResource("5_q8r5k")
+
+[node name="effect_from" type="GPUParticles3D" parent="." unique_id=1570228744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28240165, 0.5919526, 0)
+emitting = false
+lifetime = 0.15000000000000002
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_q8r5k")
+draw_pass_1 = SubResource("QuadMesh_3jltw")
+
+[node name="effect_audio" type="AudioStreamPlayer3D" parent="." unique_id=1833425089]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1356827343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16455078, 0)

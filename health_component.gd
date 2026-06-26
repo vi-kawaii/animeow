@@ -11,7 +11,7 @@ func damage(dmg):
 	health = max(0, health - dmg)
 
 	if health == 0:
-		die()
+		_die()
 
-func die():
+func _die():
 	get_parent().queue_free()

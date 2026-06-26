@@ -7,18 +7,25 @@ var dmg = 50
 var hit_mask = 5
 
 var shoot_from
+var effects_component
 
 var can_shoot = true
 
 func _ready():
 	shoot_from = $"../shoot_from"
+	effects_component = $"../effects_component"
 
 func fire():
 	if can_shoot:
 		can_shoot = false
 		_fire()
 
+func _effects():
+	effects_component.fire()
+
 func _fire():
+	_effects()
+
 	var space_state = shoot_from.get_world_3d().direct_space_state
 
 	# Пытаемся получить камеру (сработает только для игрока)
@@ -57,8 +64,10 @@ func _fire():
 		var hit_object = weapon_result.collider
 		print(shoot_from.get_parent().get_parent().name, " попал в ", hit_object.name)
 
-		if hit_object.has_method("damage"):
-			hit_object.damage(dmg)
+		var health_component = hit_object.get_node("health_component")
+
+		if health_component:
+			health_component.damage(dmg)
 
 	await get_tree().create_timer(rate).timeout
 	can_shoot = true
