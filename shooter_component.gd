@@ -1,10 +1,10 @@
 extends Node
 
 var rate = .5
-var ray_length = 100
+var ray_length = 1000
 var dmg = 50
 
-var hit_mask = 1
+var hit_mask = 5
 
 var shoot_from
 
@@ -22,13 +22,13 @@ func _fire():
 	var space_state = shoot_from.get_world_3d().direct_space_state
 
 	# Пытаемся получить камеру (сработает только для игрока)
-	var camera = get_tree().root.get_camera_3d()
+	var camera = Player.camera
 
 	var target_point: Vector3
 
 	# ЛОГИКА ДЛЯ ИГРОКА (ЧЕРЕЗ КАМЕРУ)
 	# Проверяем, управляет ли этим скриптом игрок (есть камера и это не бот)
-	if camera and shoot_from.get_parent().is_in_group("player"):
+	if camera and shoot_from.get_parent().get_parent().is_in_group("player"):
 		var screen_center = get_viewport().size / 2
 		var cam_ray_start = camera.project_ray_origin(screen_center)
 		var cam_ray_end = cam_ray_start + camera.project_ray_normal(screen_center) * ray_length
@@ -55,7 +55,7 @@ func _fire():
 
 	if weapon_result:
 		var hit_object = weapon_result.collider
-		print(shoot_from.get_parent().name, " попал в ", hit_object.name)
+		print(shoot_from.get_parent().get_parent().name, " попал в ", hit_object.name)
 
 		if hit_object.has_method("damage"):
 			hit_object.damage(dmg)
