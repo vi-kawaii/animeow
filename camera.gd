@@ -1,5 +1,10 @@
 extends Camera3D
 
+# --- НАСТРОЙКИ КАМЕРЫ (меняйте эти значения) ---
+var camera_distance  = 0.7  # Дистанция: насколько далеко сзади персонажа летит камера
+var shoulder_offset  = 0.5  # Смещение плеча: > 0 (вправо), < 0 (влево), 0 (строго по центру)
+var camera_height    = 0.7  # Высота: насколько выше центра персонажа находится камера
+
 var target_position
 var radius
 
@@ -84,8 +89,18 @@ func _process(_delta):
 		if target_position:
 			look_at(target_position, Vector3(0.0, 1.0, 0.0))
 
-	if is_aim_mode:
-		position = position + basis.x * 0.3 + -basis.z * 1.4 + Vector3(0, 0.2, 0) + basis.x * 0.2
+	# --- РАСЧЕТ ДЕЛЬТЫ (неизменяемый код) ---
+	# 1. Сдвиг назад (по вектору -basis.z)
+	var backward_delta = -basis.z * camera_distance
+
+	# 2. Сдвиг вбок (по вектору basis.x)
+	var side_delta     = basis.x * shoulder_offset
+
+	# 3. Сдвиг вверх (по мировой оси Y)
+	var up_delta       = Vector3(0, camera_height, 0)
+
+	# --- ИТОГОВАЯ СТРОКА ---
+	position = position + side_delta + backward_delta + up_delta
 
 func set_target_position(t):
 	target_position = t
