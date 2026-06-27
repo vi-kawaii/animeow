@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cgynou01au3qf"]
+
+[ext_resource type="Script" uid="uid://50c6gi8ldxm" path="res://bullet_decals_pool.gd" id="1_ldbfx"]
+
+[node name="Node3D" type="Node3D" unique_id=1343432551]
+script = ExtResource("1_ldbfx")

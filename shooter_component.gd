@@ -64,6 +64,8 @@ func _fire():
 		var hit_object = weapon_result.collider
 		print(shoot_from.get_parent().get_parent().name, " попал в ", hit_object.name)
 
+		BulletDecalsPool.create(weapon_result.position, weapon_result.normal)
+
 		var health_component = hit_object.get_node("health_component")
 
 		if health_component:
