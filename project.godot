@@ -21,7 +21,6 @@ boot_splash/use_filter=false
 
 [autoload]
 
-Ready="*uid://hkrln7ftupt5"
 __="*res://utils.tscn"
 FpsCounter="*res://fps_counter.tscn"
 Save="*res://save.tscn"
@@ -34,11 +33,12 @@ Water="*res://water.tscn"
 Dialogs="*res://dialogs.tscn"
 Vehicles="*res://vehicles.gd"
 Resources="*res://resources.gd"
-Pathes="*res://map/scenes/pathes.gd"
+Pathes="*res://pathes.gd"
 Phone="res://phone.tscn"
 Quests="*res://quests_container.tscn"
 Log="*uid://bjp74tcnt5m0r"
 DialogCameras="*uid://3brq14rl7bpg"
+BulletDecalsPool="*uid://cgynou01au3qf"
 
 [dialogue_manager]
 
@@ -57,6 +57,10 @@ window/vsync/vsync_mode=0
 [filesystem]
 
 import/blender/enabled=false
+
+[global_group]
+
+player=""
 
 [input]
 
@@ -216,6 +220,12 @@ skip_dialog={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+3d_physics/layer_1="world"
+3d_physics/layer_2="player"
+3d_physics/layer_3="enemies"
 
 [quest_system]
 
