@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://cbwso00srmj24"]
 
 [ext_resource type="Script" uid="uid://t6lruv7k2bmq" path="res://bullet_decal_template.gd" id="1_y1h2v"]
+[ext_resource type="Texture2D" uid="uid://x368jf04s3pa" path="res://bullet_hole.png" id="2_abkk1"]
 
 [node name="Node3D" type="Node3D" unique_id=304576541]
 script = ExtResource("1_y1h2v")
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=274817881]
+[node name="Decal" type="Decal" parent="." unique_id=443492041]
+size = Vector3(0.2, 0.2, 0.2)
+texture_albedo = ExtResource("2_abkk1")
 
 [node name="effect_from" type="GPUParticles3D" parent="." unique_id=366307928]

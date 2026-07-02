@@ -1,7 +1,16 @@
 extends Node3D
 
+var die_after = 3.
+
+var timer
+
 func _ready():
 	visible = false
+
+	timer = Timer.new()
+	add_child(timer)
+	timer.one_shot = true
+	timer.timeout.connect(_die)
 
 func impact():
 	_decal()
@@ -19,8 +28,8 @@ func _effects():
 
 func _run_timer_to_die():
 	print("some timer to delete decal")
-	_die()
+	timer.start(die_after)
 
 func _die():
-	visible = false
 	print("decal animated and deactivated")
+	visible = false

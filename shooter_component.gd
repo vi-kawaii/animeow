@@ -66,7 +66,7 @@ func _fire():
 
 		BulletDecalsPool.create(weapon_result.position, weapon_result.normal)
 
-		var health_component = hit_object.get_node("health_component")
+		var health_component = hit_object.get_node_or_null("health_component")
 
 		if health_component:
 			health_component.damage(dmg)
