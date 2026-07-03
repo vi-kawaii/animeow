@@ -11,8 +11,8 @@ var recoil_side: float = 0.02
 var recoil_snap: float = 10.0
 
 # Настройки увода ствола вверх при зажиме (Progressive Recoil)
-var progressive_recoil_up: float = 0.02 # На сколько уводит цель выше с каждым выстрелом
-var progressive_recovery: float = 8.0     # Скорость возврата увода назад
+var progressive_recoil_up: float = 0.04 # На сколько уводит цель выше с каждым выстрелом
+var progressive_recovery: float = 5.0     # Скорость возврата увода назад
 
 var current_spread: float = 0.0
 var bot_virtual_recoil: float = 0.0
@@ -21,7 +21,7 @@ var bot_virtual_recoil: float = 0.0
 var recoil_vector: Vector3 = Vector3.ZERO
 var progressive_recoil_offset: float = 0.0 # Накопленный увод для игрока
 
-var rate = .5
+var rate = .07
 var ray_length = 1000
 var dmg = 50
 
