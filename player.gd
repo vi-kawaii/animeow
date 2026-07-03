@@ -83,6 +83,8 @@ func set_is_input_ignored(a):
 func set_gun(g):
 	player.set_gun(g)
 
+var shooter_component
+
 func _ready():
 	interactable_objects.append("Vehicle")
 	player = get_node("character")
@@ -107,6 +109,8 @@ func _ready():
 	get_node("character/Marker").set_visible(true)
 	camera = %camera
 
+	shooter_component = player.get_node("shooter_component")
+
 func timer_timeout():
 	shooted = false
 
@@ -116,7 +120,8 @@ func _process(_delta):
 
 	RenderingServer.global_shader_parameter_set("player_position", player.get_global_position())
 	Save.state.character_position = player.get_global_position()
-	%camera.set_target_position(current_camera_target.get_global_position())
+	_process_shoot(_delta)
+	#%camera.set_target_position(current_camera_target.get_global_position())
 	set_player_direction_relative_to_camera()
 
 	if Input.is_action_just_pressed("aim") and $gun_selector.is_gun_selected and not $gun_selector.is_selector_mode:
@@ -150,9 +155,45 @@ func _process(_delta):
 func interact_with_bodies():
 	return is_body_to_interact and is_interact_key_pressed
 
+var camera_recoil_offset: Vector3 = Vector3.ZERO
+var camera_recoil_speed: float = 20.0
+
+func _process_shoot(delta):
+	var shooter = shooter_component
+	var current_progressive_up: float = 0.0
+
+	if shooter:
+		# 1. Забираем мгновенную вспышку тряски (отрабатывает один раз за выстрел)
+		if shooter.recoil_vector != Vector3.ZERO:
+			camera_recoil_offset += shooter.recoil_vector
+			shooter.recoil_vector = Vector3.ZERO
+
+		# 2. Считываем текущее значение постоянного увода вверх при зажиме
+		current_progressive_up = shooter.progressive_recoil_offset
+
+	# Плавное сглаживание мгновенной тряски
+	camera_recoil_offset = lerp(camera_recoil_offset, Vector3.ZERO, camera_recoil_speed * delta)
+
+	# Собираем финальную позицию цели
+	var final_target_pos = current_camera_target.get_global_position()
+
+	# Складываем мгновенную тряску (X и Y) и прогрессивный увод вверх (добавляется к Y)
+	var total_recoil = camera_recoil_offset
+	total_recoil.y += current_progressive_up
+
+	# Переводим в локальные координаты вашей цели
+	var local_offset = current_camera_target.global_transform.basis * total_recoil
+	final_target_pos += local_offset
+
+	# Ваша родная строчка
+	%camera.set_target_position(final_target_pos)
+
+func _shoot():
+	shooter_component.fire()
+
 func input():
 	if Input.is_action_pressed("shoot"):
-		player.get_node("shooter_component").fire()
+		_shoot()
 
 	if Input.is_action_just_pressed("run"):
 		if is_running:
