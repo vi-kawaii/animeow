@@ -2,6 +2,12 @@ extends Node
 
 var is_bot: bool = false
 
+var max_clip: int = 30          # Размер обоймы
+var current_clip: int = 30      # Патроны в обойме
+var total_ammo: int = 90        # Всего патронов в запасе
+var reload_timer: Timer         # Наш таймер перезарядки
+var reload_time: float = 2.0    # Длительность перезарядки обоймы
+
 var max_spread: float = 0.08
 var spread_per_shot: float = 0.01
 var spread_recovery: float = 0.06
@@ -36,6 +42,12 @@ func _ready():
 	shoot_from = $"../shoot_from"
 	effects_component = $"../effects_component"
 
+	reload_timer = Timer.new()
+	add_child(reload_timer)
+	reload_timer.wait_time = reload_time
+	reload_timer.one_shot = true
+	reload_timer.timeout.connect(_on_reload_timeout)
+
 func _process(delta):
 	# Восстановление разброса
 	current_spread = max(current_spread - spread_recovery * delta, 0.0)
@@ -47,9 +59,35 @@ func _process(delta):
 		progressive_recoil_offset = max(progressive_recoil_offset - progressive_recovery * delta, 0.0)
 
 func fire():
-	if can_shoot:
+	# Стреляем, только если пушка готова И в обойме есть патроны
+	if can_shoot and current_clip > 0:
 		can_shoot = false
+		current_clip -= 1
 		_fire()
+
+		# Если это был последний патрон, автоматически уходим на перезарядку
+		if current_clip == 0:
+			_reload()
+		else:
+			# Обычный темп стрельбы между выстрелами через await, как у вас и было
+			await get_tree().create_timer(rate).timeout
+			can_shoot = true
+
+func _reload():
+	# Перезаряжаемся, если обойма не полная, есть патроны в запасе и мы еще не перезаряжаемся
+	if current_clip < max_clip and total_ammo > 0 and reload_timer.is_stopped():
+		can_shoot = false # Блокируем стрельбу на время перезарядки
+		reload_timer.start()
+		print("Перезарядка обоймы началась...")
+
+func _on_reload_timeout():
+	var needed_ammo = max_clip - current_clip
+	var transfer = min(needed_ammo, total_ammo)
+
+	current_clip += transfer
+	total_ammo -= transfer
+	can_shoot = true # Снова разрешаем стрелять
+	print("Перезарядка окончена. Патронов: ", current_clip, "/", total_ammo)
 
 func _effects():
 	effects_component.fire()
@@ -142,5 +180,5 @@ func _fire():
 		if health_component:
 			health_component.damage(dmg)
 
-	await get_tree().create_timer(rate).timeout
-	can_shoot = true
+	#await get_tree().create_timer(rate).timeout
+	#can_shoot = true
