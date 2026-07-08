@@ -69,8 +69,9 @@ func fire():
 	if can_shoot and current_clip > 0:
 		can_shoot = false
 		current_clip -= 1
+		total_ammo -= 1
 		_fire()
-		_update_ui_callback(current_clip, max_clip)
+		_update_ui_callback(current_clip, total_ammo)
 
 		# Если это был последний патрон, автоматически уходим на перезарядку
 		if current_clip == 0:
@@ -95,7 +96,7 @@ func _on_reload_timeout():
 	var transfer = min(needed_ammo, total_ammo)
 
 	current_clip += transfer
-	total_ammo -= transfer
+	#total_ammo -= transfer
 	can_shoot = true # Снова разрешаем стрелять
 	print("Перезарядка окончена. Патронов: ", current_clip, "/", total_ammo)
 

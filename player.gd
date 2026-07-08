@@ -112,7 +112,12 @@ func _ready():
 	shooter_component = player.get_node("shooter_component")
 	shooter_component.register_update_ui_callback(func(cur, tot):
 		%current_ammo.text = str(cur)
-		%total_ammo.text = str(tot)
+		%total_ammo.text = str(tot - cur)
+		print(cur, "/", tot - cur)
+
+		# Подсветка пустых значений
+		%current_ammo.modulate = Color.RED if cur <= 5 else Color.WHITE
+		%total_ammo.modulate = Color.RED if tot - cur == 0 else Color.WHITE
 	)
 
 func timer_timeout():
