@@ -110,6 +110,10 @@ func _ready():
 	camera = %camera
 
 	shooter_component = player.get_node("shooter_component")
+	shooter_component.register_update_ui_callback(func(cur, tot):
+		%current_ammo.text = str(cur)
+		%total_ammo.text = str(tot)
+	)
 
 func timer_timeout():
 	shooted = false

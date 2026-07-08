@@ -1,5 +1,7 @@
 extends Node
 
+var update_ui_callback = func(): pass
+
 var is_bot: bool = false
 
 var max_clip: int = 30          # Размер обоймы
@@ -58,12 +60,17 @@ func _process(delta):
 	else:
 		progressive_recoil_offset = max(progressive_recoil_offset - progressive_recovery * delta, 0.0)
 
+func register_update_ui_callback(f):
+	update_ui_callback = f
+	f.call(current_clip, total_ammo)
+
 func fire():
 	# Стреляем, только если пушка готова И в обойме есть патроны
 	if can_shoot and current_clip > 0:
 		can_shoot = false
 		current_clip -= 1
 		_fire()
+		_update_ui_callback(current_clip, max_clip)
 
 		# Если это был последний патрон, автоматически уходим на перезарядку
 		if current_clip == 0:
@@ -72,6 +79,9 @@ func fire():
 			# Обычный темп стрельбы между выстрелами через await, как у вас и было
 			await get_tree().create_timer(rate).timeout
 			can_shoot = true
+
+func _update_ui_callback(cur, tot):
+	update_ui_callback.call(cur, tot)
 
 func _reload():
 	# Перезаряжаемся, если обойма не полная, есть патроны в запасе и мы еще не перезаряжаемся
@@ -88,6 +98,8 @@ func _on_reload_timeout():
 	total_ammo -= transfer
 	can_shoot = true # Снова разрешаем стрелять
 	print("Перезарядка окончена. Патронов: ", current_clip, "/", total_ammo)
+
+	_update_ui_callback(current_clip, total_ammo)
 
 func _effects():
 	effects_component.fire()
