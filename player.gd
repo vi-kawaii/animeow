@@ -200,9 +200,15 @@ func _process_shoot(delta):
 func _shoot():
 	shooter_component.fire()
 
+func _reload():
+	shooter_component.reload()
+
 func input():
 	if Input.is_action_pressed("shoot"):
 		_shoot()
+
+	if Input.is_action_just_pressed("reload"):
+		_reload()
 
 	if Input.is_action_just_pressed("run"):
 		if is_running:

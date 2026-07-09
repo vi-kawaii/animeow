@@ -84,6 +84,9 @@ func fire():
 func _update_ui_callback(cur, tot):
 	update_ui_callback.call(cur, tot)
 
+func reload():
+	_reload()
+
 func _reload():
 	# Перезаряжаемся, если обойма не полная, есть патроны в запасе и мы еще не перезаряжаемся
 	if current_clip < max_clip and total_ammo > 0 and reload_timer.is_stopped():
