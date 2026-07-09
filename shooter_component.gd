@@ -1,5 +1,7 @@
 extends Node
 
+var reload_cancel_window: float = 1.2 # В течение какого времени (из 2.0 сек) перезарядку можно отменить
+
 var update_ui_callback = func(): pass
 
 var is_bot: bool = false
@@ -65,21 +67,33 @@ func register_update_ui_callback(f):
 	f.call(current_clip, total_ammo)
 
 func fire():
-	# Стреляем, только если пушка готова И в обойме есть патроны
+	# Если сейчас идет перезарядка
+	if not reload_timer.is_stopped():
+		# Рассчитываем, сколько секунд уже прошло с начала перезарядки
+		var time_passed = reload_time - reload_timer.time_left
+
+		# Прерываем, только если в обойме были патроны и время отмены еще не вышло
+		if current_clip > 0 and time_passed <= reload_cancel_window:
+			reload_timer.stop()
+			can_shoot = true
+			print("Перезарядка прервана выстрелом!")
+		else:
+			return # Если патронов 0 или уже «поздняк» — выстрел блокируется
+
+	# Логика самого выстрела
 	if can_shoot and current_clip > 0:
 		can_shoot = false
 		current_clip -= 1
-		total_ammo -= 1
 		_fire()
 		_update_ui_callback(current_clip, total_ammo)
 
-		# Если это был последний патрон, автоматически уходим на перезарядку
 		if current_clip == 0:
 			_reload()
 		else:
-			# Обычный темп стрельбы между выстрелами через await, как у вас и было
 			await get_tree().create_timer(rate).timeout
-			can_shoot = true
+			# Возвращаем возможность стрельбы, только если не началась новая перезарядка
+			if reload_timer.is_stopped():
+				can_shoot = true
 
 func _update_ui_callback(cur, tot):
 	update_ui_callback.call(cur, tot)
@@ -99,8 +113,8 @@ func _on_reload_timeout():
 	var transfer = min(needed_ammo, total_ammo)
 
 	current_clip += transfer
-	#total_ammo -= transfer
-	can_shoot = true # Снова разрешаем стрелять
+	total_ammo -= transfer # Теперь патроны корректно списываются из общего запаса
+	can_shoot = true
 	print("Перезарядка окончена. Патронов: ", current_clip, "/", total_ammo)
 
 	_update_ui_callback(current_clip, total_ammo)
