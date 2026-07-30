@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="3d"
+config/name="animeow"
 run/main_scene="uid://cbly4uese2xmx"
 run/print_header=false
 config/features=PackedStringArray("4.7", "Forward Plus")
@@ -53,6 +53,10 @@ window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
 
 [filesystem]
 

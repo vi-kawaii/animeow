@@ -14,7 +14,7 @@ var hp = 100
 var armor = 100
 var health = hp + armor
 var gun
-var swim_height = 0
+var swim_height = 0.5
 var jump_impulse = 3
 var run_speed = 1.5
 

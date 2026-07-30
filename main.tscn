@@ -72,6 +72,69 @@ shadow_mesh = SubResource("ArrayMesh_1e7uf")
 [sub_resource type="SphereShape3D" id="SphereShape3D_aimtu"]
 radius = 1.0
 
+[sub_resource type="Gradient" id="Gradient_5vw27"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kek77"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4c57u"]
+noise = SubResource("FastNoiseLite_kek77")
+color_ramp = SubResource("Gradient_5vw27")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_efxa6"]
+_shader_parameters = {
+&"bias_distance": null,
+&"blend_sharpness": null,
+&"depth_blur": null,
+&"enable_macro_variation": null,
+&"enable_projection": null,
+&"flat_terrain_normals": null,
+&"macro_variation1": null,
+&"macro_variation2": null,
+&"macro_variation_slope": null,
+&"mipmap_bias": null,
+&"noise1_angle": null,
+&"noise1_offset": null,
+&"noise1_scale": null,
+&"noise2_scale": null,
+&"noise_texture": SubResource("NoiseTexture2D_4c57u"),
+&"projection_threshold": null
+}
+show_checkered = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dg77c"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_ycdy4"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_dg77c")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_w48qg"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_ycdy4")])
+
 [node name="main" unique_id=2109431051 instance=ExtResource("1_hs5ja")]
 process_mode = 4
 
@@ -113,7 +176,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70401, 0, -18.125)
 [node name="Node3D9" parent="pathes/first" index="7" unique_id=1241103208 instance=ExtResource("8_3vpxy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74837, 0, -17.3741)
 
-[node name="Plane001" parent="." index="2" unique_id=372493042]
+[node name="Plane001" parent="." index="2" unique_id=446439427]
 gi_mode = 0
 gi_lightmap_texel_scale = 0.01
 
@@ -126,15 +189,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68621, 2.19764, 0)
 visible = false
 mesh = SubResource("ArrayMesh_1xfpj")
 
-[node name="Plane002" parent="." index="5" unique_id=1763075299]
+[node name="Plane002" parent="." index="5" unique_id=542963562]
 gi_mode = 0
 gi_lightmap_texel_scale = 0.01
 
-[node name="Plane003" parent="." index="6" unique_id=1940583384]
+[node name="Plane003" parent="." index="6" unique_id=1099941266]
 gi_mode = 0
 gi_lightmap_texel_scale = 0.01
 
-[node name="Plane004" parent="." index="7" unique_id=226882795]
+[node name="Plane004" parent="." index="7" unique_id=287655040]
 gi_mode = 0
 gi_lightmap_texel_scale = 0.01
 
@@ -167,7 +230,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5669348, 0.9418907)
 [node name="1" type="Camera3D" parent="enemy_Character/dialog_start_start/cameras" index="1" unique_id=471681131]
 transform = Transform3D(-0.99805003, 0, 0.062419087, 0, 1, 0, -0.062419087, 0, -0.99805003, 0, 0.5669348, -1.4636593)
 
-[node name="map" parent="." index="10" unique_id=1234827366]
+[node name="map" parent="." index="10" unique_id=1651059437]
 layers = 524288
 
 [node name="grass_container" parent="." index="15" unique_id=620169403 instance=ExtResource("8_vdq8k")]
+
+[node name="Terrain3D" type="Terrain3D" parent="." index="16" unique_id=909768828]
+data_directory = "res://terrain3d_data"
+material = SubResource("Terrain3DMaterial_efxa6")
+assets = SubResource("Terrain3DAssets_w48qg")
+show_checkered = true
+top_level = true
+metadata/_edit_lock_ = true
