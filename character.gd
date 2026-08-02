@@ -101,7 +101,7 @@ func _physics_process(delta):
 		if !is_on_floor():
 			set_velocity(get_velocity() + get_gravity() * delta)
 
-	if is_on_floor() or is_flying:
+	if is_on_floor() or is_flying or get_position().y <= swim_height:
 		prev_input_dir = input_dir
 		prev_basis = get_basis()
 		prev_forward = forward
@@ -197,7 +197,7 @@ func _physics_process(delta):
 		set_velocity(
 			Vector3(
 				get_velocity().x,
-				swim_height,
+				0.0, # Обнуляем вертикальную скорость, чтобы гравитация не тянула вниз
 				get_velocity().z
 			)
 		)
