@@ -43,6 +43,7 @@ PhantomCameraManager="*uid://duq6jhf6unyis"
 DialogueManager="*uid://c3rodes2l3gxb"
 BeehaveGlobalMetrics="*uid://c3ktl6ontsdt7"
 BeehaveGlobalDebugger="*uid://bl3ma400hpvsh"
+GameStateService="*uid://b1bsyj5fyb6l7"
 
 [dialogue_manager]
 
@@ -64,7 +65,7 @@ project/assembly_name="animeow"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/gdterm/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/road-generator/plugin.cfg", "res://addons/terrain_3d/plugin.cfg", "res://addons/yard/plugin.cfg")
+enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/game_state_saver/plugin.cfg", "res://addons/gdterm/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/road-generator/plugin.cfg", "res://addons/terrain_3d/plugin.cfg", "res://addons/yard/plugin.cfg")
 
 [filesystem]
 
