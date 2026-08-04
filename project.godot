@@ -239,6 +239,10 @@ reload={
 
 pointing/emulate_touch_from_mouse=true
 
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://dialogues/untitled.dialogue")
+
 [layer_names]
 
 3d_physics/layer_1="world"
