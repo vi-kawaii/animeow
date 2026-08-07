@@ -48,8 +48,12 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"character": "res://character.dch"
+}
+directories/dtl_directory={
+"timeline": "res://hello-world-timeline.dtl"
+}
 layout/style_directory={}
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -83,6 +87,10 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
+variables={}
 
 [dialogue_manager]
 

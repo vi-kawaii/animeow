@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://r12gvrept1y7"]
+
+[ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_635mf"]
+
+[resource]
+script = ExtResource("1_635mf")
+_version = 2
+_scan_rulesets = Array[Dictionary]([{
+&"allowed_file_extensions": Array[String]([]),
+&"class_restrictions": Array[StringName]([&"\"res://addons/dialogic/Resources/timeline.gd\""]),
+&"recursive_scan": false,
+&"scan_directories": Array[String](["res://"]),
+&"scan_regex_exclude": "",
+&"scan_regex_include": ""
+}])
+_uids_to_string_ids = Dictionary[StringName, StringName]({
+&"uid://b8wvd1m5l6n7i": &"hello-world-timeline"
+})
+_string_ids_to_uids = Dictionary[StringName, StringName]({
+&"hello-world-timeline": &"uid://b8wvd1m5l6n7i"
+})
