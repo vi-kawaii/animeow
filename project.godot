@@ -34,7 +34,7 @@ Dialogs="*res://dialogs.tscn"
 Vehicles="*res://vehicles.gd"
 Resources="*res://resources.gd"
 Pathes="*res://pathes.gd"
-Phone="res://phone.tscn"
+Phone="*res://phone.tscn"
 Quests="*res://quests_container.tscn"
 Log="*uid://bjp74tcnt5m0r"
 DialogCameras="*uid://3brq14rl7bpg"
@@ -46,6 +46,8 @@ DialogueManager="*uid://c3rodes2l3gxb"
 GameStateService="*uid://b1bsyj5fyb6l7"
 Dialogic="*uid://ds2q0uclmolvu"
 QuestManager="*res://addons/quest_system/quest_manager.gd"
+UIFlow="*res://addons/ui_flow/core/ui_flow_autoload.tscn"
+UIFlowUI="*res://addons/ui_flow/core/ui_flow_ui_autoload.tscn"
 
 [dialogic]
 
@@ -113,7 +115,7 @@ project/assembly_name="animeow"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/game_state_saver/plugin.cfg", "res://addons/gdterm/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/road-generator/plugin.cfg", "res://addons/terrain_3d/plugin.cfg", "res://addons/yard/plugin.cfg")
+enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/game_state_saver/plugin.cfg", "res://addons/gdterm/plugin.cfg", "res://addons/godot_ai/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/road-generator/plugin.cfg", "res://addons/terrain_3d/plugin.cfg", "res://addons/ui_flow/plugin.cfg", "res://addons/yard/plugin.cfg")
 
 [filesystem]
 
@@ -324,3 +326,7 @@ player_position={
 "type": "vec3",
 "value": Vector3(0, 0, 0)
 }
+
+[ui_flow]
+
+scene_directory="res://"

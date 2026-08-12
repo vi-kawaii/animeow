@@ -255,7 +255,11 @@ func on_response_click(j):
 	get_node("ExampleBalloon/next_button").visible = true
 
 	select_response()
-	start(responses[j].split("|")[0])
+	var parts = responses[j].split("|")
+	var to_node = parts[0]
+	var label = parts[1] if parts.size() > 1 else ""
+	Quests.on_dialog_response(title, to_node, label)
+	start(to_node)
 
 func on_screen_click():
 	if is_tweening:

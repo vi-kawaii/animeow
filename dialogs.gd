@@ -32,7 +32,7 @@ func load_dialog():
 	if p.get_node("camera_screen").active:
 		return
 
-	Resources.load("dialog/%s.tres" % dialog.split("_")[1], func(res):
+	Resources.load("res://dialog/%s.tres" % dialog.split("_")[1], func(res):
 		if p.visible:
 			p.close_phone(true)
 

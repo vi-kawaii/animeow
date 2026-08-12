@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="DialogResource" format=3 uid="uid://cdialogstart001"]
+
+[ext_resource type="Script" uid="uid://bkddh233vjk7k" path="res://dialog_node_resource.gd" id="1_jyr4a"]
+[ext_resource type="Script" uid="uid://ci5d0yl3yb015" path="res://dialog_sentence_resource.gd" id="2_jdhyh"]
+[ext_resource type="Script" uid="uid://bxenpd0o0rjvp" path="res://dialog_resource.gd" id="3_oqt0j"]
+
+[sub_resource type="Resource" id="Resource_covns"]
+script = ExtResource("2_jdhyh")
+line_id = "0"
+text = "Hello"
+metadata/_custom_type_script = "uid://ci5d0yl3yb015"
+
+[sub_resource type="Resource" id="Resource_u218d"]
+script = ExtResource("1_jyr4a")
+title = "start"
+sentences = Array[ExtResource("2_jdhyh")]([SubResource("Resource_covns")])
+responses = Array[String](["hello|Hi", "exit|Bye"])
+metadata/_custom_type_script = "uid://bkddh233vjk7k"
+
+[sub_resource type="Resource" id="Resource_ph3my"]
+script = ExtResource("2_jdhyh")
+line_id = "1"
+text = "Bye then"
+metadata/_custom_type_script = "uid://ci5d0yl3yb015"
+
+[sub_resource type="Resource" id="Resource_gxuox"]
+script = ExtResource("1_jyr4a")
+title = "exit"
+sentences = Array[ExtResource("2_jdhyh")]([SubResource("Resource_ph3my")])
+metadata/_custom_type_script = "uid://bkddh233vjk7k"
+
+[sub_resource type="Resource" id="Resource_px0t7"]
+script = ExtResource("2_jdhyh")
+line_id = "0"
+text = "Nice to meet you!"
+metadata/_custom_type_script = "uid://ci5d0yl3yb015"
+
+[sub_resource type="Resource" id="Resource_skk6j"]
+script = ExtResource("1_jyr4a")
+title = "hello"
+sentences = Array[ExtResource("2_jdhyh")]([SubResource("Resource_px0t7")])
+metadata/_custom_type_script = "uid://bkddh233vjk7k"
+
+[resource]
+script = ExtResource("3_oqt0j")
+data = Array[ExtResource("1_jyr4a")]([SubResource("Resource_u218d"), SubResource("Resource_gxuox"), SubResource("Resource_skk6j")])
+metadata/_custom_type_script = "uid://bxenpd0o0rjvp"
