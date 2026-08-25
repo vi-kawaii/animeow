@@ -7,15 +7,11 @@ var commit_button: Button
 var dialog: AcceptDialog
 var message_edit: LineEdit
 
-var git_pid: int = -1
-var current_message := ""
-var current_step := 0
+var worker: Thread
+var worker_running := false
 
-var steps := [
-	["add", ["add", "."]],
-	["commit", []],
-	["push", ["push"]]
-]
+var result_success := false
+var result_error := ""
 
 
 func _enter_tree() -> void:
@@ -24,6 +20,11 @@ func _enter_tree() -> void:
 
 
 func _exit_tree() -> void:
+	if worker_running and worker != null:
+		worker.wait_to_finish()
+		worker = null
+		worker_running = false
+
 	if is_instance_valid(commit_button):
 		remove_control_from_container(CONTAINER_TOOLBAR, commit_button)
 		commit_button.queue_free()
@@ -57,7 +58,7 @@ func _create_dialog() -> void:
 
 
 func _open_commit_dialog() -> void:
-	if git_pid != -1:
+	if worker_running:
 		return
 
 	message_edit.text = ""
@@ -71,83 +72,93 @@ func _commit_confirmed() -> void:
 	if message.is_empty():
 		return
 
-	current_message = message
-	current_step = 0
-
 	dialog.hide()
+
 	_set_button_state("Sending...", false)
 
-	_start_git_step()
+	result_success = false
+	result_error = ""
+	worker_running = true
 
-
-func _start_git_step() -> void:
-	if current_step >= steps.size():
-		_finish(true)
-		return
-
-	var step_name: String = steps[current_step][0]
-	var args: PackedStringArray = PackedStringArray(
-		steps[current_step][1]
-	)
-
-	if step_name == "commit":
-		args = PackedStringArray([
-			"commit",
-			"-m",
-			current_message
-		])
-
-	var process := OS.execute_with_pipe(
-		"git",
-		args,
-		false
-	)
-
-	if process.is_empty():
-		_finish(false)
-		return
-
-	git_pid = process["pid"]
+	worker = Thread.new()
+	worker.start(_git_worker.bind(message))
 
 	set_process(true)
 
 
+func _git_worker(message: String) -> void:
+	var commands := [
+		PackedStringArray(["add", "."]),
+		PackedStringArray(["commit", "-m", message]),
+		PackedStringArray(["push"])
+	]
+
+	for args in commands:
+		var output: Array = []
+		var exit_code := OS.execute(
+			"git",
+			args,
+			output,
+			true
+		)
+
+		if exit_code != 0:
+			result_success = false
+
+			var error_text := ""
+
+			for line in output:
+				error_text += str(line) + "\n"
+
+			result_error = error_text.strip_edges()
+
+			return
+
+	result_success = true
+
+
 func _process(_delta: float) -> void:
-	if git_pid == -1:
+	if not worker_running:
 		return
 
-	var exit_code := OS.get_process_exit_code(git_pid)
-
-	if exit_code == -1:
+	if worker.is_alive():
 		return
 
-	git_pid = -1
+	worker.wait_to_finish()
+	worker = null
+	worker_running = false
 
-	if exit_code != 0:
-		_finish(false)
-		return
-
-	current_step += 1
-	_start_git_step()
-
-
-func _finish(success: bool) -> void:
 	set_process(false)
 
-	if success:
-		_set_button_state("✓ Done", true)
-
-		await get_tree().create_timer(2.0).timeout
-
-		if is_instance_valid(commit_button):
-			commit_button.text = "Commit"
+	if result_success:
+		_finish_success()
 	else:
-		_set_button_state("✗ Error", true)
+		_finish_error()
 
-		await get_tree().create_timer(3.0).timeout
 
-		if is_instance_valid(commit_button):
-			commit_button.text = "Commit"
+func _finish_success() -> void:
+	_set_button_state("✓ Done", true)
+
+	await get_tree().create_timer(2.0).timeout
+
+	if is_instance_valid(commit_button):
+		commit_button.text = "Commit"
+
+
+func _finish_error() -> void:
+	_set_button_state("✗ Error", true)
+
+	var error_dialog := AcceptDialog.new()
+	error_dialog.title = "Git Error"
+	error_dialog.dialog_text = result_error
+
+	add_child(error_dialog)
+	error_dialog.popup_centered(Vector2(600, 300))
+
+	await get_tree().create_timer(3.0).timeout
+
+	if is_instance_valid(commit_button):
+		commit_button.text = "Commit"
 
 
 func _set_button_state(text: String, enabled: bool) -> void:
