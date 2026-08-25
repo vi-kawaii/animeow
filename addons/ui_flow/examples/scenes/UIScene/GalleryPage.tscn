@@ -1,0 +1,225 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://addons/ui_flow/examples/component_gallery/gallery_page.gd" id="1"]
+[ext_resource type="Script" path="res://addons/ui_flow/transitions/effects/slide_effect.gd" id="2"]
+[ext_resource type="Script" path="res://addons/ui_flow/transitions/effects/fade_effect.gd" id="3"]
+
+[sub_resource type="Resource" id="1"]
+script = ExtResource("2")
+direction = 2
+duration = 0.3
+ease_type = 2
+trans_type = 5
+
+[sub_resource type="Resource" id="2"]
+script = ExtResource("3")
+duration = 0.2
+ease_type = 0
+trans_type = 0
+
+[node name="GalleryPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+enter_effect = SubResource("1")
+exit_effect = SubResource("2")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.098, 0.098, 0.125, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Scroll" type="ScrollContainer" parent="Margin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "UI Flow — Component Gallery"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Click buttons to see UIFlow components and animations in action."
+horizontal_alignment = 1
+modulate = Color(1, 1, 1, 0.6)
+
+[node name="Sep1" type="HSeparator" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+
+[node name="ToastSection" type="VBoxContainer" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SectionTitle" type="Label" parent="Margin/Scroll/VBox/ToastSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Toast Notifications"
+
+[node name="Desc" type="Label" parent="Margin/Scroll/VBox/ToastSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Auto-dismissing messages with different severity levels."
+modulate = Color(1, 1, 1, 0.5)
+
+[node name="Buttons" type="HBoxContainer" parent="Margin/Scroll/VBox/ToastSection"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="InfoBtn" type="Button" parent="Margin/Scroll/VBox/ToastSection/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 36)
+text = "Info"
+
+[node name="SuccessBtn" type="Button" parent="Margin/Scroll/VBox/ToastSection/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 36)
+text = "Success"
+
+[node name="WarningBtn" type="Button" parent="Margin/Scroll/VBox/ToastSection/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 36)
+text = "Warning"
+
+[node name="ErrorBtn" type="Button" parent="Margin/Scroll/VBox/ToastSection/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 36)
+text = "Error"
+
+[node name="Sep2" type="HSeparator" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+
+[node name="DialogSection" type="VBoxContainer" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SectionTitle" type="Label" parent="Margin/Scroll/VBox/DialogSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Dialogs"
+
+[node name="Desc" type="Label" parent="Margin/Scroll/VBox/DialogSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Modal dialogs with confirm/cancel callbacks."
+modulate = Color(1, 1, 1, 0.5)
+
+[node name="Buttons" type="HBoxContainer" parent="Margin/Scroll/VBox/DialogSection"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="ConfirmBtn" type="Button" parent="Margin/Scroll/VBox/DialogSection/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 36)
+text = "Confirm Dialog"
+
+[node name="AlertBtn" type="Button" parent="Margin/Scroll/VBox/DialogSection/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 36)
+text = "Alert Dialog"
+
+[node name="Sep3" type="HSeparator" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+
+[node name="TransSection" type="VBoxContainer" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SectionTitle" type="Label" parent="Margin/Scroll/VBox/TransSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Transitions"
+
+[node name="Desc" type="Label" parent="Margin/Scroll/VBox/TransSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Click to see the transition applied to a new page."
+modulate = Color(1, 1, 1, 0.5)
+
+[node name="Buttons" type="HBoxContainer" parent="Margin/Scroll/VBox/TransSection"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="FadeBtn" type="Button" parent="Margin/Scroll/VBox/TransSection/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 36)
+text = "Fade"
+
+[node name="SlideLBtn" type="Button" parent="Margin/Scroll/VBox/TransSection/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 36)
+text = "Slide Left"
+
+[node name="SlideRBtn" type="Button" parent="Margin/Scroll/VBox/TransSection/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 36)
+text = "Slide Right"
+
+[node name="ScaleBtn" type="Button" parent="Margin/Scroll/VBox/TransSection/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 36)
+text = "Scale"
+
+[node name="Sep4" type="HSeparator" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+
+[node name="AnimSection" type="VBoxContainer" parent="Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SectionTitle" type="Label" parent="Margin/Scroll/VBox/AnimSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Animations"
+
+[node name="Desc" type="Label" parent="Margin/Scroll/VBox/AnimSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Programmatic animations using UIFlow.animate and Sequencer."
+modulate = Color(1, 1, 1, 0.5)
+
+[node name="Buttons" type="HBoxContainer" parent="Margin/Scroll/VBox/AnimSection"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="BounceBtn" type="Button" parent="Margin/Scroll/VBox/AnimSection/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 36)
+text = "Bounce Title"
+
+[node name="StaggerBtn" type="Button" parent="Margin/Scroll/VBox/AnimSection/Buttons"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 36)
+text = "Stagger Fade"

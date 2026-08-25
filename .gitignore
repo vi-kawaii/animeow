@@ -18,3 +18,4 @@ mono_crash.*.json
 
 # Summer Engine local-only state (SummerGit, caches, locks)
 .summer/local/
+.aider*
