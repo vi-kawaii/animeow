@@ -8,9 +8,6 @@ var dialog: AcceptDialog
 var message_edit: LineEdit
 
 var git_pid: int = -1
-var git_stdio: FileAccess
-var git_stderr: FileAccess
-
 var current_message := ""
 var current_step := 0
 
@@ -69,7 +66,7 @@ func _open_commit_dialog() -> void:
 
 
 func _commit_confirmed() -> void:
-	var message := message_edit.text.strip_edges()
+	var message: String = message_edit.text.strip_edges()
 
 	if message.is_empty():
 		return
@@ -77,6 +74,7 @@ func _commit_confirmed() -> void:
 	current_message = message
 	current_step = 0
 
+	dialog.hide()
 	_set_button_state("Sending...", false)
 
 	_start_git_step()
@@ -88,7 +86,9 @@ func _start_git_step() -> void:
 		return
 
 	var step_name: String = steps[current_step][0]
-	var args: PackedStringArray = steps[current_step][1]
+	var args: PackedStringArray = PackedStringArray(
+		steps[current_step][1]
+	)
 
 	if step_name == "commit":
 		args = PackedStringArray([
@@ -96,8 +96,6 @@ func _start_git_step() -> void:
 			"-m",
 			current_message
 		])
-
-	print("[Git] git ", _format_args(args))
 
 	var process := OS.execute_with_pipe(
 		"git",
@@ -110,8 +108,6 @@ func _start_git_step() -> void:
 		return
 
 	git_pid = process["pid"]
-	git_stdio = process["stdio"]
-	git_stderr = process["stderr"]
 
 	set_process(true)
 
@@ -120,50 +116,25 @@ func _process(_delta: float) -> void:
 	if git_pid == -1:
 		return
 
-	_read_git_output()
+	var exit_code := OS.get_process_exit_code(git_pid)
 
-	if OS.get_process_exit_code(git_pid) != -1:
-		var exit_code := OS.get_process_exit_code(git_pid)
+	if exit_code == -1:
+		return
 
-		_read_git_output()
+	git_pid = -1
 
-		git_stdio = null
-		git_stderr = null
-		git_pid = -1
+	if exit_code != 0:
+		_finish(false)
+		return
 
-		if exit_code != 0:
-			_finish(false)
-			return
-
-		current_step += 1
-		_start_git_step()
-
-
-func _read_git_output() -> void:
-	if is_instance_valid(git_stdio):
-		while git_stdio.get_available_bytes() > 0:
-			var text: String = git_stdio.get_utf8_string(
-				git_stdio.get_available_bytes()
-			)
-
-			if not text.is_empty():
-				print("[Git] ", text.strip_edges())
-
-	if is_instance_valid(git_stderr):
-		while git_stderr.get_available_bytes() > 0:
-			var text: String = git_stderr.get_utf8_string(
-				git_stderr.get_available_bytes()
-			)
-
-			if not text.is_empty():
-				print("[Git] ", text.strip_edges())
+	current_step += 1
+	_start_git_step()
 
 
 func _finish(success: bool) -> void:
 	set_process(false)
 
 	if success:
-		print("[Git] ✓ Commit and push completed")
 		_set_button_state("✓ Done", true)
 
 		await get_tree().create_timer(2.0).timeout
@@ -171,7 +142,6 @@ func _finish(success: bool) -> void:
 		if is_instance_valid(commit_button):
 			commit_button.text = "Commit"
 	else:
-		print("[Git] ✗ Git operation failed")
 		_set_button_state("✗ Error", true)
 
 		await get_tree().create_timer(3.0).timeout
@@ -184,15 +154,3 @@ func _set_button_state(text: String, enabled: bool) -> void:
 	commit_button.text = text
 	commit_button.disabled = not enabled
 	commit_button.custom_minimum_size.x = BUTTON_WIDTH
-
-
-func _format_args(args: PackedStringArray) -> String:
-	var result := ""
-
-	for arg in args:
-		if not result.is_empty():
-			result += " "
-
-		result += arg
-
-	return result
