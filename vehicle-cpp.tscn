@@ -1,11 +1,12 @@
 [gd_scene format=4 uid="uid://72q7m6lj1era"]
 
 [ext_resource type="Script" uid="uid://ci55c2y4ag5a2" path="res://vehicle.gd" id="1_sq7pr"]
-[ext_resource type="PackedScene" uid="uid://cjta7vxdkqbhm" path="res://fast-car.glb" id="2_7kf8d"]
+[ext_resource type="PackedScene" uid="uid://m4fog75ddhwi" path="res://fast-car.fbx" id="2_7kf8d"]
 [ext_resource type="AudioStream" uid="uid://b8f0kpajnx1qn" path="res://engine-start.wav" id="3_rx4j8"]
 [ext_resource type="AudioStream" uid="uid://b0ppc8m4c5v2h" path="res://engine-started.wav" id="4_3iwgg"]
 [ext_resource type="AudioStream" uid="uid://b3g4l6u8so3nj" path="res://engine-process.wav" id="5_j5bc3"]
 [ext_resource type="AudioStream" uid="uid://dys3nfclk7iel" path="res://engine-stop.wav" id="6_pklnb"]
+
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j15uf"]
 radius = 1.0

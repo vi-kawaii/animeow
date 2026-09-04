@@ -9,6 +9,7 @@ func load(children):
 		pathes.append(children[i].get_children())
 
 func get_next_node_from_path_if_close(from, path_name, i, distance):
+	return [Vector3.ZERO, 0]
 	var idx
 	for k in range(names.size()):
 		if names[k] == path_name:
