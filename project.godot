@@ -106,7 +106,7 @@ project/assembly_name="animeow"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/simple_git_commit/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialog_editor/plugin.cfg", "res://addons/simple_git_commit/plugin.cfg")
 
 [filesystem]
 

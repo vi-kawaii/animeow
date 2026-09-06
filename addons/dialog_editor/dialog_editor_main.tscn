@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://dj856yufu4ns"]
+
+[ext_resource type="Script" uid="uid://dstarpx2ghgc4" path="res://addons/dialog_editor/dialog_editor_main.gd" id="1_main"]
+
+[node name="DialogEditorMain" type="Panel" unique_id=690274037]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main")
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=512862793]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBox" type="HBoxContainer" parent="VBox" unique_id=1670161764]
+layout_mode = 2
+
+[node name="DialogNameInput" type="LineEdit" parent="VBox/HBox" unique_id=374122743]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "New dialog name"
+
+[node name="CreateBtn" type="Button" parent="VBox/HBox" unique_id=599170424]
+layout_mode = 2
+text = "Create"
+
+[node name="SaveBtn" type="Button" parent="VBox/HBox" unique_id=84075750]
+layout_mode = 2
+text = "Save"
+
+[node name="DeleteBtn" type="Button" parent="VBox/HBox" unique_id=1755546811]
+layout_mode = 2
+text = "Delete"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBox" unique_id=868647706]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DialogList" type="VBoxContainer" parent="VBox/HSplitContainer" unique_id=369590835]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBox/HSplitContainer/DialogList" unique_id=1101287120]
+layout_mode = 2
+text = "Dialog List:"
+
+[node name="ItemList" type="ItemList" parent="VBox/HSplitContainer/DialogList" unique_id=897483815]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LineEditContainer" type="VBoxContainer" parent="VBox/HSplitContainer" unique_id=486875487]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="VBox/HSplitContainer/LineEditContainer" unique_id=1259101704]
+layout_mode = 2
+text = "Line Editor:"
+
+[node name="VBox2" type="VBoxContainer" parent="VBox/HSplitContainer/LineEditContainer" unique_id=1655597177]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpeakerInput" type="LineEdit" parent="VBox/HSplitContainer/LineEditContainer/VBox2" unique_id=1857066286]
+layout_mode = 2
+placeholder_text = "Speaker"
+
+[node name="TextInput" type="TextEdit" parent="VBox/HSplitContainer/LineEditContainer/VBox2" unique_id=1119487594]
+layout_mode = 2
+size_flags_vertical = 2
+placeholder_text = "Dialog text"
+
+[node name="HBox2" type="HBoxContainer" parent="VBox/HSplitContainer/LineEditContainer/VBox2" unique_id=1980839141]
+layout_mode = 2
+
+[node name="AddLineBtn" type="Button" parent="VBox/HSplitContainer/LineEditContainer/VBox2/HBox2" unique_id=305614336]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add Line"
+
+[node name="RemoveLineBtn" type="Button" parent="VBox/HSplitContainer/LineEditContainer/VBox2/HBox2" unique_id=1224238217]
+layout_mode = 2
+text = "Remove Line"
+
+[node name="LineList" type="ItemList" parent="VBox/HSplitContainer/LineEditContainer" unique_id=405295301]
+layout_mode = 2
+size_flags_vertical = 3
