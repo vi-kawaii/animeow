@@ -57,6 +57,9 @@ text = "Dialog List:"
 [node name="ItemList" type="ItemList" parent="VBox/HSplitContainer/DialogList" unique_id=897483815]
 layout_mode = 2
 size_flags_vertical = 3
+item_count = 2
+item_0/text = "hello_world"
+item_1/text = "meow_meow"
 
 [node name="LineEditContainer" type="VBoxContainer" parent="VBox/HSplitContainer" unique_id=486875487]
 layout_mode = 2
@@ -78,6 +81,7 @@ placeholder_text = "Speaker"
 layout_mode = 2
 size_flags_vertical = 2
 placeholder_text = "Dialog text"
+scroll_fit_content_height = true
 
 [node name="HBox2" type="HBoxContainer" parent="VBox/HSplitContainer/LineEditContainer/VBox2" unique_id=1980839141]
 layout_mode = 2

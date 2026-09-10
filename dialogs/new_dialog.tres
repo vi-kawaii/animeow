@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Dialog" format=3 uid="uid://dyj8w4luvm1dk"]
+
+[ext_resource type="Script" uid="uid://2cya8iqy56x3" path="res://dialog/dialog_line.gd" id="1_seaop"]
+[ext_resource type="Script" uid="uid://ohk8vd4pt3lt" path="res://dialog/dialog.gd" id="2_nir73"]
+
+[resource]
+script = ExtResource("2_nir73")

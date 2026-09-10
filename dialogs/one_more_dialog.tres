@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialog" format=3 uid="uid://dg4qeje3srn3n"]
+
+[ext_resource type="Script" uid="uid://2cya8iqy56x3" path="res://dialog/dialog_line.gd" id="1_htjeg"]
+[ext_resource type="Script" uid="uid://ohk8vd4pt3lt" path="res://dialog/dialog.gd" id="2_86u60"]
+
+[sub_resource type="Resource" id="Resource_htjeg"]
+script = ExtResource("1_htjeg")
+speaker = "hi"
+text = "hi hi"
+
+[resource]
+script = ExtResource("2_86u60")
+lines = Array[ExtResource("1_htjeg")]([SubResource("Resource_htjeg")])
