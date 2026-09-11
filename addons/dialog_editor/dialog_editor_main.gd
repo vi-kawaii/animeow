@@ -21,8 +21,8 @@ const DIALOGS_DIR = "res://dialogs/"
 
 func _ready() -> void:
 	_create_dialogs_directory()
-	_refresh_list()
 	_setup_signals()
+	_refresh_list()
 
 
 func _setup_signals() -> void:
@@ -48,7 +48,7 @@ func _create_dialogs_directory() -> void:
 
 
 # ---------------------------------------------------------------------------
-# Загрузка (вся починка массива — здесь, в тул-скрипте)
+# Загрузка
 # ---------------------------------------------------------------------------
 
 func _load_editable(path: String) -> Dialog:
@@ -56,7 +56,6 @@ func _load_editable(path: String) -> Dialog:
 	if res == null:
 		return null
 
-	# Читаем lines через get() — работает даже на placeholder-инстансе
 	var raw_lines = res.get("lines")
 	var fixed := _repair_lines_array(raw_lines, path)
 	res.set("lines", fixed)
@@ -64,7 +63,6 @@ func _load_editable(path: String) -> Dialog:
 	return res
 
 
-# Приводит любой массив (read-only, неправильного типа, пустой) к Array[DialogLine]
 func _repair_lines_array(raw, path: String) -> Array[DialogLine]:
 	var fresh: Array[DialogLine] = []
 
@@ -73,7 +71,6 @@ func _repair_lines_array(raw, path: String) -> Array[DialogLine]:
 			if item is DialogLine:
 				fresh.append(item)
 			elif item is Resource:
-				# Чужой Resource — переносим поля
 				var dl := DialogLine.new()
 				if "speaker" in item:
 					dl.speaker = str(item.get("speaker"))
@@ -81,7 +78,6 @@ func _repair_lines_array(raw, path: String) -> Array[DialogLine]:
 					dl.text = str(item.get("text"))
 				fresh.append(dl)
 
-	# Если ничего не получилось — пробуем распарсить файл вручную
 	if fresh.is_empty():
 		fresh = _parse_lines_from_file(path)
 
@@ -124,35 +120,41 @@ func _extract_string_value(block: String, key: String) -> String:
 
 
 # ---------------------------------------------------------------------------
-# Список
+# Список диалогов
 # ---------------------------------------------------------------------------
 
 func _refresh_list() -> void:
 	if not dialog_list:
 		return
 
+	if dialog_list.item_selected.is_connected(_on_dialog_selected):
+		dialog_list.item_selected.disconnect(_on_dialog_selected)
+
 	dialog_list.clear()
 	dialogs_cache.clear()
 
 	var dir = DirAccess.open(DIALOGS_DIR)
-	if dir == null:
-		return
+	if dir != null:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if not dir.current_is_dir() and file_name.ends_with(".tres"):
+				var path = DIALOGS_DIR + file_name
+				dialog_list.add_item(file_name.replace(".tres", ""))
+				var dialog = load(path)
+				if dialog:
+					dialogs_cache[path] = dialog
+			file_name = dir.get_next()
+		dir.list_dir_end()
 
-	dir.list_dir_begin()
-	var file_name = dir.get_next()
-	while file_name != "":
-		if not dir.current_is_dir() and file_name.ends_with(".tres"):
-			var path = DIALOGS_DIR + file_name
-			dialog_list.add_item(file_name.replace(".tres", ""))
-			var dialog = load(path)
-			if dialog:
-				dialogs_cache[path] = dialog
-		file_name = dir.get_next()
-	dir.list_dir_end()
+	if not dialog_list.item_selected.is_connected(_on_dialog_selected):
+		dialog_list.item_selected.connect(_on_dialog_selected)
 
 
 func _on_dialog_selected(index: int) -> void:
 	if not dialog_list:
+		return
+	if index < 0 or index >= dialog_list.item_count:
 		return
 
 	var item_text = dialog_list.get_item_text(index)
@@ -166,32 +168,34 @@ func _on_dialog_selected(index: int) -> void:
 
 
 # ---------------------------------------------------------------------------
-# Отображение
+# Отображение (переиспользуем один ItemList)
 # ---------------------------------------------------------------------------
 
 func _display_dialog(dialog: Dialog) -> void:
 	if not line_edit_container:
 		return
 
-	var old_line_list = line_edit_container.get_node_or_null("LineList")
-	if old_line_list:
-		old_line_list.queue_free()
+	var line_list = line_edit_container.get_node_or_null("LineList")
+	if line_list == null:
+		line_list = ItemList.new()
+		line_list.name = "LineList"
+		line_list.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		line_edit_container.add_child(line_list)
+
+	line_list.clear()
 
 	if dialog == null:
+		if speaker_input:
+			speaker_input.text = ""
+		if text_input:
+			text_input.text = ""
 		return
 
 	var lines = dialog.get("lines")
-	if lines == null:
-		return
-
-	var new_line_list := ItemList.new()
-	new_line_list.name = "LineList"
-	new_line_list.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	line_edit_container.add_child(new_line_list)
-
-	for i in range(lines.size()):
-		var line = lines[i]
-		new_line_list.add_item(str(i + 1) + ". " + line.speaker + ": " + line.text)
+	if lines != null:
+		for i in range(lines.size()):
+			var line = lines[i]
+			line_list.add_item(str(i + 1) + ". " + line.speaker + ": " + line.text)
 
 	if speaker_input:
 		speaker_input.text = ""
@@ -200,7 +204,7 @@ func _display_dialog(dialog: Dialog) -> void:
 
 
 # ---------------------------------------------------------------------------
-# Редактирование
+# Редактирование строк
 # ---------------------------------------------------------------------------
 
 func _add_line() -> void:
@@ -222,7 +226,6 @@ func _add_line() -> void:
 	new_line.speaker = speaker
 	new_line.text = text
 
-	# Пересобираем массив в тул-скрипте
 	var fresh: Array[DialogLine] = []
 	var existing = current_dialog.get("lines")
 	if existing != null:
@@ -341,7 +344,7 @@ func _save_dialog() -> void:
 		_show_notification("No dialog to save!")
 		return
 
-	var to_save = Dialog.new()
+	var to_save := Dialog.new()
 	var existing = current_dialog.get("lines")
 	var fresh: Array[DialogLine] = []
 	if existing != null:
@@ -381,7 +384,7 @@ func _on_name_submitted(_new_text: String) -> void:
 
 
 func _show_notification(text: String) -> void:
-	var label = Label.new()
+	var label := Label.new()
 	label.text = text
 	label.modulate = Color(1, 0.8, 0.2)
 	add_child(label)
