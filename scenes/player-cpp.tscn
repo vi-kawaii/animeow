@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cx5dxqx6dt5vu" path="res://player.gd" id="1_ptgk6"]
 [ext_resource type="Script" uid="uid://nobm20mwveeh" path="res://camera.gd" id="2_p3a38"]
-[ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://character-cpp.tscn" id="2_ympos"]
+[ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://scenes/character-cpp.tscn" id="2_ympos"]
 [ext_resource type="Script" uid="uid://cm23mokx177wp" path="res://gun_selector.gd" id="3_07x0w"]
 [ext_resource type="Shader" uid="uid://c1asy48367uxc" path="res://gun-selector.gdshader" id="4_nq13x"]
 [ext_resource type="Script" uid="uid://6ticwiumo03h" path="res://guns_node_resource.gd" id="6_ok8sp"]

@@ -56,7 +56,7 @@ func _ready() -> void:
 		i += 1
 		if i == max_holes:
 			break
-		var hole = load("res://bullet_hole_decal.tscn").instantiate()
+		var hole = load("res://scenes/bullet_hole_decal.tscn").instantiate()
 		get_tree().root.add_child(hole)
 		bullet_holes.append(hole)
 		hole.set_visible(false)

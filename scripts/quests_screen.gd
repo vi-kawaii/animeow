@@ -7,7 +7,7 @@ func load_quests_tracking_state(b):
 		b.text = "    [%s]" % b.text.substr(4)
 
 func activate():
-	Resources.load("res://quests_button.tscn", func(res):
+	Resources.load("res://scenes/quests_button.tscn", func(res):
 		for i in Quests.current_quests:
 			var b = res.instantiate()
 			b.text = "    %s" % i.capitalize()

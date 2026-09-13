@@ -10,7 +10,7 @@ var _hud
 
 
 func _ready() -> void:
-	_hud = preload("res://quest_hud.tscn").instantiate()
+	_hud = preload("res://scenes/quest_hud.tscn").instantiate()
 	add_child(_hud)
 
 

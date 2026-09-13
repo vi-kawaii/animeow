@@ -1,7 +1,7 @@
 extends Node3D
 
 var default_size = 10
-var bullet_decal_template = preload("res://bullet_decal_template.tscn")
+var bullet_decal_template = preload("res://scenes/bullet_decal_template.tscn")
 var array = []
 var i = 0
 

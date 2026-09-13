@@ -1,7 +1,7 @@
 extends Node
 
 var map = [
-	"res://main.tscn",
+	"res://scenes/main.tscn",
 ]
 var progress = []
 var loaded = 0
