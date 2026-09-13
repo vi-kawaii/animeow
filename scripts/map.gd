@@ -1,38 +1,27 @@
 extends Node
 
-var map = [
-	"res://scenes/main.tscn",
-]
-var progress = []
-var loaded = 0
 var refs = []
+var _done: bool = false
 
 func _ready():
-	for i in map:
-		Resources.load(i, func(res):
-			var n = res.instantiate()
+	Resources.load("intro/scenes_order", func(data):
+		for scene in data.scenes_res:
+			if scene == null:
+				push_warning("intro: сцена не загрузилась")
+				continue
+			var n = scene.instantiate()
 			refs.append(n)
 			Pathes.load(n.get_node("pathes").get_children())
 			call_deferred("add_child", n)
-			loaded += 1
-		)
-		progress.append(0)
+	)
 
 func _process(_delta):
-	if loaded == map.size():
+	if _done:
 		return
-
-	for i in range(map.size()):
-		progress[i] = Resources.progress(map[i])
-
-	var total_progress = 0
-	for i in range(progress.size()):
-		total_progress += progress[i]
-
-	total_progress /= progress.size()
-	total_progress *= 100
-
-	Intro.update_loading_progress(total_progress)
+	var p := Resources.progress() * 100.0
+	Intro.update_loading_progress(p)
+	if p >= 100.0:
+		_done = true
 
 func activate():
 	Player.set_process_mode(PROCESS_MODE_ALWAYS)

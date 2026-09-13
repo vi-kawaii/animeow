@@ -1,0 +1,6 @@
+{
+  "scene": { "dir": "res://scenes/", "exts": [".tscn"] },
+  "sound": { "dir": "res://sounds/", "exts": [".ogg", ".wav", ".mp3"] },
+  "portrait": { "dir": "res://portraits/", "exts": [".png", ".webp"] },
+  "model": { "dir": "res://models/", "exts": [".glb", ".gltf"] }
+}
