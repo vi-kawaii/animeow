@@ -1,0 +1,11 @@
+{
+  "character_position": [2.5, 2.0, 0.0],
+  "camera_data": {
+    "angle_x": 0.0,
+    "angle_y": 0.0,
+    "current_radius": 2.0
+  },
+  "completed_quests": [],
+  "started_branches": [],
+  "branches_current_indexes": []
+}

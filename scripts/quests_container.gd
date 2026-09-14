@@ -44,9 +44,9 @@ func complete_quest(quest_id: String) -> void:
 		return
 
 	if not _is_completed(quest_id):
-		if Save.state.completed_quests == null:
-			Save.state.completed_quests = []
-		Save.state.completed_quests.append(quest_id)
+		if Save.state["completed_quests"] == null:
+			Save.state["completed_quests"] = []
+		Save.state["completed_quests"].append(quest_id)
 		Save.save()
 
 	active_quest_id = ""
@@ -54,6 +54,6 @@ func complete_quest(quest_id: String) -> void:
 
 
 func _is_completed(quest_id: String) -> bool:
-	if Save.state == null or Save.state.completed_quests == null:
+	if Save.state == null or Save.state["completed_quests"] == null:
 		return false
-	return Save.state.completed_quests.has(quest_id)
+	return Save.state["completed_quests"].has(quest_id)

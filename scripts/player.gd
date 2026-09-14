@@ -89,7 +89,7 @@ func _ready():
 	interactable_objects.append("Vehicle")
 	player = get_node("character")
 	player.set_is_player(true)
-	player.set_position(Save.state.character_position)
+	player.set_position(Save.state["character_position"])
 
 	# Настройка слоев и масок для игрока
 	# Сначала сбрасываем все слои, чтобы включить только нужные
@@ -128,7 +128,7 @@ func _process(_delta):
 	map_camera_position.y = 10
 
 	RenderingServer.global_shader_parameter_set("player_position", player.get_global_position())
-	Save.state.character_position = player.get_global_position()
+	Save.state["character_position"] = player.get_global_position()
 	_process_shoot(_delta)
 	#%camera.set_target_position(current_camera_target.get_global_position())
 	set_player_direction_relative_to_camera()

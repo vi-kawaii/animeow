@@ -56,13 +56,13 @@ func _ready():
 	ignore_input = false
 	is_aim_toggling = false
 
-	current_radius = Save.state.camera_data.current_radius
+	current_radius = Save.state["camera_data"]["current_radius"]
 
-	angle_y = Save.state.camera_data.angle_y
-	angle_x = Save.state.camera_data.angle_x
+	angle_y = Save.state["camera_data"]["angle_y"]
+	angle_x = Save.state["camera_data"]["angle_x"]
 
-	new_angle_y = Save.state.camera_data.angle_y
-	new_angle_x = Save.state.camera_data.angle_x
+	new_angle_y = Save.state["camera_data"]["angle_y"]
+	new_angle_x = Save.state["camera_data"]["angle_x"]
 
 	radius = current_radius
 
@@ -74,9 +74,9 @@ func _process(_delta):
 	angle_y = lerp(angle_y, new_angle_y, weight)
 	angle_x = lerp(angle_x, new_angle_x, weight)
 
-	Save.state.camera_data.current_radius = current_radius
-	Save.state.camera_data.angle_y = angle_y
-	Save.state.camera_data.angle_x = angle_x
+	Save.state["camera_data"]["current_radius"] = current_radius
+	Save.state["camera_data"]["angle_y"] = angle_y
+	Save.state["camera_data"]["angle_x"] = angle_x
 
 	if not _pause_camera_mode:
 		if target_position:
