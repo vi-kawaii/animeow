@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctm084m3mrm7h"]
+[gd_scene format=3 uid="uid://ctm084m3mrm7h"]
 
-[ext_resource type="Shader" uid="uid://c1asy48367uxc" path="res://shaders/gun-selector.gdshader" id="1_tteqk"]
+[ext_resource type="Shader" uid="uid://cvfyl4coqppev" path="res://shaders/gun-selector.gdshader" id="1_tteqk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wmg30"]
 shader = ExtResource("1_tteqk")

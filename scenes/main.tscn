@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://dy7faaepaqi1e"]
 
-[ext_resource type="Shader" uid="uid://3nnkmjli5whg" path="res://shaders/grass.gdshader" id="2_1e7uf"]
+[ext_resource type="Shader" uid="uid://idbff314qst" path="res://shaders/grass.gdshader" id="2_1e7uf"]
 [ext_resource type="PackedScene" uid="uid://blil8ibwsf0ci" path="res://main.fbx" id="2_272bh"]
-[ext_resource type="Script" uid="uid://b7neaasjnidqx" path="res://scripts/pathes.gd" id="2_yhd5b"]
+[ext_resource type="Script" uid="uid://b84kltyhf4jwr" path="res://scripts/pathes.gd" id="2_yhd5b"]
 [ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://scenes/character-cpp.tscn" id="6_ribny"]
 [ext_resource type="PackedScene" uid="uid://c1ppw0k50ldr" path="res://scenes/point.tscn" id="8_3vpxy"]
 [ext_resource type="PackedScene" uid="uid://cnn65mxe3bcre" path="res://scenes/grass_container_test_map.tscn" id="8_vdq8k"]

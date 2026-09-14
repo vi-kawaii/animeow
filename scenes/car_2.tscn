@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b6arec1g1xf4k"]
 
-[ext_resource type="PackedScene" uid="uid://dkmne1gdsvyc5" path="res://car.glb" id="1_dldq0"]
+[sub_resource type="Resource" id="Resource_s4nff"]
+metadata/__load_path__ = "res://car.glb"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dldq0"]
 shading_mode = 0
@@ -13,7 +14,7 @@ points = PackedVector3Array(-15.4884, -0.410695, -26.2845, 15.0292, 13.2419, 9.0
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xmjt0"]
 points = PackedVector3Array(15.7244, 6.16244, 23.8178, -15.4884, 9.44559, 9.85669, -14.8298, 13.2583, 10.2033, -15.4884, -0.410695, 26.2845, 15.7244, 9.44559, 9.85669, 15.7244, -0.410695, 24.6395, -15.4884, 13.5529, 13.9636, 15.7244, 13.5529, 13.9636, -15.4884, 3.69666, 26.2845, 15.7244, 3.69666, 26.2845, -15.4884, -0.410695, 24.6395, 15.0658, 13.2583, 10.2033, 15.7244, -0.410695, 26.2845, -15.4884, 11.91, 16.4288, -15.4884, 6.16244, 23.8178, 15.7244, 11.91, 16.4288)
 
-[node name="car2" instance=ExtResource("1_dldq0")]
+[node name="car2"]
 
 [node name="car" parent="." index="0"]
 material_override = SubResource("StandardMaterial3D_dldq0")

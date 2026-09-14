@@ -5,8 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://nkcolccaikjv" path="res://aim.svg" id="3_y7jpp"]
 
 [sub_resource type="SVGTexture" id="SVGTexture_dwbse"]
-resource_local_to_scene = false
-resource_name = ""
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qnh33"]
 texture = ExtResource("1_qnh33")

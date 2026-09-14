@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://bgl4h1plbs1q6"]
+[gd_scene format=4 uid="uid://bgl4h1plbs1q6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ripf"]
 
@@ -72,6 +72,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.609375
@@ -1324,8 +1333,6 @@ cache/0/24/8/glyphs/88/size = Vector2(19, 19)
 cache/0/24/8/glyphs/88/uv_rect = Rect2(160, 1, 19, 19)
 cache/0/24/8/glyphs/88/texture_idx = 0
 
-[sub_resource type="SVGTexture" id="SVGTexture_ui2ft"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uq1vh"]
 content_margin_left = 8.0
 content_margin_top = 4.0
@@ -1443,38 +1450,6 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="SVGTexture" id="SVGTexture_kfxgj"]
-_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"2.333\"/><path fill=\"#1a1a1a\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
-"
-
-[sub_resource type="SVGTexture" id="SVGTexture_rx7h7"]
-_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".37\" rx=\"2.333\"/><path fill=\"#1a1a1a\" fill-opacity=\".5\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
-"
-
-[sub_resource type="SVGTexture" id="SVGTexture_3ripf"]
-
-[sub_resource type="SVGTexture" id="SVGTexture_ws3su"]
-
-[sub_resource type="SVGTexture" id="SVGTexture_nnf23"]
-
-[sub_resource type="SVGTexture" id="SVGTexture_kn6ie"]
-
-[sub_resource type="SVGTexture" id="SVGTexture_xdfsj"]
-_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"16\"><path fill=\"none\" stroke=\"#b2b2b2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-opacity=\".45\" stroke-width=\"2\" d=\"m2.5 11 3-3-3-3\"/></svg>
-"
-
-[sub_resource type="SVGTexture" id="SVGTexture_02aem"]
-_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"16\"><path fill=\"none\" stroke=\"#b2b2b2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-opacity=\".45\" stroke-width=\"2\" d=\"m5.5 11-3-3 3-3\"/></svg>
-"
-
-[sub_resource type="SVGTexture" id="SVGTexture_3th3n"]
-_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" fill-opacity=\".5\" rx=\"2.333\"/></svg>
-"
-
-[sub_resource type="SVGTexture" id="SVGTexture_5ewfg"]
-_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" fill-opacity=\".25\" rx=\"2.333\"/></svg>
-"
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oecug"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -1511,6 +1486,40 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="SVGTexture" id="SVGTexture_ui2ft"]
+
+[sub_resource type="SVGTexture" id="SVGTexture_kfxgj"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"2.333\"/><path fill=\"#1a1a1a\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
+"
+
+[sub_resource type="SVGTexture" id="SVGTexture_rx7h7"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".37\" rx=\"2.333\"/><path fill=\"#1a1a1a\" fill-opacity=\".5\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
+"
+
+[sub_resource type="SVGTexture" id="SVGTexture_3ripf"]
+
+[sub_resource type="SVGTexture" id="SVGTexture_ws3su"]
+
+[sub_resource type="SVGTexture" id="SVGTexture_nnf23"]
+
+[sub_resource type="SVGTexture" id="SVGTexture_kn6ie"]
+
+[sub_resource type="SVGTexture" id="SVGTexture_xdfsj"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"16\"><path fill=\"none\" stroke=\"#b2b2b2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-opacity=\".45\" stroke-width=\"2\" d=\"m2.5 11 3-3-3-3\"/></svg>
+"
+
+[sub_resource type="SVGTexture" id="SVGTexture_02aem"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"16\"><path fill=\"none\" stroke=\"#b2b2b2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-opacity=\".45\" stroke-width=\"2\" d=\"m5.5 11-3-3 3-3\"/></svg>
+"
+
+[sub_resource type="SVGTexture" id="SVGTexture_3th3n"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" fill-opacity=\".5\" rx=\"2.333\"/></svg>
+"
+
+[sub_resource type="SVGTexture" id="SVGTexture_5ewfg"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" fill-opacity=\".25\" rx=\"2.333\"/></svg>
+"
+
 [sub_resource type="Theme" id="Theme_kfxgj"]
 OptionButton/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 OptionButton/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
@@ -1525,7 +1534,6 @@ OptionButton/constants/modulate_arrow = 0
 OptionButton/constants/outline_size = 0
 OptionButton/font_sizes/font_size = 16
 OptionButton/fonts/font = SubResource("FontFile_kn6ie")
-OptionButton/icons/arrow = SubResource("SVGTexture_ui2ft")
 OptionButton/styles/disabled = SubResource("StyleBoxFlat_uq1vh")
 OptionButton/styles/disabled_mirrored = SubResource("StyleBoxFlat_75so7")
 OptionButton/styles/focus = SubResource("StyleBoxFlat_xdfsj")
@@ -1554,16 +1562,6 @@ PopupMenu/font_sizes/font_separator_size = 16
 PopupMenu/font_sizes/font_size = 16
 PopupMenu/fonts/font = SubResource("FontFile_kn6ie")
 PopupMenu/fonts/font_separator = SubResource("FontFile_kn6ie")
-PopupMenu/icons/checked = SubResource("SVGTexture_kfxgj")
-PopupMenu/icons/checked_disabled = SubResource("SVGTexture_rx7h7")
-PopupMenu/icons/radio_checked = SubResource("SVGTexture_3ripf")
-PopupMenu/icons/radio_checked_disabled = SubResource("SVGTexture_ws3su")
-PopupMenu/icons/radio_unchecked = SubResource("SVGTexture_nnf23")
-PopupMenu/icons/radio_unchecked_disabled = SubResource("SVGTexture_kn6ie")
-PopupMenu/icons/submenu = SubResource("SVGTexture_xdfsj")
-PopupMenu/icons/submenu_mirrored = SubResource("SVGTexture_02aem")
-PopupMenu/icons/unchecked = SubResource("SVGTexture_3th3n")
-PopupMenu/icons/unchecked_disabled = SubResource("SVGTexture_5ewfg")
 PopupMenu/styles/hover = SubResource("StyleBoxFlat_oecug")
 PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxLine_2k5bd")
 PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxLine_2k5bd")

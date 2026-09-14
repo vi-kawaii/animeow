@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ubg7om3gqmfo"]
+[gd_scene format=3 uid="uid://ubg7om3gqmfo"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_g7vks"]
 top_radius = 1.0
