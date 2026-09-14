@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bmc1y3u00umfn"]
 
-[ext_resource type="Script" uid="uid://hjle0lojenqr" path="res://character.gd" id="1_0yiw1"]
-[ext_resource type="Texture2D" uid="uid://b84rh447swmdo" path="res://grass_0.png" id="1_tstai"]
-[ext_resource type="Script" uid="uid://o57mgsbackma" path="res://shooter_component.gd" id="2_7o71t"]
-[ext_resource type="Script" uid="uid://cnju60vtr05rh" path="res://health_component.gd" id="3_wbl31"]
-[ext_resource type="Script" uid="uid://bl7064gmhwrka" path="res://effects_component.gd" id="4_5u4o1"]
+[ext_resource type="Script" uid="uid://hjle0lojenqr" path="res://scripts/character.gd" id="1_0yiw1"]
+[ext_resource type="Texture2D" uid="uid://b84rh447swmdo" path="res://textures/grass_0.png" id="1_tstai"]
+[ext_resource type="Script" uid="uid://o57mgsbackma" path="res://scripts/shooter_component.gd" id="2_7o71t"]
+[ext_resource type="Script" uid="uid://cnju60vtr05rh" path="res://scripts/health_component.gd" id="3_wbl31"]
+[ext_resource type="Script" uid="uid://bl7064gmhwrka" path="res://scripts/effects_component.gd" id="4_5u4o1"]
 [ext_resource type="AudioStream" uid="uid://rs8lr5kheqs6" path="res://Project_8.wav" id="5_q8r5k"]
 [ext_resource type="PackedScene" uid="uid://41gkbor7mkf1" path="res://anime-girl.fbx" id="7_3jltw"]
 

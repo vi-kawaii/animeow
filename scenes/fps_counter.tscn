@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dlegy2pa4ni3m"]
 
-[ext_resource type="Script" uid="uid://wbh8khymtlud" path="res://fps_counter.gd" id="1_4r2gn"]
+[ext_resource type="Script" uid="uid://wbh8khymtlud" path="res://scripts/fps_counter.gd" id="1_4r2gn"]
 
 [node name="fps_counter" type="CanvasLayer"]
 process_mode = 3

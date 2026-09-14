@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StoryQuest" format=3 uid="uid://cofa76f342j82"]
 
-[ext_resource type="Script" uid="uid://dch334im3humw" path="res://story_quest_resource.gd" id="1_id6df"]
+[ext_resource type="Script" uid="uid://dch334im3humw" path="res://scripts/story_quest_resource.gd" id="1_id6df"]
 
 [resource]
 script = ExtResource("1_id6df")

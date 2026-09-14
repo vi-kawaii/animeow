@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Guns" format=3 uid="uid://144l3tseohvk"]
 
-[ext_resource type="Script" uid="uid://bjj1b507dwiyu" path="res://guns.gd" id="1_1cffr"]
-[ext_resource type="Script" uid="uid://k8ajerevafi4" path="res://guns_node.gd" id="1_bq58i"]
+[ext_resource type="Script" uid="uid://bjj1b507dwiyu" path="res://scripts/guns.gd" id="1_1cffr"]
+[ext_resource type="Script" uid="uid://k8ajerevafi4" path="res://scripts/guns_node.gd" id="1_bq58i"]
 
 [sub_resource type="Resource" id="Resource_bq58i"]
 script = ExtResource("1_bq58i")

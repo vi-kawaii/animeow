@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=4 uid="uid://ct5d7o2tyk4k0"]
 
-[ext_resource type="Shader" uid="uid://3nnkmjli5whg" path="res://grass.gdshader" id="1_xld7k"]
-[ext_resource type="Script" uid="uid://ou2d8onnyti0" path="res://grass.gd" id="2_xld7k"]
+[ext_resource type="Shader" uid="uid://3nnkmjli5whg" path="res://shaders/grass.gdshader" id="1_xld7k"]
+[ext_resource type="Script" uid="uid://ou2d8onnyti0" path="res://scripts/grass.gd" id="2_xld7k"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4cf0s"]
 

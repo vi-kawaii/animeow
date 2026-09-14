@@ -5,6 +5,7 @@ var _done: bool = false
 
 func _ready():
 	Resources.load("intro/scenes_order", func(data):
+		print(data)
 		for scene in data.scenes_res:
 			if scene == null:
 				push_warning("intro: сцена не загрузилась")

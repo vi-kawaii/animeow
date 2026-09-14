@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://drd5r7ctawilp"]
 
-[ext_resource type="Script" uid="uid://cx5dxqx6dt5vu" path="res://player.gd" id="1_ptgk6"]
-[ext_resource type="Script" uid="uid://nobm20mwveeh" path="res://camera.gd" id="2_p3a38"]
+[ext_resource type="Script" uid="uid://cx5dxqx6dt5vu" path="res://scripts/player.gd" id="1_ptgk6"]
+[ext_resource type="Script" uid="uid://nobm20mwveeh" path="res://scripts/camera.gd" id="2_p3a38"]
 [ext_resource type="PackedScene" uid="uid://bmc1y3u00umfn" path="res://scenes/character-cpp.tscn" id="2_ympos"]
-[ext_resource type="Script" uid="uid://cm23mokx177wp" path="res://gun_selector.gd" id="3_07x0w"]
-[ext_resource type="Shader" uid="uid://c1asy48367uxc" path="res://gun-selector.gdshader" id="4_nq13x"]
-[ext_resource type="Script" uid="uid://6ticwiumo03h" path="res://guns_node_resource.gd" id="6_ok8sp"]
-[ext_resource type="Script" uid="uid://r532atlrdfim" path="res://guns_resource.gd" id="7_nq13x"]
+[ext_resource type="Script" uid="uid://cm23mokx177wp" path="res://scripts/gun_selector.gd" id="3_07x0w"]
+[ext_resource type="Shader" uid="uid://c1asy48367uxc" path="res://shaders/gun-selector.gdshader" id="4_nq13x"]
+[ext_resource type="Script" uid="uid://6ticwiumo03h" path="res://scripts/guns_node_resource.gd" id="6_ok8sp"]
+[ext_resource type="Script" uid="uid://r532atlrdfim" path="res://scripts/guns_resource.gd" id="7_nq13x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wmg30"]
 shader = ExtResource("4_nq13x")
