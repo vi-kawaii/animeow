@@ -9,8 +9,7 @@ bevy_asset = "0.19.1"
 blake3 = { version = "1.8", features = ["pure"] }
 avian3d = "0.7"
 bevy_asset_loader = "0.27"
+lab-app-shell = { path = "../libs/app-shell" }
 
-# Ускорение сборки в dev-режиме:
-# Отключаем отладочную информацию — сильно ускоряет компоновку
 [profile.dev]
 debug = false

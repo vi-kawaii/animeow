@@ -40,7 +40,7 @@ fn spawn_camera_rig(mut commands: Commands) {
 fn grab_cursor_on_click(
     mouse_buttons: Res<ButtonInput<MouseButton>>,
     mut cursor: Query<&mut CursorOptions, With<PrimaryWindow>>,
-) {ц
+) {
     if mouse_buttons.just_pressed(MouseButton::Left) {
         if let Ok(mut options) = cursor.single_mut() {
             options.grab_mode = CursorGrabMode::Locked;
